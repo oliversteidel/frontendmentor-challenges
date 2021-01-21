@@ -10,9 +10,13 @@ $backgroundLite: rgb(230, 230, 230);
 // gradients
 
 $backgroundGradient: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
-$scissorsGradient: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
-$paperGradient: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
-$rockGradient: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+$scissorsGradient: linear-gradient(90deg, hsl(39, 89%, 49%),hsl(39, 89%, 49%) 90%, hsl(40, 84%, 53%));
+$paperGradient: linear-gradient(90deg, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+$rockGradient: linear-gradient(90deg, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+
+// shadow
+
+$darkShadow: rgba(10, 10, 10, 0.5);
 
 html {
     font-size: 100%;

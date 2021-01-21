@@ -17,7 +17,7 @@
 
 <body>
   <main>
-    <div class="container">
+    <div class="container flex-col ai-c">
 
       <header class="flex ai-c jc-sb">
         <img src="images/logo.svg" alt="logo as a text rock paper scissors" class="logo">
@@ -28,16 +28,24 @@
       </header>
 
       <div class="choose">
-        <div class="choose__triangle">
-          <div class="hand hand--paper">
-            <img src="images/icon-paper.svg" alt="">
+        <div class="choose__triangle flex jc-sb">
+
+          <div class="choose__hand choose__hand--paper">
+            <div class="hand-inner">
+              <img src="images/icon-paper.svg" alt="">
+            </div>
           </div>
-          <div class="hand hand--scissors">
-            <img src="images/icon-scissors.svg" alt="">
+          <div class="choose__hand choose__hand--rock">
+            <div class="hand-inner">
+              <img src="images/icon-rock.svg" alt="">
+            </div>
           </div>
-          <div class="hand hand--rock">
-            <img src="images/icon-rock.svg" alt="">
+          <div class="choose__hand choose__hand--scissors">
+            <div class="hand-inner">
+              <img src="images/icon-scissors.svg" alt="">
+            </div>
           </div>
+          
         </div>
       </div>
 
@@ -60,7 +68,7 @@
         </div>
       </div>
 
-      <div class="btn-container">
+      <div class="btn-container flex jc-c">
         <button class="rules-btn">rules</button>
       </div>
     </div>
