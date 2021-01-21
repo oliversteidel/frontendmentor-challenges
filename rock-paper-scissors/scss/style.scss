@@ -1,0 +1,47 @@
+@import 'globals';
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    padding: 1.875rem;
+    background: $backgroundGradient;
+}
+
+header {
+    width: 100%;
+    max-width: 44rem;
+    border: 2px solid $headerOutlineColor;
+    border-radius: 10px;
+    padding: 0.625rem;
+
+    .logo {
+        width: 5.125rem;
+        height: 3.13rem;
+    }
+
+    .score {
+        width: 5rem;
+        padding: 0.8rem;
+        background: $backgroundLite;
+        border-radius: 5px;
+
+        &__title {
+            color: $scoreTextColor;
+            text-transform: uppercase;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: .25em;
+        }
+
+        &__number {
+            color: $darkTextColor;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+
+    }
+     
+
+}
