@@ -43,69 +43,144 @@ header {
 }
 .choose {
     width: 100%;
-    height: 50vh;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    display: none;
 
     &__triangle {
-        margin-top: 25vh;
-        width: 100%;
-        max-width: 30rem;
-        height: 11rem;
+        margin: auto;
+        width: 60vw;
+        max-width: 20rem;
+        height: 60vw;
+        max-height: 20rem;
         background-image: url("../images/bg-triangle.svg");
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
-        
+        position: relative;
     }
 
     &__hand {
-        
+        position: absolute;
         width: 8.125rem;
-        height: 8.125rem;        
+        height: 8.125rem;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 50%;
         filter: drop-shadow(0 5px 5px $darkShadow);
-    }    
+        transform: translate(-50%, -50%);
+    }
 
     &__hand--paper {
-        //top: -30%;
-        align-self: flex-start;
-        
-        
+        top: 10%;
+        left: 10%;
         background: $paperGradient;
     }
 
     &__hand--scissors {
-        //top: -30%;
-        //right: 0;
-        align-self: flex-start;
+        top: 10%;
+        left: 90%;
         background: $scissorsGradient;
     }
 
     &__hand--rock {
-        //bottom: -30%;
-        //left: 30%;
-        align-self: flex-end;
+        bottom: -30%;
+        left: 50%;
         background: $rockGradient;
-        
-        
-    }
-
-    .hand-inner {
-        width: 6.25rem;
-        height: 6.25rem;
-        border-radius: 50%;
-        background: $backgroundLite;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: inset 0 3px 5px $darkShadow;
     }
 }
 
+.hand-inner {
+    width: 75%;
+    height: 75%;
+    border-radius: 50%;
+    background: $backgroundLite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 3px 5px $darkShadow;
+}
+
 .game {
-    display: none;
+    width: 100%;
+    height: 100%;
+    max-width: 44rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &__player {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        &__title {
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            color: $backgroundLite;
+        }
+        .hand {
+            width: 8.125rem;
+            height: 8.125rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            filter: drop-shadow(0 5px 5px $darkShadow);
+        }
+
+        .hand--paper {
+            background: $paperGradient;
+        }
+
+        .hand--scissors {
+            background: $scissorsGradient;
+        }
+
+        .hand--rock {
+            background: $rockGradient;
+        }
+    }
+}
+
+.game__player--human {
+    order: 1;
+}
+
+.game__player--npc {
+    order: 2;
+}
+
+.result {
+    order: 3;
+    width: 100%;
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: $backgroundLite;
+        text-transform: uppercase;
+        
+    }
+
+    &__btn {
+        font-family: inherit;
+        color: $darkTextColor;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        background: $backgroundLite;
+        padding: 1em 3em;
+        border-radius: 10px;
+        border: none;
+        
+    
+    
 }
 
 .btn-container {
@@ -121,13 +196,12 @@ header {
         border: 2px solid $backgroundLite;
         color: $backgroundLite;
         text-transform: uppercase;
+        
         font-family: inherit;
-        font-size:  1rem;
+        font-size: 1rem;
         font-weight: 600;
         letter-spacing: 0.15em;
         border-radius: 10px;
         background: none;
     }
-    
-    
 }

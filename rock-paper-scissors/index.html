@@ -28,7 +28,7 @@
       </header>
 
       <div class="choose">
-        <div class="choose__triangle flex jc-sb">
+        <div class="choose__triangle">
 
           <div class="choose__hand choose__hand--paper">
             <div class="hand-inner">
@@ -45,25 +45,29 @@
               <img src="images/icon-scissors.svg" alt="">
             </div>
           </div>
-          
+
         </div>
       </div>
 
       <div class="game">
         <div class="game__player game__player--human">
           <p class="game__player__title">you picked</p>
-          <div class="hand hand--human">
-            <img src="" alt="">
+          <div class="hand hand--human hand--paper">
+            <div class="hand-inner">
+              <img src="" alt="">
+            </div>
           </div>
         </div>
-        <div class="result">
-          <div class="result__title"></div>
+        <div class="result flex-col ai-c">
+          <div class="result__title">you lose</div>
           <button class="result__btn">play again</button>
         </div>
         <div class="game__player game__player--npc">
           <p class="game__player__title">the house picked</p>
-          <div class="hand hand--npc">
-            <img src="" alt="">
+          <div class="hand hand--npc hand--rock">
+            <div class="hand-inner">
+              <img src="" alt="">
+            </div>
           </div>
         </div>
       </div>
