@@ -108,8 +108,8 @@ header {
     position: relative; }
   .choose__hand {
     position: absolute;
-    width: 8.125rem;
-    height: 8.125rem;
+    width: clamp(8.125rem, 20vw, 10.75rem);
+    height: clamp(8.125rem, 20vw, 10.75rem);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -123,7 +123,8 @@ header {
     -webkit-filter: drop-shadow(0 5px 5px rgba(10, 10, 10, 0.5));
             filter: drop-shadow(0 5px 5px rgba(10, 10, 10, 0.5));
     -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%); }
+            transform: translate(-50%, -50%);
+    cursor: pointer; }
   .choose__hand--paper {
     top: 10%;
     left: 10%;
@@ -132,8 +133,8 @@ header {
   .choose__hand--scissors {
     top: 10%;
     left: 90%;
-    background: -webkit-gradient(linear, left top, right top, from(#ec9e0e), color-stop(90%, #ec9e0e), to(#eca922));
-    background: linear-gradient(90deg, #ec9e0e, #ec9e0e 90%, #eca922); }
+    background: -webkit-gradient(linear, left top, right top, from(#ec9e0e), to(#eca922));
+    background: linear-gradient(90deg, #ec9e0e, #eca922); }
   .choose__hand--rock {
     bottom: -30%;
     left: 50%;
@@ -223,8 +224,8 @@ header {
       background: -webkit-gradient(linear, left top, right top, from(#4865f4), to(#5671f5));
       background: linear-gradient(90deg, #4865f4, #5671f5); }
     .game__player .hand--scissors {
-      background: -webkit-gradient(linear, left top, right top, from(#ec9e0e), color-stop(90%, #ec9e0e), to(#eca922));
-      background: linear-gradient(90deg, #ec9e0e, #ec9e0e 90%, #eca922); }
+      background: -webkit-gradient(linear, left top, right top, from(#ec9e0e), to(#eca922));
+      background: linear-gradient(90deg, #ec9e0e, #eca922); }
     .game__player .hand--rock {
       background: -webkit-gradient(linear, left top, right top, from(#dc2e4e), to(#dd405d));
       background: linear-gradient(90deg, #dc2e4e, #dd405d); }
@@ -272,10 +273,10 @@ header {
     border-radius: 10px;
     border: none; }
 
-.pseudo {
+.winner {
   position: relative; }
 
-.pseudo::after {
+.winner::after {
   content: "";
   position: absolute;
   width: 100%;
