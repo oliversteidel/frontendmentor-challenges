@@ -14,6 +14,12 @@ $scissorsGradient: linear-gradient(90deg, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
 $paperGradient: linear-gradient(90deg, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
 $rockGradient: linear-gradient(90deg, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
 
+// colors on hover
+
+$hoverScissors: hsl(39, 100%, 55%);
+$hoverPaper: hsl(230, 100%, 69%);
+$hoverRock: hsl(349, 95%, 57%);
+
 // shadow
 
 $darkShadow: rgba(10, 10, 10, 0.5);

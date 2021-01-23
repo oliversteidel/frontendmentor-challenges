@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap"
     rel="stylesheet">
@@ -23,7 +24,7 @@
         <img src="images/logo.svg" alt="logo as a text rock paper scissors" class="logo">
         <div class="score flex-col ai-c jc-c">
           <p class="score__title">score</p>
-          <p class="score__number">0</p>
+          <p class="score__number"></p>
         </div>
       </header>
 
@@ -52,9 +53,9 @@
       <div class="game">
         <div class="game__player game__player--human">
           <p class="game__player__title">you picked</p>
-          <div class="hand hand--human hand--paper">
+          <div class="hand hand--human">
             <div class="hand-inner">
-              <img src="images/icon-paper.svg" alt="" class="hand-img hand-img--human">
+              <img src="" alt="" class="hand-img hand-img--human">
             </div>
           </div>
         </div>
@@ -64,9 +65,9 @@
         </div>
         <div class="game__player game__player--npc">
           <p class="game__player__title">the house picked</p>
-          <div class="hand hand--npc hand--rock">
+          <div class="hand hand--npc wait">
             <div class="hand-inner hand-inner--npc">
-              <img src="images/icon-rock.svg" alt="" class="hand-img hand-img--npc">
+              <img src="" alt="" class="hand-img hand-img--npc">
             </div>
           </div>
         </div>

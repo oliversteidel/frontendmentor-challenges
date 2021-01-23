@@ -10,10 +10,10 @@
    2.1. target class "hand--human" and add class (hand--paper || hand--scissors || hand--rock)
    2.2. target class "hand-img--human" add source
 
-   3.   get npc's choise (random)
-   3.1. target class "hand--npc" add class "wait"
-   3.2. target class "hand--npc" add class (hand--paper || hand--scissors || hand--rock) and remove class "wait"
-   3.3. target class "hand-img--npc" add source 
+   3.   get npc's choise (random)   
+   3.1. target class "hand--npc" add class (hand--paper || hand--scissors || hand--rock) and remove class "wait"
+   3.2. target class "hand-inner--npc" set visibility: visible
+   3.2. target class "hand-img--npc" add source 
 
    4.   check who is winner
    4.1. target class "result" set display: flex
@@ -39,9 +39,147 @@
 
 $(document).ready(function () {
 
+   const scoreDisplay = $('.score__number');
+   const handSelectors = $('.choose__hand');
+   const selectionScreen = $('.choose');
+   const gameScreen = $('.game');
+   const handHuman = $('.hand--human');
+   const handHumanImg = $('.hand-img--human');
+   const handNpc = $('.hand--npc');
+   const handNpcImg = $('.hand-img--npc');
+   const btnPlayAgain = $('.result__btn');
+
+
+
+   const player = {
+      score: 0,
+      choise: "",
+      setChoise: (obj) => {
+         player.choise = obj.classList[1].slice(8);
+      }
+   }
+
+   const npc = {
+      choise: "",
+      chooseHand: () => {
+         let randomNum = Math.floor(Math.random() * Math.floor(3));
+         switch (randomNum) {
+            case 0:
+               npc.choise = "hand--paper";
+               break;
+            case 1:
+               npc.choise = "hand--scissors";
+               break;
+            case 2:
+               npc.choise = "hand--rock";
+               break;
+         }
+      }
+   }
+
+   const getImgSource = (arg) => {
+      switch (arg) {
+         case "hand--paper":
+            return "images/icon-paper.svg";
+         case "hand--scissors":
+            return "images/icon-scissors.svg";
+         case "hand--rock":
+            return "images/icon-rock.svg";
+      }
+   }
+
+
+
+   const showScore = () => {
+      scoreDisplay.html(player.score.toString());
+   }
+
+   const showGameScreen = () => {
+      selectionScreen.css('display', 'none');
+      gameScreen.css('display', 'flex');
+      handHuman.addClass(player.choise);
+      handHumanImg.attr('src', getImgSource(player.choise));
+   }
+
+   const showNpcChoise = () => {
+      npc.chooseHand();
+      handNpc.removeClass('wait');
+      handNpc.addClass(npc.choise);
+      $('.hand-inner--npc').css('visibility', 'visible');
+      handNpcImg.attr('src', getImgSource(npc.choise));
+   }
+
+   const doesPlayerWin = (human, computer) => {
+      if (human === computer) {
+         return "draw";
+      } else if (human === "hand--paper" && computer === "hand--rock") {
+         return "you win";
+      } else if (human === "hand--paper" && computer === "hand--scissors") {
+         return "you lose";
+      } else if (human === "hand--rock" && computer === "hand--paper") {
+         return "you lose";
+      } else if (human === "hand--rock" && computer === "hand--scissors") {
+         return "you win";
+      } else if (human === "hand--scissors" && computer === "hand--rock") {
+         return "you lose";
+      } else if (human === "hand--scissors" && computer === "hand--paper") {
+         return "you win";
+      }
+   }
+
+   const handleResult = (result) => {
+      $('.result').css('display', 'flex');
+      $('.result__title').html(result);
+
+      if (result === "you lose") {
+         handNpc.addClass('winner');
+      } else if (result === "you win") {
+         handHuman.addClass('winner');
+         player.score++;
+      }
+      showScore();
+   }
+
+   
+
+   const setDefault = () => {
+      gameScreen.css('display', 'none');
+      handHuman.removeClass('winner');
+      handHuman.removeClass(player.choise);
+      handNpc.removeClass('winner');
+      handNpc.removeClass(npc.choise);
+      handNpc.addClass('wait');
+      $('.result__title').html("");
+      $('.result').css('display', 'none');
+      $('.hand-inner--npc').css('visibility', 'hidden');
+      handHumanImg.attr('src', '');
+      handNpcImg.attr('src', '');
+      player.choise = "";
+      npc.choise = "";
+      selectionScreen.css('display', 'flex');
+
+   }
+
+
+
+   showScore();
+
+   handSelectors.click(function () {
+
+      player.setChoise(this);
+      showGameScreen();
+      showNpcChoise();
+      handleResult(doesPlayerWin(player.choise, npc.choise));
+      
+   });
+
+   btnPlayAgain.click(function () {
+      setDefault();
+   });
 
 
 
 
-    
+
+
 });
