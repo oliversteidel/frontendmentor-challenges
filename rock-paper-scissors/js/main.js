@@ -48,6 +48,8 @@ $(document).ready(function () {
    const handNpc = $('.hand--npc');
    const handNpcImg = $('.hand-img--npc');
    const btnPlayAgain = $('.result__btn');
+   const btnRules = $('.rules-btn');
+   const btnRulesClose = $('.close-btn');
 
 
 
@@ -88,8 +90,6 @@ $(document).ready(function () {
       }
    }
 
-
-
    const showScore = () => {
       scoreDisplay.html(player.score.toString());
    }
@@ -102,7 +102,6 @@ $(document).ready(function () {
    }
 
    const showNpcChoise = () => {
-      npc.chooseHand();
       handNpc.removeClass('wait');
       handNpc.addClass(npc.choise);
       $('.hand-inner--npc').css('visibility', 'visible');
@@ -128,7 +127,7 @@ $(document).ready(function () {
    }
 
    const handleResult = (result) => {
-      $('.result').css('display', 'flex');
+      $('.result').css('opacity', '1');
       $('.result__title').html(result);
 
       if (result === "you lose") {
@@ -140,8 +139,6 @@ $(document).ready(function () {
       showScore();
    }
 
-   
-
    const setDefault = () => {
       gameScreen.css('display', 'none');
       handHuman.removeClass('winner');
@@ -149,35 +146,37 @@ $(document).ready(function () {
       handNpc.removeClass('winner');
       handNpc.removeClass(npc.choise);
       handNpc.addClass('wait');
-      $('.result__title').html("");
-      $('.result').css('display', 'none');
+      $('.result__title').html("wait");
+      $('.result').css('opacity', '0');
       $('.hand-inner--npc').css('visibility', 'hidden');
       handHumanImg.attr('src', '');
       handNpcImg.attr('src', '');
       player.choise = "";
       npc.choise = "";
       selectionScreen.css('display', 'flex');
-
    }
-
-
 
    showScore();
 
    handSelectors.click(function () {
-
       player.setChoise(this);
+      npc.chooseHand();
       showGameScreen();
-      showNpcChoise();
-      handleResult(doesPlayerWin(player.choise, npc.choise));
-      
+      setTimeout(showNpcChoise, 2000);
+      setTimeout(handleResult, 2500, doesPlayerWin(player.choise, npc.choise));
    });
 
    btnPlayAgain.click(function () {
       setDefault();
    });
 
+   btnRules.click(function() {
+      $('.rules-modal').css('display', 'flex');
+   });
 
+   btnRulesClose.click(function() {
+      $('.rules-modal').css('display', 'none');
+   });
 
 
 
