@@ -132,6 +132,7 @@ $(document).ready(function () {
 
       if (result === "you lose") {
          handNpc.addClass('winner');
+         player.score--;
       } else if (result === "you win") {
          handHuman.addClass('winner');
          player.score++;
