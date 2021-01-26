@@ -20,3 +20,5 @@ rock-paper-scissors/design
 rock-paper-scissors/gulpfile.js
 rock-paper-scissors/*.md
 *.json
+
+interactive-pricing-component

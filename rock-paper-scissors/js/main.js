@@ -163,8 +163,8 @@ $(document).ready(function () {
       player.setChoise(this);
       npc.chooseHand();
       showGameScreen();
-      setTimeout(showNpcChoise, 2000);
-      setTimeout(handleResult, 2500, doesPlayerWin(player.choise, npc.choise));
+      setTimeout(showNpcChoise, 1000);
+      setTimeout(handleResult, 2000, doesPlayerWin(player.choise, npc.choise));
    });
 
    btnPlayAgain.click(function () {
