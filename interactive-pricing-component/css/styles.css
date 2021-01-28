@@ -1,0 +1,193 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+html {
+  font-family: "Manrope", sans-serif;
+  font-size: 100%; }
+
+p {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #858fad; }
+
+.container {
+  width: 100vw;
+  padding: 3.125rem 1.3125rem;
+  background-image: url(../images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left; }
+
+header {
+  width: 100%;
+  max-width: 33.75rem;
+  padding: 2.5rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-image: url(../images/pattern-circles.svg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain; }
+  header .title {
+    font-size: 1.3125rem;
+    font-weight: 800;
+    color: #293356;
+    margin-bottom: 1rem; }
+  header .sub-title {
+    margin-bottom: 0.5rem; }
+
+main {
+  width: 100%;
+  padding: 2.25rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: white;
+  border-radius: 10px; }
+  main .pricing-box {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    main .pricing-box__views {
+      text-transform: uppercase;
+      margin-bottom: 1.375rem; }
+
+input[type="range"] {
+  -webkit-appearance: none;
+  /* Hides the slider so that custom slider can be made */
+  width: 100%;
+  /* Specific width is required for Firefox. */
+  height: 2.6rem;
+  overflow: hidden;
+  background: transparent;
+  /* Otherwise white in Chrome */ }
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: none; }
+
+input[type="range"]:focus {
+  outline: none;
+  /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */ }
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent; }
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  background: #10d5c2;
+  background-image: url(../images/icon-slider.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  margin-top: -14px;
+  /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */ }
+
+input[type="range"]::-moz-range-thumb {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  background: #10d5c2;
+  background-image: url(../images/icon-slider.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  border: none !important;
+  -moz-user-select: unset !important;
+       user-select: unset !important; }
+
+/* All the same stuff for IE */
+input[type="range"]::-ms-thumb {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 50%;
+  background: #10d5c2;
+  background-image: url(../images/icon-slider.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer; }
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 80%;
+  height: 8px;
+  cursor: pointer;
+  background-color: #a5f3eb;
+  border-radius: 1.3px; }
+
+input[type="range"]::-moz-range-progress {
+  background-color: #a5f3eb;
+  height: 8px;
+  cursor: pointer; }
+
+input[type="range"]::-moz-range-track {
+  width: 80%;
+  height: 8px;
+  cursor: pointer;
+  background: #eaeefb;
+  border-radius: 1.3px; }
+
+input[type="range"]::-ms-track {
+  width: 80%;
+  height: 8px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent; }
+
+input[type="range"]::-ms-fill-lower {
+  background: #a5f3eb;
+  border-radius: 2.6px; }
+
+input[type="range"]:focus::-ms-fill-lower {
+  background: #a5f3eb; }
+
+input[type="range"]::-ms-fill-upper {
+  background: #eaeefb;
+  border-radius: 2.6px; }
+
+input[type="range"]:focus::-ms-fill-upper {
+  background: #eaeefb; }
+
+.attribution {
+  font-size: 11px;
+  text-align: center; }
+
+.attribution a {
+  color: #3e52a3; }
