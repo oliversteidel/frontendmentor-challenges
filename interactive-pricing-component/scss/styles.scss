@@ -70,8 +70,20 @@ header {
         margin-bottom: 1rem;
     }
 
-    .sub-title {
-        margin-bottom: 0.5rem;
+    .sub-title-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media screen and (min-width: 36rem) {
+            flex-direction: row;
+            gap: 0.5em;
+        }
+
+        .sub-title {
+            margin-bottom: 0.5rem;
+
+        }
     }
 }
 
@@ -128,7 +140,7 @@ main {
         &__check-wrapper {
             font-size: 0.875rem;
             font-weight: 600;
-            margin-bottom: 1.375rem;
+            margin-bottom: 3rem;
             color: $textLight;
             display: flex;
             align-items: center;
@@ -146,6 +158,7 @@ main {
                 border-radius: 20px;
                 background: $toggleBg;
                 cursor: pointer;
+                transition: background 0.3s ease-in;
 
                 input[type="checkbox"] {
                     appearance: none;
@@ -160,6 +173,10 @@ main {
                 input[type="checkbox"]:checked {
                     margin-left: auto;
                 }
+            }
+
+            .checkbox:hover {
+                background: $sliderBg;
             }
 
             .discount-label {
@@ -180,11 +197,17 @@ main {
             }
         }
     }
+    hr {
+        width: 115%;
+        height: 2px;
+        color: $textLight;
+        opacity: 0.1;
+    }
 }
 
 .input-wrapper {
     width: 100%;
-    margin-bottom: 1.375rem;
+    margin-bottom: 2rem;
 
     @media screen and (min-width: 36rem) {
         order: 3;
@@ -236,6 +259,10 @@ input[type="range"]::-webkit-slider-thumb {
     margin-top: -14px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
 }
 
+input[type="range"]:hover::-webkit-slider-thumb {
+    background: $fullSliderBar;
+}
+
 input[type="range"]::-moz-range-thumb {
     height: 2.5rem;
     width: 2.5rem;
@@ -246,6 +273,14 @@ input[type="range"]::-moz-range-thumb {
     background-position: center;
     cursor: pointer;
     border: none !important;
+    transition: all 0.2s ease-in;
+}
+
+input[type="range"]:hover::-moz-range-thumb {
+    background: $fullSliderBar;
+    background-image: url(../images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /* All the same stuff for IE */
@@ -318,9 +353,11 @@ input[type="range"]:focus::-ms-fill-upper {
     background: $emptySliderBar;
 }
 
+
+
 .button-box {
     width: 100%;
-    padding: 2.75rem 0;
+    padding: 2rem 0;
 
     @media screen and (min-width: 36rem) {
         display: flex;
@@ -366,6 +403,12 @@ input[type="range"]:focus::-ms-fill-upper {
         background: $textDark;
         padding: 1em 4em;
         border-radius: 25px;
+        transition: color 0.3s ease-in;
+        cursor: pointer;
+    }
+
+    .start-btn:hover {
+        color: white;
     }
 }
 

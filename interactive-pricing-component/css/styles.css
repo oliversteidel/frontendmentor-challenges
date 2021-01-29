@@ -57,8 +57,26 @@ header {
     font-weight: 800;
     color: #293356;
     margin-bottom: 1rem; }
-  header .sub-title {
-    margin-bottom: 0.5rem; }
+  header .sub-title-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    @media screen and (min-width: 36rem) {
+      header .sub-title-wrapper {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        gap: 0.5em; } }
+    header .sub-title-wrapper .sub-title {
+      margin-bottom: 0.5rem; }
 
 main {
   width: 100%;
@@ -130,7 +148,7 @@ main {
     main .pricing-box__check-wrapper {
       font-size: 0.875rem;
       font-weight: 600;
-      margin-bottom: 1.375rem;
+      margin-bottom: 3rem;
       color: #858fad;
       display: -webkit-box;
       display: -ms-flexbox;
@@ -153,7 +171,9 @@ main {
         padding: 0.25rem;
         border-radius: 20px;
         background: #cdd7ee;
-        cursor: pointer; }
+        cursor: pointer;
+        -webkit-transition: background 0.3s ease-in;
+        transition: background 0.3s ease-in; }
         main .pricing-box__check-wrapper .checkbox input[type="checkbox"] {
           -webkit-appearance: none;
              -moz-appearance: none;
@@ -166,6 +186,8 @@ main {
           cursor: pointer; }
         main .pricing-box__check-wrapper .checkbox input[type="checkbox"]:checked {
           margin-left: auto; }
+      main .pricing-box__check-wrapper .checkbox:hover {
+        background: #10d5c2; }
       main .pricing-box__check-wrapper .discount-label {
         background: #feece7;
         border-radius: 15px;
@@ -178,10 +200,15 @@ main {
         @media screen and (min-width: 36rem) {
           main .pricing-box__check-wrapper .discount {
             display: inline; } }
+  main hr {
+    width: 115%;
+    height: 2px;
+    color: #858fad;
+    opacity: 0.1; }
 
 .input-wrapper {
   width: 100%;
-  margin-bottom: 1.375rem; }
+  margin-bottom: 2rem; }
   @media screen and (min-width: 36rem) {
     .input-wrapper {
       -webkit-box-ordinal-group: 4;
@@ -227,6 +254,9 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: -14px;
   /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */ }
 
+input[type="range"]:hover::-webkit-slider-thumb {
+  background: #a5f3eb; }
+
 input[type="range"]::-moz-range-thumb {
   height: 2.5rem;
   width: 2.5rem;
@@ -236,7 +266,15 @@ input[type="range"]::-moz-range-thumb {
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  border: none !important; }
+  border: none !important;
+  -moz-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in; }
+
+input[type="range"]:hover::-moz-range-thumb {
+  background: #a5f3eb;
+  background-image: url(../images/icon-slider.svg);
+  background-repeat: no-repeat;
+  background-position: center; }
 
 /* All the same stuff for IE */
 input[type="range"]::-ms-thumb {
@@ -295,7 +333,7 @@ input[type="range"]:focus::-ms-fill-upper {
 
 .button-box {
   width: 100%;
-  padding: 2.75rem 0; }
+  padding: 2rem 0; }
   @media screen and (min-width: 36rem) {
     .button-box {
       display: -webkit-box;
@@ -341,7 +379,12 @@ input[type="range"]:focus::-ms-fill-upper {
     color: #bdccff;
     background: #293356;
     padding: 1em 4em;
-    border-radius: 25px; }
+    border-radius: 25px;
+    -webkit-transition: color 0.3s ease-in;
+    transition: color 0.3s ease-in;
+    cursor: pointer; }
+  .button-box .start-btn:hover {
+    color: white; }
 
 .attribution {
   font-size: 11px;

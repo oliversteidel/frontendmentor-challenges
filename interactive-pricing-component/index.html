@@ -14,21 +14,23 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" id="container">
 
     <header>
       <h1 class="title">Simple, traffic-based pricing</h1>
-      <p class="sub-title">Sign-up for our 30-day trial.</p>
-      <p class="sub-title">No credit card required.</p>
+      <div class="sub-title-wrapper">
+        <p class="sub-title">Sign-up for our 30-day trial.</p>
+        <p class="sub-title">No credit card required.</p>
+      </div>
     </header>
 
     <main>
       <div class="pricing-box">
-        <p class="pricing-box__views">100k pageviews</p>
+        <p class="pricing-box__views" id="views">100k pageviews</p>
         <div class="input-wrapper">
-          <input type="range" min="1" max="5" value="3" step="1" class="pricing-box__slider">
+          <input type="range" min="0" max="4" step="1" class="pricing-box__slider" id="pricing-box__slider">
         </div>
-        <p class="pricing-box__price">$16.00 <span class="month">/month</span></p>
+        <p class="pricing-box__price" id="price">$16.00 <span class="month">/month</span></p>
 
         <div class="pricing-box__check-wrapper">
           <label for="billing-interval">Monthly Billing</label>
@@ -37,11 +39,13 @@
           </label>
           <label for="billing-interval">Yearly Billing</label>
           <label class="discount-label">
-            <span class="percent">-25%</span>
+            <span class="percent" id="percent">-25%</span>
             <span class="discount">discount</span>
           </label>
         </div>
       </div>
+      <hr>
+
 
       <div class="button-box">
 
@@ -65,6 +69,7 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="https://github.com/oliversteidel">Oliver Steidel</a>.
   </div>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
