@@ -25,14 +25,19 @@
     <main>
       <div class="pricing-box">
         <p class="pricing-box__views">100k pageviews</p>
-        <input type="range" min="1" max="5" step="1" value="3" class="pricing-box__slider">
+        <div class="input-wrapper">
+          <input type="range" min="1" max="5" value="3" step="1" class="pricing-box__slider">
+        </div>
         <p class="pricing-box__price">$16.00 <span class="month">/month</span></p>
 
-        <div class="oricing-box__check-wrapper">
+        <div class="pricing-box__check-wrapper">
           <label for="billing-interval">Monthly Billing</label>
-          <input type="checkbox" name="billing-interval" id="billing-interval">
-          <label for="billing-interval">Yearly Billing
-            <span class="percent">25%</span>
+          <label class="checkbox">
+            <input type="checkbox" name="billing-interval" id="billing-interval">
+          </label>
+          <label for="billing-interval">Yearly Billing</label>
+          <label class="discount-label">
+            <span class="percent">-25%</span>
             <span class="discount">discount</span>
           </label>
         </div>
@@ -47,7 +52,7 @@
         </div>
 
         <div class="button-box__btn-wrapper">
-          <button class="start">Start my trail</button>
+          <button class="start-btn">Start my trail</button>
         </div>
 
       </div>
@@ -58,14 +63,8 @@
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="https://github.com/oliversteidel">Oliver Steidel</a>.
   </div>
 </body>
 
 </html>
-
-
-
-
-
-
