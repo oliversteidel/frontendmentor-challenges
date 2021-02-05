@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+
+    <title>Frontend Mentor | Room homepage</title>
+
+
+</head>
+
+<body>
+    <div class="container">
+
+
+
+        <!--########## MAIN START ##########-->
+
+        <main>
+
+            <div class="burger">
+                <img class="burger__img" src="images/icon-hamburger.svg" alt="">
+            </div>
+
+            <!--########## LOGO START ##########-->
+
+            <div class="logo-container">
+                <img src="images/logo.svg" alt="logo of room company" class="logo">
+            </div>
+
+            <!--########## LOGO END ##########-->
+
+            <!--########## NAV START ##########-->
+
+            <nav class="nav flex ai-c">
+                <a href="" class="nav__link nav__link--home">home</a>
+                <a href="" class="nav__link nav__link--shop">shop</a>
+                <a href="" class="nav__link nav__link--about">about</a>
+                <a href="" class="nav__link nav__link--contact">contact</a>
+            </nav>
+
+            <!--########## NAV END ##########-->
+
+            <div class="slider-btn-container flex">
+                <button class="slider-btn--left">
+                    <img src="images/icon-angle-left.svg" alt="">
+                </button>
+                <button class="slider-btn--right">
+                    <img src="images/icon-angle-right.svg" alt="">
+                </button>
+            </div>
+
+            <!--########## MATERIALS SECTION START ##########-->
+
+            <section class="slider materials flex">
+                <div class="slider__img-container">
+                    <picture>
+                        <source srcset="images/desktop-image-hero-3.jpg" media="(min-width: 415px)">
+                        <img class="mobile-img" src="images/mobile-image-hero-3.jpg" alt="one luxury black chair">
+                    </picture>
+                </div>
+                <div class="slider__content-wrapper flex-col ai-c jc-c">
+
+                    <div class="slider__headline-container">
+                        <h2 class="slider__headline materials__headline">Manufactured with the best materials</h2>
+                    </div>
+                    <div class="slider__text-container">
+                        <p class="slider__text materials__text">
+                            Our modern furniture store provide a high level of quality. Our company has invested in
+                            advanced technology
+                            to ensure that every product is made as perfect and as consistent as possible. With three
+                            decades of
+                            experience in this industry, we understand what customers want for their home and office.
+                        </p>
+                    </div>
+                    <button class="slider__cta materials__cta">
+                        <p class="cta-text upper">shop now</p>
+                        <img src="images/icon-arrow.svg" alt="" class="cta-arrow">
+                    </button>
+                </div>
+            </section>
+
+            <!--########## MATERIALS SECTION END ##########-->
+
+            <!--########## AVAILIBILITY SECTION START ##########-->
+
+            <section class="slider availibility flex">
+                <div class="slider__img-container">
+                    <picture>
+                        <source srcset="images/desktop-image-hero-2.jpg" media="(min-width: 415px)">
+                        <img class="mobile-img" src="images/mobile-image-hero-2.jpg" alt="three luxury chairs">
+                    </picture>
+                </div>
+                <div class="slider__content-wrapper flex-col ai-c jc-c">
+
+                    <div class="slider__headline-container">
+                        <h2 class="slider__headline availibility__headline">We are available all across the globe</h2>
+                    </div>
+                    <div class="slider__text-container">
+                        <p class="slider__text availibility__text">
+                            With stores all over the world, it's easy for you to find furniture for your home or place
+                            of business.
+                            Locally, we’re in most major cities throughout the country. Find the branch nearest you
+                            using our
+                            store locator. Any questions? Don't hesitate to contact us today.
+                        </p>
+                    </div>
+                    <button class="slider__cta availibility__cta">
+                        <p class="cta-text upper">shop now</p>
+                        <img src="images/icon-arrow.svg" alt="" class="cta-arrow">
+                    </button>
+                </div>
+            </section>
+
+            <!--########## AVAILIBILITY SECTION START ##########-->
+
+            <!--########## DISCOVER SECTION START ##########-->
+
+            <section class="slider discover flex">
+                <div class="slider__img-container">
+                    <picture>
+                        <source srcset="images/desktop-image-hero-1.jpg" media="(min-width: 415px)">
+                        <img class="mobile-img" src="images/mobile-image-hero-1.jpg"
+                            alt="room with table and bonsai tree standing on it with luxury white chair">
+                    </picture>
+                </div>
+                <div class="slider__content-wrapper flex-col ai-c jc-c">
+
+                    <div class="slider__headline-container">
+                        <h1 class="slider__headline discover__headline">Discover innovative ways to decorate</h1>
+                    </div>
+                    <div class="slider__text-container">
+                        <p class="slider__text discover__text">
+                            We provide unmatched quality, comfort, and style for property owners across the country.
+                            Our experts combine form and function in bringing your vision to life. Create a room in your
+                            own style with our collection and make your property a reflection of you and what you love.
+                        </p>
+                    </div>
+                    <button class="slider__cta discover__cta">
+                        <p class="cta-text upper">shop now</p>
+                        <img src="images/icon-arrow.svg" alt="" class="cta-arrow">
+                    </button>
+                </div>
+            </section>
+
+            <!--########## DISCOVER SECTION END ##########-->
+
+            
+
+            
+        </main>
+
+        <!--########## MAIN END ##########-->
+
+        <!--########## ABOUT SECTION START ##########-->
+
+        <section class="about flex">
+
+            <div class="about__img-container">
+                <img src="images/image-about-dark.jpg" alt="dark bedroom" class="about__img">
+            </div>
+            <div class="about__content-wrapper flex-col jc-c">
+                <div class="about__headline-container">
+                    <h3 class="about__headline upper">About our furniture</h3>
+                </div>
+                <div class="about__text-container">
+                    <p class="about__text">
+                        Our multifunctional collection blends design and function to suit your individual taste.
+                        Make each room unique, or pick a cohesive theme that best express your interests and what
+                        inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+                        or anything in between. Product specialists are available to help you create your dream space.
+                    </p>
+                </div>
+            </div>
+            <div class="about__img-container">
+                <img src="images/image-about-light.jpg" alt="light room with white chair" class="about__img">
+            </div>
+        </section>
+
+
+        <div class="attribution flex jc-c">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+            Coded by <a href="#">Oliver Steidel</a>.
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

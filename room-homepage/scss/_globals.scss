@@ -1,0 +1,74 @@
+$dark-gray: hsl(0, 0%, 63%);
+$black: hsl(0, 0%, 0%);
+$white: hsl(0, 0%, 100%);
+$very-dark-gray: hsl(0, 0%, 27%);
+
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+    font-family: "Spartan", sans-serif;
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    //outline: 1px solid blue;
+}
+
+a,
+a:visited,
+a:link,
+a:active {
+    text-decoration: none;
+}
+
+h1,h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2.125rem;
+
+    @media only screen and (max-width: 62.5rem) {
+        font-size: 2rem;
+    }
+
+    @media only screen and (max-width: 50rem) {
+        font-size: 1.5rem;
+    }
+
+    
+}
+
+p {
+    font-size: 0.75rem;
+    color: $dark-gray;
+    line-height: 1.5em;
+}
+
+// helper classes
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.ai-c {
+    align-items: center;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+.upper {
+    text-transform: uppercase;
+}

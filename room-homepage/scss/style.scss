@@ -1,0 +1,321 @@
+@import "globals.scss";
+
+.container {
+    width: 100vw;
+    min-height: 100vh;
+    background: $black;    
+
+    @media only screen and (max-width: 50rem) {
+        background: $white;
+    }
+}
+
+.burger {
+    display: none;
+
+    @media only screen and (max-width: 28.125rem) {
+        cursor: pointer;
+        display: inline;
+        position: absolute;
+        top: 4rem;
+        left: 1.5rem;
+        z-index: 11;
+    }
+}
+
+.logo-container {
+    position: absolute;
+    top: 4rem;
+    left: 3.75rem;
+    height: 1rem;
+    z-index: 10;
+
+    @media only screen and (max-width: 28.125rem) {
+        left: unset;
+        transform: translateX(50vw) translateX(-50%);
+    }
+}
+
+.nav {
+    position: absolute;
+    top: 4rem;
+    left: 10rem;
+    z-index: 10;
+    transition: visibility 0.5s ease-in;
+    @media only screen and (min-width: 28.126rem) {
+        visibility: visible !important;
+    }
+
+    @media only screen and (max-width: 28.125rem) {
+        visibility: hidden;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 6.9375rem;
+        background: $white;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    &__link {
+        color: $white;
+        font-size: 0.75rem;
+        margin-right: 2rem;
+        position: relative;
+
+        @media only screen and (max-width: 28.125rem) {
+            color: $black;
+        }
+    }
+}
+
+.shadow {
+    box-shadow: 0 0 0 100vh rgba(0,0,0,.5);
+}
+
+.nav::after {
+    @media only screen and (max-width: 28.125rem) {
+        content: "";
+        display: none;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 6.9375rem;
+        background: $black;
+        opacity: 0.4;
+    }
+}
+
+.nav__link::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 25%;
+    width: 0;
+    height: 2px;
+    background: $white;
+    transition: width 0.3s ease-in;
+}
+
+.nav__link:hover::after {
+    width: 50%;
+}
+
+main {
+    max-width: 90rem;
+    //height: 33.375rem;
+    position: relative;
+    margin: 0 auto;
+    overflow-x: hidden;
+
+    // @media only screen and (max-width: 50rem) {
+    //     height: 49.35rem;
+    // }
+
+    .slider-btn-container {
+        position: absolute;
+        bottom: 0;
+        left: 58.33333333333333%;
+        width: 10rem;
+        height: 5rem;
+        background: $black;
+        z-index: 10;
+
+        @media only screen and (max-width: 69.375rem) {
+            width: 7rem;
+            height: 3.5rem;
+        }
+
+        @media only screen and (max-width: 50rem) {
+            top: 33.375rem - 3.5rem;
+            left: unset;
+            right: 0;
+        }
+
+        @media only screen and (max-width: 25.9375rem) {
+            top: 100vw * 0.96;
+            transform: translateY(-3.5rem);
+        }
+
+        .slider-btn--left,
+        .slider-btn--right {
+            width: 5rem;
+            background: none;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            @media only screen and (max-width: 69.375rem) {
+                width: 3.5rem;
+            }
+        }
+
+        .slider-btn--left:hover,
+        .slider-btn--right:hover {
+            background: $very-dark-gray;
+        }
+    }
+}
+
+.slider {
+    //max-width: 1440px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+
+    @media only screen and (max-width: 50rem) {
+        flex-direction: column;
+    }
+
+    &__img-container {
+        //width: 58.33333333333333%;
+        //display: block;
+        flex: 2 2 58.33333333333333%;
+        overflow: hidden;
+    }
+
+    picture {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    img {
+        display: block;
+    }
+
+    .mobile-img {
+        @media only screen and (max-width: 25.9375rem) {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &__content-wrapper {
+        //width: 41.66666666666667%;
+        flex: 1 1 41.66666666666667%;
+        background: $white;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        //position: relative;
+
+        @media only screen and (max-width: 50rem) {
+            padding: 4.375rem 5vw;
+            align-items: flex-start;
+        }
+    }
+
+    &__cta {
+        background: none;
+        outline: none;
+        border: none;
+        display: flex;
+        align-self: start;
+        align-items: center;
+        margin-top: 2.125rem;
+        cursor: pointer;
+        transition: opacity 0.5s ease-out;
+
+        p {
+            color: $black;
+            letter-spacing: 0.75em;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        img {
+            height: 0.9rem;
+            margin-left: 2.5rem;
+        }
+    }
+
+    &__cta:hover {
+        opacity: 0.5;
+    }
+}
+
+.discover {
+    transform: translateX(0);
+    opacity: 1;
+    
+    position: static;
+}
+
+
+
+.about {
+    max-width: 90rem;
+    margin: 0 auto;
+    position: relative;
+    background: $white;
+
+    @media only screen and (max-width: 50rem) {
+        flex-wrap: wrap;
+        width: 100vw;
+    }
+
+    &__content-wrapper {
+        padding: 4.5rem 3.125rem 4.5rem 3.125rem;
+        //min-width: 430px;
+        flex: 1 1 580px;
+
+        @media only screen and (max-width: 50rem) {
+            padding: 3.75rem 2rem;
+            flex-basis: unset;
+            width: 100vw;
+        }
+    }
+
+    &__img-container {
+        min-width: 0;
+        overflow: hidden;
+        flex: 1 1 460px;
+
+        @media only screen and (max-width: 50rem) {
+            flex-basis: unset;
+            width: 100vw;
+        }
+    }
+
+    &__headline {
+        font-size: 0.75rem;
+        letter-spacing: 0.5em;
+        line-height: 1.5em;
+
+        margin-bottom: 1.25rem;
+    }
+
+    &__img {
+        object-fit: cover;
+
+        height: 100%;
+        width: auto;
+
+        @media only screen and (max-width: 50rem) {
+            width: 100vw;
+            height: auto;
+        }
+    }
+}
+
+.attribution {
+    padding: 3rem;
+    color: $white;
+    font-size: 0.75rem;
+    opacity: 0.5;
+
+    a {
+        color: $white;
+        text-decoration: underline;
+        font-weight: 500;
+        font-size: 0.75rem;
+        margin-left: 0.5em;
+    }
+}
