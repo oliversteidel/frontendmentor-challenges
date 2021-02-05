@@ -33,7 +33,7 @@ p {
 }
 
 .container {
-    height: 100vh;
+    //height: 100vh;
     background: linear-gradient(90deg, #000000, #434343);
 }
 
@@ -42,28 +42,63 @@ p {
     background: linear-gradient(90deg, #000000, #434343);
     display: flex;
     align-items: center;
-    padding: 0 2rem;
+    justify-content: space-between;
+    padding: 0 5rem;
+    
 
     &__logo {
         width: 100px;
+        display: flex;
+        align-items: center;
 
         img {
             width: 100%;
             height: auto;
         }
     }
+
+    &__quote {
+        display: flex;
+        align-items: center;
+        
+
+        p {
+            color: #38b6ff;
+            font-size: 1.5rem;
+            margin: 0;
+            
+        }
+    }
+
+    &__links {
+        display: flex;
+        align-items: center;
+
+        .fab {
+            color: #38b6ff;
+            font-size: 3rem;
+        }
+
+        .fa-github-square {
+            margin-right: 1rem;
+        }
+    }
 } 
 
 .card-container {
+    width: 100vw;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    padding: 5rem 0;    
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 10rem 5rem;    
 
     .card {
         width: 25%;
+        min-width: 350px;
         height: 600px;
         position: relative;
+        margin-bottom: 5rem;
         padding: 3rem;
         border-radius: 5px;
         background: whitesmoke;
@@ -103,6 +138,7 @@ p {
 
         .img--room-hp {
             background-image: url(../img/room-hp.png);
+            background-position: right;
         }
 
         &__content-wrapper {

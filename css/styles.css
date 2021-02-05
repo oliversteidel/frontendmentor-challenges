@@ -29,7 +29,6 @@ p {
   margin-bottom: 3rem; }
 
 .container {
-  height: 100vh;
   background: -webkit-gradient(linear, left top, right top, from(#000000), to(#434343));
   background: linear-gradient(90deg, #000000, #434343); }
 
@@ -43,28 +42,65 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 2rem; }
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 5rem; }
   .nav__logo {
-    width: 100px; }
+    width: 100px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
     .nav__logo img {
       width: 100%;
       height: auto; }
+  .nav__quote {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .nav__quote p {
+      color: #38b6ff;
+      font-size: 1.5rem;
+      margin: 0; }
+  .nav__links {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .nav__links .fab {
+      color: #38b6ff;
+      font-size: 3rem; }
+    .nav__links .fa-github-square {
+      margin-right: 1rem; }
 
 .card-container {
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  padding: 5rem 0; }
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 10rem 5rem; }
   .card-container .card {
     width: 25%;
+    min-width: 350px;
     height: 600px;
     position: relative;
+    margin-bottom: 5rem;
     padding: 3rem;
     border-radius: 5px;
     background: whitesmoke;
@@ -111,7 +147,8 @@ p {
     .card-container .card .img--rps-game {
       background-image: url(../img/rps-game.jpg); }
     .card-container .card .img--room-hp {
-      background-image: url(../img/room-hp.png); }
+      background-image: url(../img/room-hp.png);
+      background-position: right; }
     .card-container .card__content-wrapper {
       padding: 1rem; }
       .card-container .card__content-wrapper .card__link {
