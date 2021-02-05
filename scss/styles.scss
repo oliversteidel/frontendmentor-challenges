@@ -1,0 +1,154 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+a,
+a:visited,
+a:focus {
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    color: #20252A;
+}
+
+p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5em;
+    color: #20252A;
+    margin-bottom: 3rem;
+}
+
+.container {
+    height: 100vh;
+    background: linear-gradient(90deg, #000000, #434343);
+}
+
+.nav {
+    width: 100vw;
+    background: linear-gradient(90deg, #000000, #434343);
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+
+    &__logo {
+        width: 100px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+} 
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5rem 0;    
+
+    .card {
+        width: 25%;
+        height: 600px;
+        position: relative;
+        padding: 3rem;
+        border-radius: 5px;
+        background: whitesmoke;
+        box-shadow: 0 0 60px -10px rgba(0,0,0,0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s cubic-bezier(.11,.46,.51,1.29);
+
+        &__img-wrapper {
+            position: absolute;
+            top: -5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            height: 90%;
+            overflow: hidden;
+            border-radius: 5px;      
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 0 60px -10px rgba(0,0,0,0.75);
+            //visibility: hidden;
+            transition: transform 0.4s cubic-bezier(.83,.05,.32,.93);
+
+            
+        }
+
+        .img--pricing-comp {
+            background-image: url(../img/pricing-comp.png);
+        }
+
+        .img--rps-game {
+            background-image: url(../img/rps-game.jpg);
+        }
+
+        .img--room-hp {
+            background-image: url(../img/room-hp.png);
+        }
+
+        &__content-wrapper {
+            padding: 1rem;
+
+            .card__link {
+                color: #20252A;
+                border: 1px solid #20252A;
+                border-radius: 5px;
+                padding: 0.5em 2em;
+                margin-top: 2rem;
+                background-image: linear-gradient(90deg, whitesmoke, #434343, whitesmoke);
+                background-size: 400%;
+                background-position: left;
+                transition: all .5s cubic-bezier(.82,.3,.29,.69);
+            }
+
+            .card__link:hover {
+                background-position: right;
+            }
+        }
+
+        &__icon {
+            position: absolute;
+            bottom: 1rem;
+            width: 50px;
+            height: 50px;
+            transform: rotate(90deg);
+            opacity: 0.5;
+
+            .arrow-icon {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        
+    }
+
+    .card:hover {
+        transform: translateY(10%);
+    }
+
+    .card:hover .card__img-wrapper {
+        transform: translate(-50%, -50%) scale(0.6);
+        
+    }
+}
+
