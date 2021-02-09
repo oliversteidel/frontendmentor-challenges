@@ -24,3 +24,10 @@ rock-paper-scissors/*.md
 interactive-pricing-component/design
 interactive-pricing-component/gulpfile.js
 interactive-pricing-component/*.md
+
+todo-app/todo-app-main
+todo-app/babel.config.js
+todo-app/vue.config.js
+todo-app/*.md
+todo-app/src/assets
+todo-app/*.json
