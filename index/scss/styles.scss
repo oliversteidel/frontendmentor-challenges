@@ -101,7 +101,7 @@ p {
         margin-bottom: 5rem;
         padding: 3rem;
         border-radius: 5px;
-        background: whitesmoke;
+        background: #bdd9ff;
         box-shadow: 0 0 60px -10px rgba(0,0,0,0.5);
         display: flex;
         flex-direction: column;
@@ -150,7 +150,7 @@ p {
                 border-radius: 5px;
                 padding: 0.5em 2em;
                 margin-top: 2rem;
-                background-image: linear-gradient(90deg, whitesmoke, #434343, whitesmoke);
+                background-image: linear-gradient(90deg, whitesmoke, #bdd9ff, whitesmoke);
                 background-size: 400%;
                 background-position: left;
                 transition: all .5s cubic-bezier(.82,.3,.29,.69);

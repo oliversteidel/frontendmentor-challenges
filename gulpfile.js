@@ -9,7 +9,7 @@ const autoprefixer = require('gulp-autoprefixer');
 
 function style() {
     // 1. where is my scss file
-    return gulp.src('./scss/**/*.scss')
+    return gulp.src('./index/scss/**/*.scss')
     //.pipe(sassPartialsImported(scss_dir, includePaths))
 
     // 2. pass that file through sass compiler
@@ -17,7 +17,7 @@ function style() {
     .pipe(autoprefixer('last 2 versions'))
 
     // 3. where do I save the compiled CSS?
-    .pipe(gulp.dest('./css'))
+    .pipe(gulp.dest('./index/css'))
     // 4. stream changes to all browsers
     .pipe(browserSync.stream());
 }
@@ -29,9 +29,9 @@ function watch() {
             index: "index.html"
         }
     });
-    gulp.watch('./scss/**/*.scss', style);
+    gulp.watch('./index/scss/**/*.scss', style);
     gulp.watch('./*.html').on('change', browserSync.reload);
-    gulp.watch('./js/*.js').on('change', browserSync.reload);    
+    gulp.watch('./index/js/*.js').on('change', browserSync.reload);    
 }
 
 
