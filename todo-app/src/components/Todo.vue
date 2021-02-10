@@ -10,7 +10,7 @@
     <p class="todo-text"
         v-bind:class="{ 'is-complete': todo.completed}"
     >{{ todo.title }}</p>
-    <button class="btn btn--cross">
+    <button class="btn btn--cross" @click="$emit('delete-todo', todo.id)">
       <img src="../assets/icon-cross.svg" alt="" />
     </button>
   </div>
@@ -29,8 +29,8 @@ export default {
   methods: {
     markComplete() {
       this.todo.completed = !this.todo.completed;
-    }
-  },
+    }    
+  }
 };
 </script>
 
@@ -82,6 +82,19 @@ export default {
 }
 
 .btn--cross {
-  opacity: 0.5;
+  width: 0.875rem;
+  height: 0.875rem;
+  opacity: 0.4;
+
+  
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.wrapper:hover .btn--cross {
+  opacity: 0.4;
 }
 </style>

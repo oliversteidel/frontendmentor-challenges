@@ -2,6 +2,7 @@
   <div class="input-container light">
     <div class="circle"></div>
     <input
+      id="addtodo"
       @keyup.enter="addTodo"
       v-model="title"
       type="text"
@@ -21,16 +22,20 @@ export default {
   },
   methods: {
     addTodo() {
-      const newTodo = {
-        id: uuidv4(),
-        title: this.title,
-        completed: false,
-      };
-      //send up to parent
-      this.$emit("add-todo", newTodo);
+      const inputTodo = document.getElementById("addtodo");
+      if (inputTodo.value) {
+        const newTodo = {
+          id: uuidv4(),
+          title: this.title,
+          completed: false,
+        };
 
-      //clear input after submiting
-      this.title = "";
+        //send up to parent
+        this.$emit("add-todo", newTodo);
+
+        //clear input after submiting
+        this.title = "";
+      }
     },
   },
 };

@@ -3,7 +3,11 @@
     <div class="container light-bg">
       <Header />
       <AddTodo v-on:add-todo="addTodo" />
-      <TodoList v-bind:todos="todos" v-bind:todosLeft="todosLeft" />
+      <TodoList 
+      v-bind:todos="todos" 
+      v-bind:todosLeft="todosLeft" 
+      v-on:delete-todo="deleteTodo"
+      v-on:clear-completed="clearCompleted" />
     </div>
   </div>
 </template>
@@ -33,6 +37,12 @@ export default {
   methods: {
     addTodo(newTodo) {
       this.todos = [...this.todos, newTodo];
+    },
+    deleteTodo(id) {
+      this.todos = this.todos.filter(todo => todo.id !== id);
+    },
+    clearCompleted() {
+      this.todos = this.todos.filter(todo => !todo.completed)
     }
   }
 };
@@ -58,6 +68,7 @@ ul {
   max-width: 540px;
   margin-top: 1rem;
   border-radius: 5px;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.4);
   overflow: hidden;
 }
 
@@ -66,6 +77,8 @@ li {
   display: flex;
   justify-content: space-between;
 }
+
+
 
 li + li {
   border-top: 1px solid $ltLightGrayishBlue;
@@ -113,10 +126,12 @@ li + li {
   width: 100%;
   height: 3rem;
   max-width: 540px;
-  padding: 1.25rem;
+  padding: 0 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: white;
 }
+
+
 </style>
