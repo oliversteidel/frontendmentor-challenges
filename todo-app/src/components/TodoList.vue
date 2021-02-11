@@ -15,9 +15,9 @@
       <button class="btn btn--clear" @click="$emit('clear-completed')">Clear Completed</button>
     </li>
     <li class="mobile-filter-btns wrapper">
-      <button class="btn btn--filter">All</button>
-      <button class="btn btn--filter">Active</button>
-      <button class="btn btn--filter">Completed</button>
+      <button class="btn btn--filter" @click="$emit('show-all')">All</button>
+      <button class="btn btn--filter" @click="$emit('show-active')">Active</button>
+      <button class="btn btn--filter" @click="$emit('show-completed')">Completed</button>
     </li>
   </ul>
 </template>
@@ -30,7 +30,7 @@ export default {
   components: {
     Todo,
   },
-  props: ["todos", "todosLeft"],
+  props: ["todos", "todosLeft", "showActive", "showComleted"]
 };
 </script>
 

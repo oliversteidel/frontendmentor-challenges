@@ -3,11 +3,15 @@
     <div class="container light-bg">
       <Header />
       <AddTodo v-on:add-todo="addTodo" />
-      <TodoList 
-      v-bind:todos="todos" 
-      v-bind:todosLeft="todosLeft" 
-      v-on:delete-todo="deleteTodo"
-      v-on:clear-completed="clearCompleted" />
+      <TodoList
+        v-bind:todos="todos"
+        v-bind:todosLeft="todosLeft"
+        v-on:delete-todo="deleteTodo"
+        v-on:clear-completed="clearCompleted"
+        v-on:show-active="showActiveTodos"
+        v-on:show-completed="showCompletedTodos"
+        v-on:show-all="showAllTodos"
+      />
     </div>
   </div>
 </template>
@@ -27,22 +31,37 @@ export default {
   data() {
     return {
       todos: [],
+      todosCopy: []
+      
     };
   },
   computed: {
     todosLeft: function () {
-      return this.todos.filter((el) => el.completed === false).length;
+      return this.todosCopy.filter((el) => el.completed === false).length;
     },
   },
   methods: {
+        
     addTodo(newTodo) {
       this.todos = [...this.todos, newTodo];
+      this.todosCopy = this.todos;
     },
     deleteTodo(id) {
-      this.todos = this.todos.filter(todo => todo.id !== id);
+      this.todosCopy = this.todosCopy.filter((todo) => todo.id !== id);
+      this.todos = this.todos.filter((todo) => todo.id !== id);      
     },
     clearCompleted() {
-      this.todos = this.todos.filter(todo => !todo.completed)
+      this.todos = this.todosCopy.filter((todo) => !todo.completed);
+      this.todosCopy = this.todos;
+    },
+    showActiveTodos() {
+      this.todos = this.todosCopy.filter((todo) => !todo.completed);
+    },
+    showCompletedTodos() {
+      this.todos = this.todosCopy.filter((todo) => todo.completed);
+    },
+    showAllTodos() {
+      this.todos = this.todosCopy;
     }
   }
 };
@@ -68,7 +87,7 @@ ul {
   max-width: 540px;
   margin-top: 1rem;
   border-radius: 5px;
-  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.4);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
   overflow: hidden;
 }
 
@@ -77,8 +96,6 @@ li {
   display: flex;
   justify-content: space-between;
 }
-
-
 
 li + li {
   border-top: 1px solid $ltLightGrayishBlue;
@@ -132,6 +149,4 @@ li + li {
   justify-content: space-between;
   background: white;
 }
-
-
 </style>
