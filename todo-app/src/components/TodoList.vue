@@ -1,23 +1,65 @@
 <template>
   <ul>
     <li :key="todo.id" v-for="todo in todos">
-      <Todo v-bind:todo="todo" v-on:delete-todo="$emit('delete-todo', todo.id)" />
+      <Todo
+        v-bind:todo="todo"
+        v-on:delete-todo="$emit('delete-todo', todo.id)"
+        v-on:save-todo="$emit('save-todos')"
+      />
     </li>
     <li class="wrapper btn-container">
       <div class="items-left">
         <p>{{ todosLeft }} items left</p>
       </div>
       <div class="filter-btns">
-        <button class="btn btn--filter">All</button>
-        <button class="btn btn--filter">Active</button>
-        <button class="btn btn--filter">Completed</button>
+        <button
+          class="btn btn--filter"
+          @click="[$emit('show-all'), markAllClicked()]"
+          :class="{ clicked: allClicked }"
+        >
+          All
+        </button>
+        <button
+          class="btn btn--filter"
+          @click="[$emit('show-active'), markActiveClicked()]"
+          :class="{ clicked: activeClicked }"
+        >
+          Active
+        </button>
+        <button
+          class="btn btn--filter"
+          @click="[$emit('show-completed'), markCompletedClicked()]"
+          :class="{ clicked: completedClicked }"
+        >
+          Completed
+        </button>
       </div>
-      <button class="btn btn--clear" @click="$emit('clear-completed')">Clear Completed</button>
+      <button class="btn btn--clear" @click="$emit('clear-completed')">
+        Clear Completed
+      </button>
     </li>
     <li class="mobile-filter-btns wrapper">
-      <button class="btn btn--filter" @click="$emit('show-all')">All</button>
-      <button class="btn btn--filter" @click="$emit('show-active')">Active</button>
-      <button class="btn btn--filter" @click="$emit('show-completed')">Completed</button>
+      <button
+        class="btn btn--filter"
+        @click="[$emit('show-all'), markAllClicked()]"
+        :class="{ clicked: allClicked }"
+      >
+        All
+      </button>
+      <button
+        class="btn btn--filter"
+        @click="[$emit('show-active'), markActiveClicked()]"
+        :class="{ clicked: activeClicked }"
+      >
+        Active
+      </button>
+      <button
+        class="btn btn--filter"
+        @click="[$emit('show-completed'), markCompletedClicked()]"
+        :class="{ clicked: completedClicked }"
+      >
+        Completed
+      </button>
     </li>
   </ul>
 </template>
@@ -27,24 +69,47 @@ import Todo from "./Todo";
 
 export default {
   name: "TodoList",
+  data() {
+    return {
+      allClicked: true,
+      activeClicked: false,
+      completedClicked: false
+    };
+  },
   components: {
     Todo,
   },
-  props: ["todos", "todosLeft", "showActive", "showComleted"]
+  props: ["todos", "todosLeft", "showActive", "showComleted"],
+  methods: {
+    markAllClicked() {
+      this.allClicked = !this.allClicked;
+      this.activeClicked = false;
+      this.completedClicked = false;
+    },
+    markActiveClicked() {
+      this.activeClicked = !this.activeClicked;
+      this.allClicked = false;
+      this.completedClicked = false;
+    },
+    markCompletedClicked() {
+      this.completedClicked = !this.completedClicked;
+      this.activeClicked = false;
+      this.allClicked = false;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
 li:first-child {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
 .btn-container {
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.4);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
 }
 
 p {
@@ -60,8 +125,17 @@ p {
   }
 }
 
+.btn--filter:hover {
+  color: $ltVeryDarkGrayishBlue;
+}
+
 .btn--filter + .btn--filter {
   margin-left: 1em;
+}
+
+.clicked {
+  color: $brightBlue;
+  outline: none;
 }
 
 .mobile-filter-btns {
@@ -69,7 +143,6 @@ p {
   border-radius: 5px;
   margin-top: 1rem;
   justify-content: center;
-  
 
   @media screen and (min-width: 30rem) {
     display: none;

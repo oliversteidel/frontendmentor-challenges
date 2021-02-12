@@ -3,7 +3,8 @@
     <button
       class="btn btn--circle"
       v-bind:class="[todo.completed ? checked : unchecked]"
-      @click="markComplete"
+      @click="[markComplete(), $emit('save-todo')]"
+      
     >
       <img src="../assets/icon-check.svg" alt="" />
     </button>
@@ -28,7 +29,7 @@ export default {
   },
   methods: {
     markComplete() {
-      this.todo.completed = !this.todo.completed;
+      this.todo.completed = !this.todo.completed;     
     }    
   }
 };

@@ -66,6 +66,7 @@ export default {
   border: 1px solid $ltDarkGrayishBlue;
   margin-right: 0.75rem;
   opacity: 0.5;
+  flex-shrink: 0;
 }
 
 input[type="text"] {

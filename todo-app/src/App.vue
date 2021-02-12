@@ -11,6 +11,7 @@
         v-on:show-active="showActiveTodos"
         v-on:show-completed="showCompletedTodos"
         v-on:show-all="showAllTodos"
+        v-on:save-todos="saveTodos"
       />
     </div>
   </div>
@@ -31,9 +32,11 @@ export default {
   data() {
     return {
       todos: [],
-      todosCopy: []
-      
+      todosCopy: [],
     };
+  },
+  mounted() {
+    this.loadTodos();
   },
   computed: {
     todosLeft: function () {
@@ -41,18 +44,20 @@ export default {
     },
   },
   methods: {
-        
     addTodo(newTodo) {
       this.todos = [...this.todos, newTodo];
       this.todosCopy = this.todos;
+      this.saveTodos();
     },
     deleteTodo(id) {
       this.todosCopy = this.todosCopy.filter((todo) => todo.id !== id);
-      this.todos = this.todos.filter((todo) => todo.id !== id);      
+      this.todos = this.todos.filter((todo) => todo.id !== id);
+      this.saveTodos();
     },
     clearCompleted() {
       this.todos = this.todosCopy.filter((todo) => !todo.completed);
       this.todosCopy = this.todos;
+      this.saveTodos();
     },
     showActiveTodos() {
       this.todos = this.todosCopy.filter((todo) => !todo.completed);
@@ -62,8 +67,22 @@ export default {
     },
     showAllTodos() {
       this.todos = this.todosCopy;
-    }
-  }
+    },
+    saveTodos() {
+      let parsed = JSON.stringify(this.todosCopy);
+      localStorage.setItem("todoList", parsed);
+    },
+    loadTodos() {
+      if (localStorage.getItem("todoList")) {
+        try {
+          this.todos = JSON.parse(localStorage.getItem("todoList"));
+        } catch (error) {
+          console.log(error);
+        }
+        this.todosCopy = this.todos;
+      }
+    },
+  },
 };
 </script>
 
