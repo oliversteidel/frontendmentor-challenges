@@ -38,6 +38,8 @@
         Clear Completed
       </button>
     </li>
+
+    
     <li class="mobile-filter-btns wrapper">
       <button
         class="btn btn--filter"

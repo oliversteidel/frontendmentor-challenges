@@ -17,4 +17,12 @@ $dtVeryDarkGrayishBlue: hsl(237, 14%, 26%);
 //colors neutral
 
 $brightBlue: hsl(220, 98%, 61%);
-$checkBackground: linear-gradient(45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+$checkBackground: linear-gradient(130deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+
+// media breakpoint
+
+$breakpoint: 33.75rem;
+
+// max-width of components
+
+$maxwidth: 33.75rem;

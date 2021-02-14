@@ -47,12 +47,18 @@ export default {
 .input-container {
   width: 100%;
   height: 3rem;
-  max-width: 540px;
+  max-width: $maxwidth;
   padding: 1.25rem;
   margin-top: 2rem;
   border-radius: 5px;
   display: flex;
   align-items: center;
+
+  @media screen and (min-width: $breakpoint) {
+    height: 4rem;
+    margin-top: 3.125rem;
+    
+  }
 }
 
 .light {
@@ -67,6 +73,11 @@ export default {
   margin-right: 0.75rem;
   opacity: 0.5;
   flex-shrink: 0;
+
+  @media screen and (min-width: $breakpoint) {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
 }
 
 input[type="text"] {
@@ -75,5 +86,10 @@ input[type="text"] {
   background: none;
   font-family: inherit;
   color: $ltDarkGrayishBlue;
+
+  @media screen and (min-width: $breakpoint) {
+    font-size: 1.0625rem;
+    
+  }
 }
 </style>

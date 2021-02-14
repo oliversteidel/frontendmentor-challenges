@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <div class="container light-bg">
-      <Header />
+    <div class="container" :class="{ darkBg: darkmode }">
+      <Header 
+      v-on:change-light-theme="changeLightTheme"
+      v-bind:btnImg="btnImg" />
       <AddTodo v-on:add-todo="addTodo" />
       <TodoList
         v-bind:todos="todos"
@@ -21,6 +23,9 @@
 import Header from "./components/Header";
 import AddTodo from "./components/AddTodo";
 import TodoList from "./components/TodoList";
+// to change images in Header -> button -> img src, import them that webpack can deal with the proper path
+import imgMoon from "./assets/icon-moon.svg";
+import imgSun from "./assets/icon-sun.svg";
 
 export default {
   name: "App",
@@ -33,6 +38,7 @@ export default {
     return {
       todos: [],
       todosCopy: [],
+      darkmode: false,
     };
   },
   mounted() {
@@ -42,6 +48,13 @@ export default {
     todosLeft: function () {
       return this.todosCopy.filter((el) => el.completed === false).length;
     },
+    btnImg: function () {
+      if(this.darkmode) {
+        return imgSun;
+      }else{
+        return imgMoon;
+      }
+    }
   },
   methods: {
     addTodo(newTodo) {
@@ -82,6 +95,9 @@ export default {
         this.todosCopy = this.todos;
       }
     },
+    changeLightTheme() {
+      this.darkmode = !this.darkmode;
+    },
   },
 };
 </script>
@@ -97,17 +113,25 @@ export default {
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: none;
+}
+
 html {
   font-family: "Josefin Sans", sans-serif;
 }
 
 ul {
   width: 100%;
-  max-width: 540px;
+  max-width: $maxwidth;
   margin-top: 1rem;
   border-radius: 5px;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
   overflow: hidden;
+
+  @media screen and (min-width: $breakpoint) {
+    margin-top: 1.5rem;
+  }
 }
 
 li {
@@ -132,14 +156,21 @@ li + li {
   background-repeat: no-repeat;
   background-size: 100% 200px;
   background-position: top left;
-}
-
-.light-bg {
   background-image: url("./assets/bg-mobile-light.jpg");
   background-color: $ltVeryLightGrayishBlue;
 
   @media screen and (min-width: 24rem) {
     background-image: url("./assets/bg-desktop-light.jpg");
+    background-size: unset;
+  }
+}
+
+.darkBg {
+  background-image: url("./assets/bg-mobile-dark.jpg");
+  background-color: $dtVeryDarkBlue;
+
+  @media screen and (min-width: 24rem) {
+    background-image: url("./assets/bg-desktop-dark.jpg");
     background-size: unset;
   }
 }
@@ -161,11 +192,15 @@ li + li {
 .wrapper {
   width: 100%;
   height: 3rem;
-  max-width: 540px;
+  max-width: $maxwidth;
   padding: 0 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: white;
+
+  @media screen and (min-width: $breakpoint) {
+    height: 4rem;
+  }
 }
 </style>

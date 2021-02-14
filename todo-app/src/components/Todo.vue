@@ -4,13 +4,12 @@
       class="btn btn--circle"
       v-bind:class="[todo.completed ? checked : unchecked]"
       @click="[markComplete(), $emit('save-todo')]"
-      
     >
       <img src="../assets/icon-check.svg" alt="" />
     </button>
-    <p class="todo-text"
-        v-bind:class="{ 'is-complete': todo.completed}"
-    >{{ todo.title }}</p>
+    <p class="todo-text" v-bind:class="{ 'is-complete': todo.completed }">
+      {{ todo.title }}
+    </p>
     <button class="btn btn--cross" @click="$emit('delete-todo', todo.id)">
       <img src="../assets/icon-cross.svg" alt="" />
     </button>
@@ -29,9 +28,9 @@ export default {
   },
   methods: {
     markComplete() {
-      this.todo.completed = !this.todo.completed;     
-    }    
-  }
+      this.todo.completed = !this.todo.completed;
+    },
+  },
 };
 </script>
 
@@ -47,6 +46,15 @@ export default {
   position: relative;
   flex-shrink: 0;
   transition: all 0.3s ease-in;
+
+  @media screen and (min-width: $breakpoint) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.btn--circle:focus {
+  outline: none;
 }
 
 .checked {
@@ -68,6 +76,11 @@ export default {
   background: white;
   top: 1px;
   left: 1px;
+
+  @media screen and (min-width: $breakpoint) {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
 }
 
 .todo-text {
@@ -75,19 +88,27 @@ export default {
   padding: 0 0.75rem;
   font-size: 0.875rem;
   color: $ltVeryDarkGrayishBlue;
-  
+
+  @media screen and (min-width: $breakpoint) {
+    font-size: 1.0625rem;
+  }
 }
 
-.is-complete {    
+.is-complete {
   text-decoration: line-through;
 }
 
 .btn--cross {
   width: 0.875rem;
   height: 0.875rem;
-  opacity: 0.4;
+  opacity: 0.8;
+  transition: opacity 0.3s ease-in;
 
-  
+  @media screen and (min-width: $breakpoint) {
+    width: 1.125rem;
+    height: 1.125rem;
+    opacity: 0;
+  }
 
   img {
     width: 100%;
