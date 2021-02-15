@@ -2,12 +2,18 @@
   <div class="wrapper">
     <button
       class="btn btn--circle"
-      v-bind:class="[todo.completed ? checked : unchecked]"
+      :class="[
+        todo.completed ? checked : unchecked,
+        { darkTask: darkmode && !todo.completed },
+      ]"
       @click="[markComplete(), $emit('save-todo')]"
     >
       <img src="../assets/icon-check.svg" alt="" />
     </button>
-    <p class="todo-text" v-bind:class="{ 'is-complete': todo.completed }">
+    <p
+      class="todo-text"
+      v-bind:class="{ 'is-complete': todo.completed, darkText: darkmode }"
+    >
       {{ todo.title }}
     </p>
     <button class="btn btn--cross" @click="$emit('delete-todo', todo.id)">
@@ -19,7 +25,7 @@
 <script>
 export default {
   name: "Todo",
-  props: ["todo"],
+  props: ["todo", "darkmode"],
   data() {
     return {
       checked: "checked",
@@ -57,14 +63,14 @@ export default {
   outline: none;
 }
 
-.checked {
-  background: $checkBackground;
-  opacity: 1;
-}
-
 .btn--circle:hover {
   opacity: 1;
   background: $checkBackground;
+}
+
+.checked {
+  background: $checkBackground;
+  opacity: 1;
 }
 
 .unchecked::after {
@@ -76,6 +82,31 @@ export default {
   background: white;
   top: 1px;
   left: 1px;
+  transition: background-color 0.2s ease-in;
+
+  @media screen and (min-width: $breakpoint) {
+    width: 1.375rem;
+    height: 1.375rem;
+  }
+}
+
+// btn--circle darkmode style
+
+.darkTask {
+  background: $ltDarkGrayishBlue;
+  //opacity: 1;
+}
+
+.darkTask::after {
+  content: "";
+  position: absolute;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  background: $dtVeryDarkDesaturatedBlue;
+  top: 1px;
+  left: 1px;
+  transition: background-color 0.2s ease-in;
 
   @media screen and (min-width: $breakpoint) {
     width: 1.375rem;
@@ -88,14 +119,20 @@ export default {
   padding: 0 0.75rem;
   font-size: 0.875rem;
   color: $ltVeryDarkGrayishBlue;
+  transition: color 0.2s ease-in;
 
   @media screen and (min-width: $breakpoint) {
     font-size: 1.0625rem;
   }
 }
 
+.darkText {
+  color: $dtLightGrayishBlue;
+}
+
 .is-complete {
   text-decoration: line-through;
+  color: $ltVeryDarkGrayishBlue;
 }
 
 .btn--cross {

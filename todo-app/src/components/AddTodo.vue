@@ -1,5 +1,5 @@
 <template>
-  <div class="input-container light">
+  <div class="input-container" :class="{ darkTask: darkmode }">
     <div class="circle"></div>
     <input
       id="addtodo"
@@ -15,6 +15,7 @@
 import { v4 as uuidv4 } from "uuid"; //tool which generates unique id's. (install: npm install uuid)
 export default {
   name: "AddTodo",
+  props: ["darkmode"],
   data() {
     return {
       title: "",
@@ -53,16 +54,13 @@ export default {
   border-radius: 5px;
   display: flex;
   align-items: center;
+  background: white;
+  transition: background-color 0.2s ease-in;
 
   @media screen and (min-width: $breakpoint) {
     height: 4rem;
     margin-top: 3.125rem;
-    
   }
-}
-
-.light {
-  background: white;
 }
 
 .circle {
@@ -89,7 +87,10 @@ input[type="text"] {
 
   @media screen and (min-width: $breakpoint) {
     font-size: 1.0625rem;
-    
   }
+}
+
+.darkTask {
+  background: $dtVeryDarkDesaturatedBlue;
 }
 </style>

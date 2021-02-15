@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <div class="container" :class="{ darkBg: darkmode }">
-      <Header 
-      v-on:change-light-theme="changeLightTheme"
-      v-bind:btnImg="btnImg" />
-      <AddTodo v-on:add-todo="addTodo" />
+      <Header
+        v-on:change-light-theme="changeLightTheme"
+        v-bind:btnImg="btnImg"
+      />
+      <AddTodo v-on:add-todo="addTodo" v-bind:darkmode="darkmode" />
       <TodoList
         v-bind:todos="todos"
         v-bind:todosLeft="todosLeft"
+        v-bind:darkmode="darkmode"
         v-on:delete-todo="deleteTodo"
         v-on:clear-completed="clearCompleted"
         v-on:show-active="showActiveTodos"
@@ -49,12 +51,12 @@ export default {
       return this.todosCopy.filter((el) => el.completed === false).length;
     },
     btnImg: function () {
-      if(this.darkmode) {
+      if (this.darkmode) {
         return imgSun;
-      }else{
+      } else {
         return imgMoon;
       }
-    }
+    },
   },
   methods: {
     addTodo(newTodo) {
@@ -138,6 +140,8 @@ li {
   list-style: none;
   display: flex;
   justify-content: space-between;
+  background: white;
+  transition: background-color 0.2s ease-in;
 }
 
 li + li {
@@ -158,6 +162,7 @@ li + li {
   background-position: top left;
   background-image: url("./assets/bg-mobile-light.jpg");
   background-color: $ltVeryLightGrayishBlue;
+  transition: background-color 0.2s ease-in;
 
   @media screen and (min-width: 24rem) {
     background-image: url("./assets/bg-desktop-light.jpg");
@@ -173,6 +178,14 @@ li + li {
     background-image: url("./assets/bg-desktop-dark.jpg");
     background-size: unset;
   }
+}
+
+.darkTask {
+  background: $dtVeryDarkDesaturatedBlue;
+}
+
+.darkTask + .darkTask {
+  border-top: 1px solid $dtVeryDarkGrayishBlue;
 }
 
 .btn {
@@ -197,7 +210,7 @@ li + li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: white;
+  cursor: pointer;
 
   @media screen and (min-width: $breakpoint) {
     height: 4rem;

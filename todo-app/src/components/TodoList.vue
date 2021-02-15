@@ -1,13 +1,14 @@
 <template>
   <ul>
-    <li :key="todo.id" v-for="todo in todos">
+    <li :key="todo.id" v-for="todo in todos" :class="{ darkTask: darkmode }">
       <Todo
         v-bind:todo="todo"
+        v-bind:darkmode="darkmode"
         v-on:delete-todo="$emit('delete-todo', todo.id)"
         v-on:save-todo="$emit('save-todos')"
       />
     </li>
-    <li class="wrapper btn-container">
+    <li class="wrapper btn-container" :class="{ darkTask: darkmode }">
       <div class="items-left">
         <p>{{ todosLeft }} items left</p>
       </div>
@@ -15,32 +16,36 @@
         <button
           class="btn btn--filter"
           @click="[$emit('show-all'), markAllClicked()]"
-          :class="{ clicked: allClicked }"
+          :class="{ clicked: allClicked, darkHover: darkmode }"
         >
           All
         </button>
         <button
           class="btn btn--filter"
           @click="[$emit('show-active'), markActiveClicked()]"
-          :class="{ clicked: activeClicked }"
+          :class="{ clicked: activeClicked, darkHover: darkmode }"
         >
           Active
         </button>
         <button
           class="btn btn--filter"
           @click="[$emit('show-completed'), markCompletedClicked()]"
-          :class="{ clicked: completedClicked }"
+          :class="{ clicked: completedClicked, darkHover: darkmode }"
         >
           Completed
         </button>
       </div>
-      <button class="btn btn--clear" @click="$emit('clear-completed')">
+      <button
+        class="btn btn--clear"
+        @click="$emit('clear-completed')"
+        :class="{ darkHover: darkmode }"
+      >
         Clear Completed
       </button>
     </li>
 
-    
-    <li class="mobile-filter-btns wrapper">
+    <li class="mobile-filter-btns wrapper"
+    :class="{ darkTask: darkmode }">
       <button
         class="btn btn--filter"
         @click="[$emit('show-all'), markAllClicked()]"
@@ -71,17 +76,18 @@ import Todo from "./Todo";
 
 export default {
   name: "TodoList",
+
   data() {
     return {
       allClicked: true,
       activeClicked: false,
-      completedClicked: false
+      completedClicked: false,
     };
   },
   components: {
     Todo,
   },
-  props: ["todos", "todosLeft", "showActive", "showComleted"],
+  props: ["todos", "todosLeft", "showActive", "showComleted", "darkmode"],
   methods: {
     markAllClicked() {
       this.allClicked = !this.allClicked;
@@ -121,7 +127,7 @@ p {
 
 .filter-btns {
   display: none;
-
+  
   @media screen and (min-width: 30rem) {
     display: block;
   }
@@ -129,6 +135,10 @@ p {
 
 .btn--filter:hover {
   color: $ltVeryDarkGrayishBlue;
+}
+
+.darkHover:hover {
+  color: $dtLightGrayishBlue;
 }
 
 .btn--filter + .btn--filter {
@@ -141,11 +151,11 @@ p {
 }
 
 .mobile-filter-btns {
-  border: none;
+  border: none !important;
   border-radius: 5px;
   margin-top: 1rem;
   justify-content: center;
-
+  
   @media screen and (min-width: 30rem) {
     display: none;
   }
