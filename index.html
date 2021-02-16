@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
     <link rel="stylesheet" href="index/css/styles.css">
     <script src="https://kit.fontawesome.com/949640df8e.js" crossorigin="anonymous"></script>
@@ -14,74 +15,104 @@
 
 <body>
     <div class="container">
-        <nav class="nav">
-            <div id="logo" class="nav__logo">
-                <img src="index/img/osWeb_tr-bg.png" alt="logo of osweb">
-            </div>
-            <div class="nav__quote">
+        <header class="header flex ai-c jc-sb">
+            <div class="header__quote">
                 <p>Knowlege is a treasure, but practice is the key to it.</p>
             </div>
-            <div class="nav__links">
-                <i class="fab fa-github-square"></i>
-                <i class="fab fa-instagram-square"></i>
+            <div class="header__links flex ai-c">
+                <i class="fab fa-github"></i>
+                <i class="fab fa-instagram"></i>
             </div>
-        </nav>
+        </header>
 
-
-        <div class="card-container">
-            <div class="card">
-                <div class="card__img-wrapper img--pricing-comp">
-
+        <section class="section room flex">
+            <div class="room__content-wrapper flex-col">
+                <h2 class="room__title">Room<br>Homepage</h2>
+                <p class="room__text">This small homepage challenge packs a big punch to test your layout skills.
+                    There's also a slider in there to add a JS layer for extra practice.
+                </p>
+                <div class="btn">
+                    <a href="#">show site</a>
                 </div>
-                <div class="card__content-wrapper">
-                    <h2 class="card__title">Interactive pricing component</h2>
-                    <p>In this project, you'll build out an interactive pricing component complete with custom range
-                        input slider and pricing toggle. A perfect way to test your JS skills!
-                    </p>
-                    <a href="interactive-pricing-component/pricingComp.html" class="card__link">visite site</a>
-                </div>
-                <div class="card__icon">
-                    <img src="index/img/next.svg" alt="" class="arrow-icon">
-                </div>
-
             </div>
-            <div class="card">
-                <div class="card__img-wrapper img--rps-game">
-
-                </div>
-                <div class="card__content-wrapper">
-                    <h2 class="card__title">Rock, Paper, Scissors game</h2>
-                    <p>This challenge will test your HTML, CSS and JavaScript skills. There's even a Rock, Paper,
-                        Scissors, Lizard, Spock version if you really want to challenge yourself.
-                    </p>
-                    <a href="rock-paper-scissors/rpsGame.html" class="card__link">visite site</a>
-                </div>
-                <div class="card__icon">
-                    <img src="index/img/next.svg" alt="" class="arrow-icon">
-                </div>
-
+            <div class="room__img-wrapper">
+                <img src="./index/img/room.jpg" alt="" class="room__img">
             </div>
-            <div class="card">
-                <div class="card__img-wrapper img--room-hp">
+        </section>
 
-                </div>
-                <div class="card__content-wrapper">
-                    <h2 class="card__title">Room homepage</h2>
-                    <p>This small homepage challenge packs a big punch to test your layout skills. There's also a slider
-                        in there to add a JS layer for extra practice.
-                    </p>
-                    <a href="room-homepage/roomHp.html" class="card__link">visite site</a>
-                </div>
-                <div class="card__icon">
-                    <img src="index/img/next.svg" alt="" class="arrow-icon">
-                </div>
-
-            </div>
-        </div>
-        <footer></footer>
     </div>
+
 
     <script src="index/js/main.js"></script>
 </body>
 
 </html>
+
+
+<!-- <div class="container">
+    <nav class="nav">
+        <div id="logo" class="nav__logo">
+            <img src="index/img/osWeb_tr-bg.png" alt="logo of osweb">
+        </div>
+        <div class="nav__quote">
+            <p>Knowlege is a treasure, but practice is the key to it.</p>
+        </div>
+        <div class="nav__links">
+            <i class="fab fa-github-square"></i>
+            <i class="fab fa-instagram-square"></i>
+        </div>
+    </nav>
+
+
+    <div class="card-container">
+        <div class="card">
+            <div class="card__img-wrapper img--pricing-comp">
+
+            </div>
+            <div class="card__content-wrapper">
+                <h2 class="card__title">Interactive pricing component</h2>
+                <p>In this project, you'll build out an interactive pricing component complete with custom range
+                    input slider and pricing toggle. A perfect way to test your JS skills!
+                </p>
+                <a href="interactive-pricing-component/pricingComp.html" class="card__link">visite site</a>
+            </div>
+            <div class="card__icon">
+                <img src="index/img/next.svg" alt="" class="arrow-icon">
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="card__img-wrapper img--rps-game">
+
+            </div>
+            <div class="card__content-wrapper">
+                <h2 class="card__title">Rock, Paper, Scissors game</h2>
+                <p>This challenge will test your HTML, CSS and JavaScript skills. There's even a Rock, Paper,
+                    Scissors, Lizard, Spock version if you really want to challenge yourself.
+                </p>
+                <a href="rock-paper-scissors/rpsGame.html" class="card__link">visite site</a>
+            </div>
+            <div class="card__icon">
+                <img src="index/img/next.svg" alt="" class="arrow-icon">
+            </div>
+
+        </div>
+        <div class="card">
+            <div class="card__img-wrapper img--room-hp">
+
+            </div>
+            <div class="card__content-wrapper">
+                <h2 class="card__title">Room homepage</h2>
+                <p>This small homepage challenge packs a big punch to test your layout skills. There's also a slider
+                    in there to add a JS layer for extra practice.
+                </p>
+                <a href="room-homepage/roomHp.html" class="card__link">visite site</a>
+            </div>
+            <div class="card__icon">
+                <img src="index/img/next.svg" alt="" class="arrow-icon">
+            </div>
+
+        </div>
+    </div>
+    <footer></footer>
+</div> -->

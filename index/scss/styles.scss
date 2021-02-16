@@ -1,55 +1,47 @@
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+@import "globals.scss";
+@import "variables.scss";
 
-html {
-    font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
-}
-
-a,
-a:visited,
-a:focus {
-    text-decoration: none;
-}
-
-h2 {
-    font-size: 1.75rem;
-    font-weight: 400;
-    margin-bottom: 2rem;
-    color: #20252A;
-}
-
-p {
-    font-size: 1rem;
-    font-weight: 300;
-    line-height: 1.5em;
-    color: #20252A;
-    margin-bottom: 3rem;
-}
-
-.container {
-    //height: 100vh;
-    background: linear-gradient(90deg, #000000, #434343);
-}
-
-.nav {
+.header {
     width: 100vw;
-    background: linear-gradient(90deg, #000000, #434343);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5rem;
-    
+    height: 4.6875rem;
+    padding: 0 1.5rem;
+    background: $colorHeader;
 
-    &__logo {
-        width: 100px;
-        display: flex;
-        align-items: center;
+    &__quote {
+        max-width: 60%;
+
+        p {
+            color: $lightBrown;
+            font-size: clamp(0.875rem, 3vw, 1.875rem);
+            font-weight: 500;
+            
+        }
+    }
+
+    &__links {
+        .fab {
+            color: $lightBrown;
+            font-size: 2.5rem;
+        }
+
+        .fab + .fab {
+            margin-left: 1.5rem;
+        }
+    }
+}
+
+.room {
+
+    &__title {
+        @include title();
+    }
+
+    &__text {
+        @include text();
+    }
+
+    &__img-wrapper {
+        width: 100%;
 
         img {
             width: 100%;
@@ -57,134 +49,5 @@ p {
         }
     }
 
-    &__quote {
-        display: flex;
-        align-items: center;
-        
 
-        p {
-            color: #38b6ff;
-            font-size: 1.5rem;
-            margin: 0;
-            
-        }
-    }
-
-    &__links {
-        display: flex;
-        align-items: center;
-
-        .fab {
-            color: #38b6ff;
-            font-size: 3rem;
-        }
-
-        .fa-github-square {
-            margin-right: 1rem;
-        }
-    }
-} 
-
-.card-container {
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 10rem 5rem;    
-
-    .card {
-        width: 25%;
-        min-width: 350px;
-        height: 600px;
-        position: relative;
-        margin-bottom: 5rem;
-        padding: 3rem;
-        border-radius: 5px;
-        background: #bdd9ff;
-        box-shadow: 0 0 60px -10px rgba(0,0,0,0.5);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s cubic-bezier(.11,.46,.51,1.29);
-
-        &__img-wrapper {
-            position: absolute;
-            top: -5%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 95%;
-            height: 90%;
-            overflow: hidden;
-            border-radius: 5px;      
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            box-shadow: 0 0 60px -10px rgba(0,0,0,0.75);
-            //visibility: hidden;
-            transition: transform 0.4s cubic-bezier(.83,.05,.32,.93);
-
-            
-        }
-
-        .img--pricing-comp {
-            background-image: url(../img/pricing-comp.png);
-        }
-
-        .img--rps-game {
-            background-image: url(../img/rps-game.jpg);
-        }
-
-        .img--room-hp {
-            background-image: url(../img/room-hp.png);
-            background-position: right;
-        }
-
-        &__content-wrapper {
-            padding: 1rem;
-
-            .card__link {
-                color: #20252A;
-                border: 1px solid #20252A;
-                border-radius: 5px;
-                padding: 0.5em 2em;
-                margin-top: 2rem;
-                background-image: linear-gradient(90deg, whitesmoke, #bdd9ff, whitesmoke);
-                background-size: 400%;
-                background-position: left;
-                transition: all .5s cubic-bezier(.82,.3,.29,.69);
-            }
-
-            .card__link:hover {
-                background-position: right;
-            }
-        }
-
-        &__icon {
-            position: absolute;
-            bottom: 1rem;
-            width: 50px;
-            height: 50px;
-            transform: rotate(90deg);
-            opacity: 0.5;
-
-            .arrow-icon {
-                width: 100%;
-                height: auto;
-            }
-        }
-
-        
-    }
-
-    .card:hover {
-        transform: translateY(10%);
-    }
-
-    .card:hover .card__img-wrapper {
-        transform: translate(-50%, -50%) scale(0.6);
-        
-    }
 }
-
