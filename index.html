@@ -20,25 +20,74 @@
                 <p>Knowlege is a treasure, but practice is the key to it.</p>
             </div>
             <div class="header__links flex ai-c">
-                <i class="fab fa-github"></i>
-                <i class="fab fa-instagram"></i>
+                <a href="https://github.com/oliversteidel" class="link">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="https://www.instagram.com/os.webdev" class="link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
             </div>
         </header>
 
         <section class="section room flex">
-            <div class="room__content-wrapper flex-col">
-                <h2 class="room__title">Room<br>Homepage</h2>
-                <p class="room__text">This small homepage challenge packs a big punch to test your layout skills.
+            <div class="section__content-wrapper room__content-wrapper flex-col">
+                <h2 class="section__title room__title">Room<br>Homepage</h2>
+                <p class="section__text room__text">This small homepage challenge packs a big punch to test layout
+                    skills.
                     There's also a slider in there to add a JS layer for extra practice.
                 </p>
-                <div class="btn">
-                    <a href="#">show site</a>
-                </div>
+                <a href="room-homepage/roomHp.html" class="btn">show site</a>
             </div>
-            <div class="room__img-wrapper">
-                <img src="./index/img/room.jpg" alt="" class="room__img">
+            <div class="section__img-wrapper room__img-wrapper">
+                <img src="./index/img/room.jpg" alt="" class="section__img room__img">
             </div>
         </section>
+
+        <section class="section pricing flex">
+            <div class="section__content-wrapper pricing__content-wrapper flex-col">
+                <h2 class="section__title pricing__title">Interactive<br>pricing<br>component</h2>
+                <p class="section__text pricing__text">In this project, I built out an interactive pricing component
+                    complete with custom range
+                    input slider and pricing toggle. Styling a custom range input slider across all browsers
+                    consistently is like a sliding nightmare,
+                    but also a great opportunity for practice!
+                </p>
+                <a href="interactive-pricing-component/pricingComp.html" class="btn">show site</a>
+            </div>
+            <div class="section__img-wrapper pricing__img-wrapper">
+                <img src="./index/img/pricing.jpg" alt="" class="section__img pricing__img">
+            </div>
+        </section>
+
+        <section class="section todo-app flex">
+            <div class="section__content-wrapper todo-app__content-wrapper flex-col">
+                <h2 class="section__title todo-app__title">Todo app</h2>
+                <p class="section__text todo-app__text">The classic todo app with a few twists!
+                    This app includes a dark/light theme toggle and an option to sort the tasks by completed and
+                    uncompleted.
+                    I built this app with Vue.js. The tasks will be stored locally in your browser.
+                </p>
+                <a href="./todo-app/dist/index.html" class="btn">show site</a>
+            </div>
+            <div class="section__img-wrapper todo-app__img-wrapper">
+                <img src="./index/img/todoApp.jpg" alt="" class="section__img todo-app__img">
+            </div>
+        </section>
+
+        <section class="section rps-game flex">
+            <div class="section__content-wrapper rps-game__content-wrapper flex-col">
+                <h2 class="section__title rps-game__title">Rock paper scissors game</h2>
+                <p class="section__text rps-game__text">The classic rock paper scissors game.
+                </p>
+                <a href="rock-paper-scissors/rpsGame.html" class="btn">show site</a>
+            </div>
+            <div class="section__img-wrapper rps-game__img-wrapper">
+                <img src="./index/img/rps-game.jpg" alt="" class="section__img rps-game__img">
+            </div>
+        </section>
+
 
     </div>
 

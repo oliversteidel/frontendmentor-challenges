@@ -1,5 +1,4 @@
-
-@import 'variables';
+@import "variables";
 
 *,
 *::before,
@@ -10,7 +9,7 @@
 }
 
 html {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     overflow-x: hidden;
 }
 
@@ -19,6 +18,34 @@ a:visited,
 a:focus {
     text-decoration: none;
     color: inherit;
+}
+
+.container {
+    background: $colorBg;
+}
+
+// mixins
+
+@mixin breakpoint-up($size) {
+    @media only screen and (min-width: $size) {
+        @content;
+    }
+}
+
+@mixin title() {
+    font-size: clamp(3.125rem, 5vw, 5.625rem);
+    font-weight: 700;
+    line-height: 0.9em;
+    margin-bottom: 2rem;
+    color: $colorHeader;
+}
+
+@mixin text() {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.35em;
+    margin-bottom: 2rem;
+    color: $colorText;
 }
 
 // helper classes
@@ -53,37 +80,99 @@ a:focus {
     border-radius: 10px;
     color: $colorText;
     align-self: flex-start;
-
-
+    
 }
 
 .section {
+    min-height: 100vh;
     flex-direction: column;
     background: $colorBg;
     padding: 3rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+
+    @include breakpoint-up($medium) {
+        padding: 3rem;
+    }
+
+    @include breakpoint-up($large) {
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__title {
+        @include title();
+    }
+
+    &__text {
+        @include text();
+        max-width: 40ch;
+    }
+
+    &__img-wrapper {
+        width: 100%;
+        max-width: 56.25rem;
+        z-index: 2;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    width: 40vw;
+    height: 40vw;
+    border: 0.3125rem solid $lightBlue;
+    border-radius: 50%;
+    right: -10vw;
+    bottom: -2vw;
+    opacity: 0.5;
+    z-index: 1;
+
+    @include breakpoint-up($medium) {
+        width: 30vw;
+        height: 30vw;
+    }
+
+    @include breakpoint-up($large) {
+        width: 25vw;
+        height: 25vw;
+        right: -10vw;
+        bottom: -5vw;
+    }
+
+    
+}
+
+.section::after {
+    content: '';
+    position: absolute;
+    width: 40vw;
+    height: 1.25rem;
+    border-top: 0.3125rem solid $colorSecondary;
+    border-bottom: 0.3125rem solid $colorSecondary;
+    opacity: 0.5;
+    right: 3rem;
+    bottom: 20vw;
+    transform: skewX(-40deg);
+    z-index: 1;
+
+    @include breakpoint-up($medium) {
+        width: 30vw;
+        bottom: 15vw;
+        
+    }
+
+    @include breakpoint-up($large) {
+        width: 25vw;
+        bottom: 10vw;
+        
+    }
 }
 
 
-// mixins
-
-@mixin breakpoint-up($size) {
-    @media only screen and (min-width: $size) { @content; }   
-}
-
-@mixin title() {
-    font-size: clamp(3.125rem, 5vw, 5.625rem);
-    font-weight: 700;
-    line-height: 0.9em;
-    margin-bottom: 2rem;
-    color: $colorHeader;
-}
-
-@mixin text() {
-    font-size: clamp(1rem, 4.5vw, 1.25rem);
-    font-weight: 400;
-    line-height: 1.35em;
-    margin-bottom: 2rem;
-    color: $colorText;
-
-
-}
