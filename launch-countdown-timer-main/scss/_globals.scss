@@ -1,0 +1,88 @@
+// colors
+
+$grayishBlue: hsl(237, 18%, 59%);
+
+$softRed: hsl(345, 95%, 68%);
+$darkBlue: hsl(236, 21%, 26%);
+$veryDarkBlue: hsl(235, 16%, 14%);
+$blackishBlue: hsl(234, 17%, 12%);
+
+// card sizes
+
+$cardWidthSmall: 4.375rem;
+$cardHeightSmall: 2.125rem;
+
+$cardWidthLarge: 9.25rem;
+$cardHeightLarge: 4.375rem;
+
+$gapSmall: 1rem;
+$gapLarge: 2rem;
+
+// font-sizes
+
+$fontSmall: 0.375rem;
+$fontLarge: 0.75rem; 
+
+$numberSmall: 1.875rem;
+$numberLarge: 3.75rem; 
+
+// breakpoint screen sizes
+
+$small: 22.5625rem;
+$medium: 31.25rem;
+$large: 62.5rem;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Red Hat Text', sans-serif;
+    overflow-x: hidden;
+}
+
+a,
+a:visited,
+a:focus {
+    text-decoration: none;
+    color: inherit;
+}
+
+// mixins
+
+@mixin breakpoint-up($size) {
+    @media only screen and (min-width: $size) {
+        @content;
+    }
+} 
+
+// helper classes
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.ai-c {
+    align-items: center;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+.jc-sb {
+    justify-content: space-between;
+}
+
+.jc-fe {
+    justify-content: flex-end;
+}

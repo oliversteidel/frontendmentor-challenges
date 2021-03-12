@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <title>Frontend Mentor | Launch countdown timer</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container flex-col ai-c jc-c">
+
+    <h1 class="title">we're launching soon</h1>
+
+    <div class="cards-container flex ai-c jc-sb">
+
+      <div class="wrapper flex-col ai-c">
+        <div class="card card-day card-top">
+          <p class="number-top number-day">02</p>
+        </div>
+        <div class="card card-day card-bottom">
+          <p class="number-bottom number-day">01</p>
+        </div>
+        
+
+        <div class="card card-flip-back card-flip-back-day">
+          <p class="number-bottom">02</p>
+        </div>
+
+        <div class="card card-flip-front card-flip-front-day">
+          <p class="number-top">01</p>
+        </div>
+        
+      </div>
+
+
+      <div class="wrapper flex-col ai-c">
+        <div class="card card-hour card-top">
+          <p class="number-top number-hour">01</p>
+        </div>
+        <div class="card card-hour card-bottom">
+          <p class="number-bottom number-hour">01</p>
+        </div>
+
+        <div class="card card-flip-back card-flip-back-hour">
+          <p class="number-bottom">02</p>
+        </div>
+
+        <div class="card card-flip-front card-flip-front-hour">
+          <p class="number-top">01</p>
+        </div>
+        
+      </div>
+
+
+      <div class="wrapper flex-col ai-c">
+        <div class="card card-minute card-top">
+          <p class="number-top number-minute">01</p>
+        </div>
+        <div class="card card-minute card-bottom">
+          <p class="number-bottom number-minute">01</p>
+        </div>
+
+        <div class="card card-flip-back card-flip-back-minute">
+          <p class="number-bottom">02</p>
+        </div>
+
+        <div class="card card-flip-front card-flip-front-minute">
+          <p class="number-top">01</p>
+        </div>
+        
+      </div>
+
+
+      <div class="wrapper flex-col ai-c">
+        <div class="card card-second card-top">
+          <p class="number-top number-second">01</p>
+        </div>
+        <div class="card card-second card-bottom">
+          <p class="number-bottom number-second">01</p>
+        </div>
+
+        <div class="card card-flip-back card-flip-back-second">
+          <p class="number-bottom">02</p>
+        </div>
+
+        <div class="card card-flip-front card-flip-front-second">
+          <p class="number-top">01</p>
+        </div>
+        
+      </div>
+    </div>
+    <div class="labels-container flex ai-c jc-sb">
+      <p class="label flex jc-c">days</p>
+      <p class="label flex jc-c">hours</p>
+      <p class="label flex jc-c">minutes</p>
+      <p class="label flex jc-c">seconds</p>
+    </div>
+  </div>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
