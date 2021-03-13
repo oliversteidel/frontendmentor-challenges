@@ -4,6 +4,7 @@ $grayishBlue: hsl(237, 18%, 59%);
 
 $softRed: hsl(345, 95%, 68%);
 $darkBlue: hsl(236, 21%, 26%);
+$darkerBlue: hsl(240, 21%, 22%);
 $veryDarkBlue: hsl(235, 16%, 14%);
 $blackishBlue: hsl(234, 17%, 12%);
 
@@ -20,10 +21,12 @@ $gapLarge: 2rem;
 
 // font-sizes
 
-$fontSmall: 0.375rem;
-$fontLarge: 0.75rem; 
+$titleSize: 1.125rem;
 
-$numberSmall: 1.875rem;
+$fontSmall: 0.75rem;
+$fontLarge: 1.5rem; 
+
+$numberSmall: 2.5rem;
 $numberLarge: 3.75rem; 
 
 // breakpoint screen sizes

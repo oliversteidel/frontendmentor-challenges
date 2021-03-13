@@ -1,4 +1,4 @@
-# Front-end Style Guide
+// colors# Front-end Style Guide
 
 ## Layout
 
