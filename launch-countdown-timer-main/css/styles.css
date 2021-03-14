@@ -127,9 +127,16 @@ a:focus {
   position: absolute;
   left: 0;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transition: all 1s ease;
-  transition: all 1s ease; }
+          backface-visibility: hidden; }
+
+.transition {
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease; }
+
+.hidden {
+  visibility: hidden; }
 
 .card-flip-front {
   top: 0;
