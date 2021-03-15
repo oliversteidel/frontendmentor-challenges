@@ -2,6 +2,8 @@
 
 .container {
     width: 100vw;
+    min-width: 320px;
+    max-width: 1440px;
     height: 100vh;
     padding: 1rem;
     background: url(../images/bg-stars.svg) no-repeat, url(../images/pattern-hills.svg) bottom right no-repeat,
@@ -59,6 +61,11 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
+
+    @include breakpoint-up($large) {
+        width: $cardWidthLarge;
+        height: $cardHeightLarge;
+    }
 }
 
 .card-top {
@@ -81,19 +88,9 @@
     position: absolute;
     left: 0;
     backface-visibility: hidden;
-    
 
     //!!!!!!!!!!!!!! delete
     //visibility: hidden;
-}
-
-.transition {
-    transition: transform 0.5s ease;
-
-}
-
-.hidden {
-    visibility: hidden;
 }
 
 .card-flip-front {
@@ -105,7 +102,6 @@
     transform-origin: 0 top;
     transform: rotateX(180deg);
     top: 50%;
-    
 }
 
 .flip-front {
@@ -120,15 +116,27 @@
 .number-bottom {
     font-size: $numberSmall;
     color: $softRed;
+
+    @include breakpoint-up($large) {
+        font-size: $numberLarge;
+    }
 }
 
 .number-top {
     transform: translateY(20%);
     opacity: 0.8;
+
+    @include breakpoint-up($large) {
+        transform: translateY(40%);
+    }
 }
 
 .number-bottom {
     transform: translateY(-80%);
+
+    @include breakpoint-up($large) {
+        transform: translateY(-60%);
+    }
 }
 
 .labels-container {
@@ -140,6 +148,11 @@
         font-size: $fontSmall;
         width: $cardWidthSmall;
         color: $grayishBlue;
+
+        @include breakpoint-up($large) {
+            font-size: $fontLarge;
+            width: $cardWidthLarge;
+        }
     }
 }
 
@@ -171,6 +184,4 @@
     .link--insta {
         mask: url(../images/icon-instagram.svg);
     }
-
-    
 }
