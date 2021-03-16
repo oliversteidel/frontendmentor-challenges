@@ -225,3 +225,6 @@ body {
             mask: url(../images/icon-instagram.svg); }
   .links-container .link:hover {
     background: #fb6087; }
+
+.attribution {
+  color: #8486a9; }

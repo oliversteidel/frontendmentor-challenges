@@ -16,6 +16,9 @@ a:focus {
   text-decoration: none;
   color: inherit; }
 
+.ext-link {
+  text-decoration: underline; }
+
 .container {
   background: #F0F0F0; }
 
@@ -128,7 +131,7 @@ a:focus {
       bottom: -5vw; } }
 
 .section::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 40vw;
   height: 1.25rem;

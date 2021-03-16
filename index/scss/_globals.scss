@@ -20,6 +20,10 @@ a:focus {
     color: inherit;
 }
 
+.ext-link {
+    text-decoration: underline;
+}
+
 .container {
     background: $colorBg;
 }
@@ -80,7 +84,6 @@ a:focus {
     border-radius: 10px;
     color: $colorText;
     align-self: flex-start;
-    
 }
 
 .section {
@@ -145,12 +148,10 @@ a:focus {
         right: -10vw;
         bottom: -5vw;
     }
-
-    
 }
 
 .section::after {
-    content: '';
+    content: "";
     position: absolute;
     width: 40vw;
     height: 1.25rem;
@@ -165,14 +166,10 @@ a:focus {
     @include breakpoint-up($medium) {
         width: 30vw;
         bottom: 15vw;
-        
     }
 
     @include breakpoint-up($large) {
         width: 25vw;
         bottom: 10vw;
-        
     }
 }
-
-
