@@ -50,13 +50,19 @@ a:focus {
       -ms-flex-pack: end;
           justify-content: flex-end; }
 
+body {
+  background: #1e1f29; }
+
 .container {
   width: 100vw;
   min-width: 320px;
-  max-width: 1440px;
   height: 100vh;
   padding: 1rem;
+  margin: 0 auto;
   background: url(../images/bg-stars.svg) no-repeat, url(../images/pattern-hills.svg) bottom right no-repeat, #1e1f29; }
+  @media only screen and (min-width: 46rem) {
+    .container {
+      background-size: contain; } }
   .container .title {
     font-size: 1.125rem;
     text-transform: uppercase;
@@ -131,7 +137,7 @@ a:focus {
 .card-flip-front,
 .card-flip-back {
   position: absolute;
-  left: 0;
+  left: 0px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden; }
 
@@ -162,7 +168,7 @@ a:focus {
   @media only screen and (min-width: 46rem) {
     .number-top,
     .number-bottom {
-      font-size: 3.75rem; } }
+      font-size: 4rem; } }
 
 .number-top {
   -webkit-transform: translateY(20%);
@@ -195,18 +201,19 @@ a:focus {
         width: 9.25rem; } }
 
 .links-container {
-  width: 8.75rem;
-  margin-top: 110%; }
+  position: absolute;
+  bottom: 4.375rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 8.75rem; }
   .links-container .link {
-    display: inline-block;
     width: 1.5rem;
     height: 1.5rem;
     background: #8486a9;
     -webkit-mask-size: cover;
             mask-size: cover;
     cursor: pointer; }
-  .links-container .link:hover {
-    background: #fb6087; }
   .links-container .link--fb {
     -webkit-mask: url(../images/icon-facebook.svg);
             mask: url(../images/icon-facebook.svg); }
@@ -216,3 +223,5 @@ a:focus {
   .links-container .link--insta {
     -webkit-mask: url(../images/icon-instagram.svg);
             mask: url(../images/icon-instagram.svg); }
+  .links-container .link:hover {
+    background: #fb6087; }

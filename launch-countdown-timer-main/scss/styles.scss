@@ -1,13 +1,22 @@
 @import "globals.scss";
 
+body {
+    background: $veryDarkBlue;
+}
+
 .container {
     width: 100vw;
     min-width: 320px;
-    max-width: 1440px;
+    //max-width: 1440px;
     height: 100vh;
     padding: 1rem;
+    margin: 0 auto;
     background: url(../images/bg-stars.svg) no-repeat, url(../images/pattern-hills.svg) bottom right no-repeat,
         $veryDarkBlue;
+
+        @include breakpoint-up($large) {
+            background-size: contain;
+        }
 
     .title {
         font-size: $titleSize;
@@ -86,7 +95,7 @@
 .card-flip-front,
 .card-flip-back {
     position: absolute;
-    left: 0;
+    left: 0px;
     backface-visibility: hidden;
 
     //!!!!!!!!!!!!!! delete
@@ -157,11 +166,15 @@
 }
 
 .links-container {
+    position: absolute;
+    bottom: 4.375rem;
+    left: 50%;
+    transform: translateX(-50%);
     width: 8.75rem;
-    margin-top: 110%;
+    
 
     .link {
-        display: inline-block;
+        
         width: 1.5rem;
         height: 1.5rem;
         background: $grayishBlue;
@@ -169,9 +182,7 @@
         cursor: pointer;
     }
 
-    .link:hover {
-        background: $softRed;
-    }
+    
 
     .link--fb {
         mask: url(../images/icon-facebook.svg);
@@ -183,5 +194,9 @@
 
     .link--insta {
         mask: url(../images/icon-instagram.svg);
+    }
+
+    .link:hover {
+        background: $softRed;
     }
 }
