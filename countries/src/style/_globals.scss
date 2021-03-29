@@ -1,0 +1,80 @@
+// lightmode colors
+
+$bg-light: hsl(0, 0%, 98%);
+$text-light: hsl(200, 15%, 8%);
+$input-text-light: hsl(0, 0%, 52%);
+$elements-light: hsl(0, 0%, 100%);
+
+// darkmode colors
+
+$bg-dark: hsl(207, 26%, 17%);
+$text-dark: hsl(0, 0%, 100%);
+$elements-dark: hsl(209, 23%, 22%);
+
+// font weights
+
+$light: 300;
+$semi-bold: 600;
+$extra-bold: 800;
+
+// breakpoint sizes
+
+$small: 22.5625rem;
+$medium: 31.25rem;
+$large: 62.5rem;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Nunito Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+a,
+a:visited,
+a:focus {
+    text-decoration: none;
+    font-family: inherit ;
+    color: inherit;
+}
+
+// mixins
+
+@mixin breakpoint-up($size) {
+    @media only screen and (min-width: $size) {
+        @content;
+    }
+} 
+
+// helper classes
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.ai-c {
+    align-items: center;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+.jc-sb {
+    justify-content: space-between;
+}
+
+.jc-fe {
+    justify-content: flex-end;
+}
