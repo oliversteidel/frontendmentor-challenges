@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../style/_globals.scss";
 .searchbar-wrapper {
   width: 100%;
   max-width: 30rem;
@@ -25,6 +26,7 @@ export default {
   padding: 0 1.875rem;
   background: $elements-dark;
   border-radius: 5px;
+  box-shadow: $shadow;
 
   .fas {
     color: $text-dark;

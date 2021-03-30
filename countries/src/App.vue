@@ -2,49 +2,93 @@
   <div id="app">
     <header class="header flex ai-c jc-sb">
       <h1 class="header__title">Where in the world?</h1>
-      <div class="header__theme-switch-wrapper flex ai-c">
-        <img src="./assets/icon-sun.svg" alt="" class="header__icon">
-        <p class="header__theme-text">Light Mode</p>
+      <div class="header__theme-switch-wrapper flex ai-c" @click="switchTheme">
+        <img
+          src="./assets/icon-sun.svg"
+          alt=""
+          class="header__icon"
+          v-if="darkmode"
+        />
+        <img
+          src="./assets/icon-moon.svg"
+          alt=""
+          class="header__icon"
+          v-if="!darkmode"
+        />
+        <p class="header__theme-text" v-if="darkmode">Light Mode</p>
+        <p class="header__theme-text" v-if="!darkmode">Dark Mode</p>
       </div>
     </header>
-    <div class="container">
+    <div class="container flex-col ai-c">
       <Searchbar />
+      <Filterbar :regions="regions" />
+      <CountryCard v-for="country in countryData" :key="country.name" :country="country" />
     </div>
-    
   </div>
 </template>
 
 <script>
+import Filterbar from "./components/Filterbar.vue";
 import Searchbar from "./components/Searchbar.vue";
+import CountryCard from "./components/CountryCard.vue";
 export default {
-  
   name: "App",
   components: {
-    Searchbar
+    Searchbar,
+    Filterbar,
+    CountryCard,
   },
+  data() {
+    return {
+      darkmode: true,
+      apiUrl: "https://restcountries.eu/rest/v2/all",
+      regions: [
+        { value: "Africa" },
+        { value: "America" },
+        { value: "Asia" },
+        { value: "Europe" },
+        { value: "Oceania" },
+      ],
+      countryData: [],
+    };
+  },
+  methods: {
+    switchTheme() {
+      this.darkmode = !this.darkmode;
+    },
+    getApiData: async function () {
+      const response = await fetch(this.apiUrl);
+      this.countryData = await response.json();
+      console.log(this.countryData);
+    },
+  },
+  mounted() {
+    this.getApiData();
+  }
 };
 </script>
 
 <style lang="scss">
 @import "./style/_globals.scss";
 
-#app {
-  background: $bg-dark;
-  height: 100vh;  
-}
+
 
 .header {
   width: 100%;
   max-width: 90rem;
   height: 5rem;
-  padding: 0 1rem; 
+  padding: 0 1rem;
   background: $elements-dark;
-  box-shadow: 0 0 15px rgba(black, 0.1);
+  box-shadow: $shadow;
 
   &__title {
     font-size: 0.875rem;
     font-weight: $extra-bold;
     color: $text-dark;
+  }
+
+  &__theme-switch-wrapper {
+    cursor: pointer;
   }
 
   &__icon {
@@ -53,7 +97,7 @@ export default {
   }
 
   &__theme-text {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: $semi-bold;
     color: $text-dark;
     margin-left: 0.75rem;
@@ -62,5 +106,6 @@ export default {
 
 .container {
   padding: 0 1rem;
+  background: $bg-dark;
 }
 </style>
