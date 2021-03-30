@@ -21,8 +21,16 @@
     </header>
     <div class="container flex-col ai-c">
       <Searchbar />
-      <Filterbar :regions="regions" />
-      <CountryCard v-for="country in countryData" :key="country.name" :country="country" />
+      <Filterbar
+        :regions="regions"
+        v-on:send-selected-region="filterByRegion"
+      />
+      <CountryCard
+        v-for="country in countries"
+        :key="country.name"
+        :country="country"
+      />
+      <p class="error-message" v-if="!requestSuccessful">{{errorMessage}}</p>
     </div>
   </div>
 </template>
@@ -50,6 +58,9 @@ export default {
         { value: "Oceania" },
       ],
       countryData: [],
+      countries: [],
+      errorMessage: "",
+      requestSuccsessful: true,
     };
   },
   methods: {
@@ -57,21 +68,30 @@ export default {
       this.darkmode = !this.darkmode;
     },
     getApiData: async function () {
-      const response = await fetch(this.apiUrl);
-      this.countryData = await response.json();
-      console.log(this.countryData);
+      try {
+        const response = await fetch(this.apiUrl);
+        this.countryData = await response.json();
+        this.countries = await this.countryData;
+      } catch (error) {
+        this.errorMessage = error;
+        this.requestSuccsessful = false;
+      }
+    },
+    filterByRegion(value) {
+      this.countries = this.countryData.filter((el) => {
+        el.region === value;
+      });
+      console.log(value);
     },
   },
   mounted() {
     this.getApiData();
-  }
+  },
 };
 </script>
 
 <style lang="scss">
 @import "./style/_globals.scss";
-
-
 
 .header {
   width: 100%;

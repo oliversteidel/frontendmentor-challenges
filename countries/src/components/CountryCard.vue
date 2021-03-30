@@ -1,19 +1,21 @@
 <template>
   <div class="card">
-    <img :src="country.flag" alt="" class="card__flag" />
+    <div class="card__img-wrapper">
+      <img :src="country.flag" alt="" class="card__flag" />
+    </div>
     <div class="card__data">
-      <h3 class="card__country-name" :country="country">{{country.name}}</h3>
+      <h3 class="card__country-name" :country="country">{{ country.name }}</h3>
       <div class="card__info flex ai-c">
         <p class="card__info-tag">Population:</p>
-        <p class="card__info-value">{{country.population}}</p>
+        <p class="card__info-value">{{ country.population }}</p>
       </div>
       <div class="card__info flex ai-c">
         <p class="card__info-tag">Region:</p>
-        <p class="card__info-value">{{country.region}}</p>
+        <p class="card__info-value">{{ country.region }}</p>
       </div>
       <div class="card__info flex ai-c">
         <p class="card__info-tag">Capital:</p>
-        <p class="card__info-value">{{country.capital}}</p>
+        <p class="card__info-value">{{ country.capital }}</p>
       </div>
     </div>
   </div>
@@ -23,8 +25,6 @@
 export default {
   name: "CountryCard",
   props: ["country"],
-  
-  
 };
 </script>
 
@@ -33,7 +33,7 @@ export default {
 
 .card {
   width: 16.5625rem;
-  height: 21.125rem;
+  //height: 21.125rem;
   border-radius: 5px;
   background: $elements-dark;
   margin-top: 2rem;
@@ -41,9 +41,14 @@ export default {
   overflow: hidden;
   cursor: pointer;
 
+  &__img-wrapper {
+    width: 100%;
+    
+  }
+
   &__flag {
     width: 100%;
-    height: auto;
+    height: 100%;
   }
 
   &__data {

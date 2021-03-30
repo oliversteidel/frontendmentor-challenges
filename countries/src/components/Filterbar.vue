@@ -1,51 +1,93 @@
 <template>
-    <div class="wrapper">
-        <select name="regions-filter" id="regions-filter" v-model="selectedRegion"> Filter by region
-            <option value="" >Filter by region</option>
-            <option v-for="region in regions" :key="region.value" :value="region.value">{{region.value}}</option>
-        </select>
-
+  <div class="wrapper">
+    <div
+      class="select flex ai-c"
+      :selectedRegion="selectedRegion"
+      @click="toggleFilterOptions"
+      
+    >
+      {{ selectedRegion }}
     </div>
-    
+    <div class="option-wrapper" v-if="filterOpen">
+      <div
+        class="option"
+        v-for="region in regions"
+        :key="region.value"
+        @click="[selectRegion(region.value), $emit('send-selected-region', selectedRegion)]"
+      >
+        {{ region.value }}
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "Filterbar",
-    props: ["regions"],
-    data() {
-        return {
-            selectedRegion: "",
-        }
-    }
-}
+  name: "Filterbar",
+  props: ["regions"],
+  data() {
+    return {
+      selectedRegion: "Filter by region",
+      filterOpen: false,
+    };
+  },
+  methods: {
+    toggleFilterOptions() {
+      this.filterOpen = !this.filterOpen;
+    },
+    selectRegion(value) {
+      this.selectedRegion = value;
+      this.toggleFilterOptions();      
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-    @import "../style/_globals.scss";
+@import "../style/_globals.scss";
 
-    .wrapper {
-        align-self: flex-start;
-    }
+.wrapper {
+  align-self: flex-start;
+}
 
-    select {
-        width: 12.5rem;
-        height: 3rem;
-        margin-top: 2.375rem;
-        padding-left: 1.5rem;
-        appearance: none;        
-        border: none;
-        border-radius: 5px;
-        background: $elements-dark;
-        font-family: inherit;
-        color: $text-dark;
-        box-shadow: $shadow;
-        background-image: url('../assets/chevron-down-outline.svg');
-        background-repeat: no-repeat;
-        background-position: 90%;
-        background-size: 6%;
+.select {
+  width: 12.5rem;
+  height: 3rem;
+  margin-top: 2.375rem;
+  padding-left: 1.5rem;
+  appearance: none;
+  border: none;
+  border-radius: 5px;
+  background: $elements-dark;
+  font-size: 0.875rem;
+  color: $text-dark;
+  box-shadow: $shadow;
+  background-image: url("../assets/chevron-down-outline.svg");
+  background-repeat: no-repeat;
+  background-position: 90%;
+  background-size: 6%;
+  position: relative;
+  cursor: pointer;
+}
 
-    }
+.option-wrapper {
+  width: 12.5rem;
+  margin-top: 4px;
+  padding: 1em 1.5rem;
+  background: $elements-dark;
+  font-size: 0.875rem;
+  line-height: 2em;
+  color: $text-dark;
+  border-radius: 5px;
+  box-shadow: $shadow;
+  position: absolute;
 
-    
+  .option {
+    cursor: pointer;
+  }
+
+  .option:hover {
+    background-color: blue;
+  }
+}
 </style>
