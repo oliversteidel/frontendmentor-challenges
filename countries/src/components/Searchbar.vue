@@ -7,11 +7,17 @@
         name="searchbar"
         id="searchbar"
         placeholder="Search for a country..."
-        @keyup="countryNamesList"
+        @keyup="showCountryNamesList"
       />
     </div>
     <ul class="result-list" v-if="userIsSearching">
-      <li v-for="country in countryNamesList" :key="country.name"></li>
+      <li
+        v-for="(element, index) in countryNames"
+        :key="index"
+        @click="[$emit('send-selected-country', element.name), hideSearchList()]"
+      >
+        {{ element.name }}
+      </li>
     </ul>
   </div>
 </template>
@@ -23,19 +29,31 @@ export default {
   data() {
     return {
       userIsSearching: false,
+      countryNames: [],
     };
   },
-  computed: {
-    countryNamesList: function () {
-      return this.makeSuggest();
-    },
-  },
+
   methods: {
     makeSuggest() {
       let userInput = document.getElementById("searchbar").value;
       let regex = new RegExp(userInput, "ig");
       let result = this.countryData.filter((el) => el.name.match(regex));
+      console.log(result);
       return result;
+    },
+    showCountryNamesList() {
+      this.countryNames = [];
+      let list = this.makeSuggest();
+      list.forEach((el) => {
+        let obj = {
+          name: el.name,
+        };
+        this.countryNames.push(obj);
+      });
+      this.userIsSearching = true;
+    },
+    hideSearchList() {
+      this.userIsSearching = false;
     },
   },
 };

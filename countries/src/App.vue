@@ -21,7 +21,9 @@
     </header>
     <div class="container flex-col ai-c">
       <Searchbar
-        :countryData="countryData" />
+        :countryData="countryData"
+        v-on:send-selected-country="getCountryByName"
+      />
       <Filterbar
         :regions="regions"
         v-on:send-selected-region="getCountriesByRegion"
@@ -58,10 +60,11 @@ export default {
         { value: "Asia" },
         { value: "Europe" },
         { value: "Oceania" },
+        { value: "show all" },
       ],
       countryData: [],
       countries: [],
-      
+
       errorMessage: "",
     };
   },
@@ -80,21 +83,36 @@ export default {
         this.requestSuccessful = false;
       }
     },
-    getCountriesByRegion: async function (value) {
+    getCountriesByRegion: async function (region) {
+      if (region === "show all") {
+        this.getApiData();
+      } else {
+        try {
+          const response = await fetch(
+            `https://restcountries.eu/rest/v2/region/${region}`
+          );
+          this.countries = await response.json();
+        } catch (error) {
+          this.errorMessage = error;
+          this.requestSuccessful = false;
+        }
+      }
+    },
+    getCountryByName: async function (name) {
       try {
-        const response = await fetch(`https://restcountries.eu/rest/v2/region/${value}`);
+        const response = await fetch(
+          `https://restcountries.eu/rest/v2/name/${name}?fullText=true`
+        );
         this.countries = await response.json();
       } catch (error) {
         this.errorMessage = error;
         this.requestSuccessful = false;
       }
     },
-    
   },
   beforeMount() {
     this.getApiData();
   },
-  
 };
 </script>
 
