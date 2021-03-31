@@ -20,17 +20,18 @@
       </div>
     </header>
     <div class="container flex-col ai-c">
-      <Searchbar />
+      <Searchbar
+        :countryData="countryData" />
       <Filterbar
         :regions="regions"
-        v-on:send-selected-region="filterByRegion"
+        v-on:send-selected-region="getCountriesByRegion"
       />
       <CountryCard
         v-for="country in countries"
         :key="country.name"
         :country="country"
       />
-      <p class="error-message" v-if="!requestSuccessful">{{errorMessage}}</p>
+      <p class="error-message" v-if="!requestSuccessful">{{ errorMessage }}</p>
     </div>
   </div>
 </template>
@@ -49,18 +50,19 @@ export default {
   data() {
     return {
       darkmode: true,
+      requestSuccessful: true,
       apiUrl: "https://restcountries.eu/rest/v2/all",
       regions: [
         { value: "Africa" },
-        { value: "America" },
+        { value: "Americas" },
         { value: "Asia" },
         { value: "Europe" },
         { value: "Oceania" },
       ],
       countryData: [],
       countries: [],
+      
       errorMessage: "",
-      requestSuccsessful: true,
     };
   },
   methods: {
@@ -72,21 +74,27 @@ export default {
         const response = await fetch(this.apiUrl);
         this.countryData = await response.json();
         this.countries = await this.countryData;
+        console.log("apirequest successful");
       } catch (error) {
         this.errorMessage = error;
-        this.requestSuccsessful = false;
+        this.requestSuccessful = false;
       }
     },
-    filterByRegion(value) {
-      this.countries = this.countryData.filter((el) => {
-        el.region === value;
-      });
-      console.log(value);
+    getCountriesByRegion: async function (value) {
+      try {
+        const response = await fetch(`https://restcountries.eu/rest/v2/region/${value}`);
+        this.countries = await response.json();
+      } catch (error) {
+        this.errorMessage = error;
+        this.requestSuccessful = false;
+      }
     },
+    
   },
-  mounted() {
+  beforeMount() {
     this.getApiData();
   },
+  
 };
 </script>
 

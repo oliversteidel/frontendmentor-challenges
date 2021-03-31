@@ -40,12 +40,21 @@ html {
     overflow-x: hidden;
 }
 
+body {
+    min-height: 100vh;
+    background: $bg-dark;
+}
+
 a,
 a:visited,
 a:focus {
     text-decoration: none;
     font-family: inherit ;
     color: inherit;
+}
+
+li {
+    list-style: none;
 }
 
 // mixins
