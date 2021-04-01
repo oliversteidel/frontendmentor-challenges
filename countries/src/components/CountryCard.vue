@@ -32,14 +32,17 @@ export default {
 @import "../style/_globals.scss";
 
 .card {
-  width: 16.5625rem;
-  //height: 21.125rem;
+  width: 16.5625rem;  
   border-radius: 5px;
   background: $elements-dark;
-  margin-top: 2rem;
+  margin: 0 auto 4.625rem auto; 
   box-shadow: $shadow;
   overflow: hidden;
   cursor: pointer;
+
+  @include breakpoint-up($medium) {
+    margin: 0 0 4.625rem 4.625rem;  
+  }
 
   &__img-wrapper {
     width: 100%;
@@ -53,7 +56,7 @@ export default {
 
   &__data {
     padding: 1.875rem 1.5rem;
-  }
+  }  
 
   &__country-name {
     font-size: 1rem;
@@ -79,4 +82,6 @@ export default {
     margin-left: 0.5em;
   }
 }
+
+
 </style>

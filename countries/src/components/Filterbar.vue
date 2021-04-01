@@ -10,10 +10,11 @@
     </div>
     <div class="option-wrapper" v-if="filterOpen">
       <div
-        class="option"
+        class="option"        
         v-for="region in regions"
         :key="region.value"
         @click="[selectRegion(region.value), $emit('send-selected-region', selectedRegion)]"
+        
       >
         {{ region.value }}
       </div>
@@ -28,7 +29,7 @@ export default {
   data() {
     return {
       selectedRegion: "Filter by region",
-      filterOpen: false,
+      filterOpen: false,     
     };
   },
   methods: {
@@ -39,16 +40,13 @@ export default {
       this.selectedRegion = value;
       this.toggleFilterOptions();      
     },
+    
   },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "../style/_globals.scss";
-
-.wrapper {
-  align-self: flex-start;
-}
 
 .select {
   width: 12.5rem;
@@ -68,12 +66,16 @@ export default {
   background-size: 6%;
   position: relative;
   cursor: pointer;
+
+  @include breakpoint-up($medium) {
+    margin-top: 1.5rem;
+  }
 }
 
 .option-wrapper {
   width: 12.5rem;
   margin-top: 4px;
-  padding: 1em 1.5rem;
+  padding: 1em 0;
   background: $elements-dark;
   font-size: 0.875rem;
   line-height: 2em;
@@ -83,13 +85,16 @@ export default {
   position: absolute;  
 
   .option {
+    padding: 0 1.5rem;
     cursor: pointer;
-  }
+  }  
 
   .option:hover {
-    background-color: blue;
+    background: $elements-dark-hover;
   }
 }
+
+
 
 
 </style>

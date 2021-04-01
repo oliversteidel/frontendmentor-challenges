@@ -14,10 +14,7 @@
       <li class="result-list__item"
         v-for="(element, index) in countryNames"
         :key="index"
-        @click="[$emit('send-selected-country', element.name), hideSearchList()]"
-        @mouseover="hover = true"
-        @mouseleave="hover = false"
-        :class="{ foo: hover}"
+        @click="[$emit('send-selected-country', element.name), hideSearchList()]"        
       >
         {{ element.name }}
       </li>
@@ -33,7 +30,7 @@ export default {
     return {
       userIsSearching: false,
       countryNames: [],
-      hover: false
+      
     };
   },
 
@@ -66,11 +63,11 @@ export default {
 @import "../style/_globals.scss";
 .wrapper {
   width: 100%;
+  max-width: 30rem;
 }
 
 .searchbar-wrapper {
-  width: 100%;
-  max-width: 30rem;
+  width: 100%;  
   height: 3.625rem;
   margin-top: 1.5rem;
   padding: 0 1.875rem;
@@ -102,9 +99,10 @@ export default {
 
 .result-list {
   position: absolute;
+  max-width: 30rem;
   left: 1rem;
   right: 1rem;
-  padding: 1rem 1.5rem;
+  padding: 1rem 0;
   margin-top: 4px;
   color: $text-dark;
   background: $elements-dark;
@@ -118,15 +116,15 @@ export default {
 }
 
 .result-list__item {
+  padding: 0 1.5rem;
   background: $elements-dark;
-  cursor: pointer;
-  z-index: 101;
+  cursor: pointer;  
 }
 
-.foo {
+.result-list__item:hover {
   background: $elements-dark-hover;
-  
 }
+
 
 
 </style>

@@ -20,19 +20,23 @@
       </div>
     </header>
     <div class="container flex-col ai-c">
-      <Searchbar
-        :countryData="countryData"
-        v-on:send-selected-country="getCountryByName"
-      />
-      <Filterbar
-        :regions="regions"
-        v-on:send-selected-region="getCountriesByRegion"
-      />
-      <CountryCard
-        v-for="country in countries"
-        :key="country.name"
-        :country="country"
-      />
+      <div class="wrapper-search-and-filter flex jc-sb">
+        <Searchbar
+          :countryData="countryData"
+          v-on:send-selected-country="getCountryByName"
+        />
+        <Filterbar
+          :regions="regions"
+          v-on:send-selected-region="getCountriesByRegion"
+        />
+      </div>
+      <div class="cards-container flex">
+        <CountryCard
+          v-for="country in countries"
+          :key="country.name"
+          :country="country"
+        />
+      </div>
       <p class="error-message" v-if="!requestSuccessful">{{ errorMessage }}</p>
     </div>
   </div>
@@ -118,10 +122,13 @@ export default {
 
 <style lang="scss">
 @import "./style/_globals.scss";
+#app {
+  margin: 0 auto;
+}
 
 .header {
   width: 100%;
-  max-width: 90rem;
+  //max-width: 90rem;
   height: 5rem;
   padding: 0 1rem;
   background: $elements-dark;
@@ -153,5 +160,18 @@ export default {
 .container {
   padding: 0 1rem;
   background: $bg-dark;
+
+  .wrapper-search-and-filter {
+    width: 100%;
+    max-width: 90rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .cards-container {
+    max-width: 90rem;
+    flex-wrap: wrap;
+  }
 }
 </style>
