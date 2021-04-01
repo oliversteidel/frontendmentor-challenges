@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="searchbar-wrapper flex ai-c">
+    <div class="searchbar-wrapper flex ai-c" @click="hideSearchList">
       <i class="fas fa-search"></i>
       <input
         type="search"
@@ -11,10 +11,13 @@
       />
     </div>
     <ul class="result-list" v-if="userIsSearching">
-      <li
+      <li class="result-list__item"
         v-for="(element, index) in countryNames"
         :key="index"
         @click="[$emit('send-selected-country', element.name), hideSearchList()]"
+        @mouseover="hover = true"
+        @mouseleave="hover = false"
+        :class="{ foo: hover}"
       >
         {{ element.name }}
       </li>
@@ -30,6 +33,7 @@ export default {
     return {
       userIsSearching: false,
       countryNames: [],
+      hover: false
     };
   },
 
@@ -37,8 +41,7 @@ export default {
     makeSuggest() {
       let userInput = document.getElementById("searchbar").value;
       let regex = new RegExp(userInput, "ig");
-      let result = this.countryData.filter((el) => el.name.match(regex));
-      console.log(result);
+      let result = this.countryData.filter((el) => el.name.match(regex));      
       return result;
     },
     showCountryNamesList() {
@@ -101,14 +104,30 @@ export default {
   position: absolute;
   left: 1rem;
   right: 1rem;
-  padding: 1rem 1.875rem;
+  padding: 1rem 1.5rem;
   margin-top: 4px;
   color: $text-dark;
   background: $elements-dark;
   font-family: inherit;
   font-size: 0.875rem;
+  line-height: 2em;
   border-radius: 5px;
+  box-shadow: $shadow;
   z-index: 100;
+  overflow: hidden;
 }
+
+.result-list__item {
+  background: $elements-dark;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.foo {
+  background: $elements-dark-hover;
+  
+}
+
+
 </style>
 

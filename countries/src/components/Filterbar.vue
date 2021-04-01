@@ -80,7 +80,7 @@ export default {
   color: $text-dark;
   border-radius: 5px;
   box-shadow: $shadow;
-  position: absolute;
+  position: absolute;  
 
   .option {
     cursor: pointer;
@@ -90,4 +90,6 @@ export default {
     background-color: blue;
   }
 }
+
+
 </style>
