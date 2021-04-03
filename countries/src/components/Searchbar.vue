@@ -64,6 +64,7 @@ export default {
 .wrapper {
   width: 100%;
   max-width: 30rem;
+  position: relative;
 }
 
 .searchbar-wrapper {
@@ -100,8 +101,8 @@ export default {
 .result-list {
   position: absolute;
   max-width: 30rem;
-  left: 1rem;
-  right: 1rem;
+  left: 0;
+  right: 0;
   padding: 1rem 0;
   margin-top: 4px;
   color: $text-dark;

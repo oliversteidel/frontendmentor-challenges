@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="$emit('country-selected', country.name)">
     <div class="card__img-wrapper">
       <img :src="country.flag" alt="" class="card__flag" />
     </div>

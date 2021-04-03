@@ -83,6 +83,7 @@ export default {
   border-radius: 5px;
   box-shadow: $shadow;
   position: absolute;  
+  z-index: 100;
 
   .option {
     padding: 0 1.5rem;
