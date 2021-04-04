@@ -23,7 +23,12 @@
       </div>
       <p class="error-message" v-if="!requestSuccessful">{{ errorMessage }}</p>
     </div>
-    <TheCountryDetail :selectedCountry="selectedCountry" v-if="showCountryDetail" />
+    <TheCountryDetail
+      :countryData="countryData"
+      :selectedCountry="selectedCountry"
+      v-if="showCountryDetail"
+      v-on:close-country-detail="showCountryDetail = false"
+    />
   </div>
 </template>
 
@@ -40,13 +45,13 @@ export default {
     Searchbar,
     Filterbar,
     CountryCard,
-    TheCountryDetail
+    TheCountryDetail,
   },
   data() {
     return {
       darkmode: true,
       requestSuccessful: true,
-      apiUrl: "https://restcountries.eu/rest/v2/all",      
+      apiUrl: "https://restcountries.eu/rest/v2/all",
       regions: [
         { value: "Africa" },
         { value: "Americas" },
@@ -59,7 +64,7 @@ export default {
       countries: [],
       selectedCountry: [],
       errorMessage: "",
-      showCountryDetail: false
+      showCountryDetail: false,
     };
   },
   methods: {

@@ -58,6 +58,18 @@ li {
     list-style: none;
 }
 
+.btn {
+    width: 6.5rem;
+    height: 2.125rem;    
+    background: $elements-dark;
+    color: $text-dark;
+    font-family: inherit;
+    border: none;
+    border-radius: 2px;
+    box-shadow: $shadow;
+    
+}
+
 // mixins
 
 @mixin breakpoint-up($size) {
