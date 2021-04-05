@@ -36,16 +36,19 @@ export default {
 @import "../style/_globals.scss";
 
 .wrapper {
-  width: 100%;
+  position: fixed;
+  top: 0;
+  width: 100vw;
   height: 5rem;
   padding: 0 1rem;
   background: $elements-dark;
   box-shadow: $shadow;
+  z-index: 200;
 }
 
 .header {
-    width: 100%;
-  max-width: 80rem;  
+  width: 100%;
+  max-width: 80.5rem;
 
   &__title {
     font-size: 0.875rem;

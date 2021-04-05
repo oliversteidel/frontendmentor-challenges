@@ -25,8 +25,10 @@ $extra-bold: 800;
 // breakpoint sizes
 
 $small: 22.5625rem;
+$flex-wrap-enabled: 39.75rem; //636px
 $medium: 44.5rem; //712px
-$large: 62.5rem;
+$large: 62.5rem; //1200px
+$x-large: 81.25rem; //1300px
 
 *,
 *::before,
@@ -37,7 +39,7 @@ $large: 62.5rem;
 }
 
 html {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: "Nunito Sans", sans-serif;
     overflow-x: hidden;
 }
 
@@ -50,7 +52,7 @@ a,
 a:visited,
 a:focus {
     text-decoration: none;
-    font-family: inherit ;
+    font-family: inherit;
     color: inherit;
 }
 
@@ -59,15 +61,18 @@ li {
 }
 
 .btn {
-    width: 6.5rem;
-    height: 2.125rem;    
+    min-width: 6.5rem;
+    height: 2.125rem;
+    padding: 0 1.5em;
+    margin-bottom: 0.625rem;
+    margin-right: 0.625rem;
     background: $elements-dark;
     color: $text-dark;
     font-family: inherit;
     border: none;
     border-radius: 2px;
     box-shadow: $shadow;
-    
+    cursor: pointer;
 }
 
 // mixins
@@ -76,7 +81,7 @@ li {
     @media only screen and (min-width: $size) {
         @content;
     }
-} 
+}
 
 // helper classes
 

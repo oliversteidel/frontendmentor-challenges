@@ -13,7 +13,7 @@
           v-on:send-selected-region="getCountriesByRegion"
         />
       </div>
-      <div class="cards-container flex">
+      <div class="cards-container flex-col">
         <CountryCard
           v-for="country in countries"
           :key="country.name"
@@ -128,11 +128,16 @@ export default {
 @import "./style/_globals.scss";
 #app {
   margin: 0 auto;
+  padding-top: 5rem;
 }
 
 .container {
   padding: 0 1rem;
   background: $bg-dark;
+
+  @include breakpoint-up($flex-wrap-enabled) {
+    padding: 0 5rem;
+  }
 
   .wrapper-search-and-filter {
     width: 100%;
@@ -143,8 +148,14 @@ export default {
   }
 
   .cards-container {
-    max-width: 90rem;
-    flex-wrap: wrap;
+    max-width: 80.5rem;
+    align-items: center;
+    
+    @include breakpoint-up($flex-wrap-enabled) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 4.625rem;
+    }
   }
 }
 </style>

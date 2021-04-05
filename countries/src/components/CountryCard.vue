@@ -35,13 +35,13 @@ export default {
   width: 16.5625rem;  
   border-radius: 5px;
   background: $elements-dark;
-  margin: 0 auto 4.625rem auto; 
+  margin-bottom: 4.625rem;
   box-shadow: $shadow;
   overflow: hidden;
   cursor: pointer;
 
-  @include breakpoint-up($medium) {
-    margin: 0 0 4.625rem 4.625rem;  
+  @include breakpoint-up($flex-wrap-enabled) {
+    margin-bottom: 0;  
   }
 
   &__img-wrapper {
