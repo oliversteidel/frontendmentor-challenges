@@ -28,6 +28,7 @@
       :selectedCountry="selectedCountry"
       v-if="showCountryDetail"
       v-on:close-country-detail="showCountryDetail = false"
+      v-on:country-selected="setSelectedCountry"
     />
   </div>
 </template>
@@ -105,8 +106,7 @@ export default {
         this.requestSuccessful = false;
       }
     },
-    setSelectedCountry(name) {
-      console.log(name);
+    setSelectedCountry(name) {           
       this.countryData.forEach((el, index) => {
         if (el.name === name) {
           this.selectedCountry = this.countryData[index];

@@ -56,6 +56,7 @@
               v-for="borderCountry in borderCountries"
               :key="borderCountry"
               :borderCountry="borderCountry"
+              v-on:country-selected="$emit('country-selected', borderCountry)"
             />
           </div>
         </div>
@@ -99,6 +100,7 @@ export default {
       return temp.slice(1, -1);
     },
   },
+  
 };
 </script>
 

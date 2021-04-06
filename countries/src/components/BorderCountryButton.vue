@@ -1,5 +1,5 @@
 <template>
-  <button class="btn">{{ borderCountry }}</button>
+  <button class="btn" @click="$emit('country-selected', borderCountry)">{{ borderCountry }}</button>
 </template>
 
 <script>
