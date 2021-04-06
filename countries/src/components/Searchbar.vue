@@ -106,8 +106,8 @@ export default {
   right: 0;
   padding: 1rem 0;
   margin-top: 4px;
-  color: inherit;
-  background: inherit;
+  color: $text-dark;
+  background: $elements-dark;
   font-family: inherit;
   font-size: 0.875rem;
   line-height: 2em;
@@ -120,6 +120,7 @@ export default {
 .result-list__item {
   padding: 0 1.5rem;
   background: inherit;
+  color: inherit;
   cursor: pointer;  
 }
 

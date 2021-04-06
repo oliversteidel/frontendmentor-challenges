@@ -128,6 +128,9 @@ export default {
     },
     switchTheme() {
       this.darkmode = !this.darkmode;
+      if(!this.darkmode) {
+        document.querySelector('body').style.background = '$bg-light';
+      }
     },
   },
   beforeMount() {

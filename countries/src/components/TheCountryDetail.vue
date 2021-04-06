@@ -102,6 +102,11 @@ export default {
       });
       return temp.slice(1, -1);
     },
+    population() {
+      let populationString = this.selectedCountry.population.toString();
+      return populationString;
+
+    }
   },
   
 };
