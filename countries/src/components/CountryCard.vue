@@ -29,12 +29,9 @@ export default {
     population() {
       if (this.country.population > 999) {
         let populationString = this.country.population.toString();
-        let arr = [...populationString];
-        
-        let population = "";
-        
-        let counter = Math.floor(arr.length / 3);
-                
+        let arr = [...populationString];        
+        let population = "";        
+        let counter = Math.floor(arr.length / 3);                
         let index = [-3, -7, -11];
         for (let i = 0; i < counter; i++) {
           arr.splice(index[i], 0, ",");
