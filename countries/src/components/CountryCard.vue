@@ -7,7 +7,7 @@
       <h3 class="card__country-name" :country="country">{{ country.name }}</h3>
       <div class="card__info flex ai-c">
         <p class="card__info-tag">Population:</p>
-        <p class="card__info-value">{{ country.population }}</p>
+        <p class="card__info-value">{{ population }}</p>
       </div>
       <div class="card__info flex ai-c">
         <p class="card__info-tag">Region:</p>
@@ -25,6 +25,32 @@
 export default {
   name: "CountryCard",
   props: ["country", "darkmode"],
+  computed: {
+    population() {
+      if (this.country.population > 999) {
+        let populationString = this.country.population.toString();
+        let arr = [...populationString];
+        
+        let population = "";
+        
+        let counter = Math.floor(arr.length / 3);
+                
+        let index = [-3, -7, -11];
+        for (let i = 0; i < counter; i++) {
+          arr.splice(index[i], 0, ",");
+        }
+        if(arr[0] === ",") {
+          arr.shift();
+        }
+        arr.forEach(el => {
+          population = population.concat(el);
+        })
+        return population;
+      }else{
+        return this.country.population;
+      }
+    },
+  }
 };
 </script>
 

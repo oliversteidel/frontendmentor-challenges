@@ -6,8 +6,18 @@
         @click="$emit('close-country-detail')"
         :class="{ 'elem-light': !darkmode }"
       >
-        <img src="../assets/arrow-back-outline.svg" alt="" class="arrow-img" v-if="darkmode" />
-        <img src="../assets/arrow-back-outline-dark.svg" alt="" class="arrow-img" v-if="!darkmode" />
+        <img
+          src="../assets/arrow-back-outline.svg"
+          alt=""
+          class="arrow-img"
+          v-if="darkmode"
+        />
+        <img
+          src="../assets/arrow-back-outline-dark.svg"
+          alt=""
+          class="arrow-img"
+          v-if="!darkmode"
+        />
         <p>Back</p>
       </button>
     </div>
@@ -23,7 +33,7 @@
               Native Name:&nbsp;<span>{{ selectedCountry.nativeName }}</span>
             </p>
             <p class="country__info">
-              Population:&nbsp;<span>{{ selectedCountry.population }}</span>
+              Population:&nbsp;<span>{{ population }}</span>
             </p>
             <p class="country__info">
               Region:&nbsp;<span>{{ selectedCountry.region }}</span>
@@ -103,12 +113,27 @@ export default {
       return temp.slice(1, -1);
     },
     population() {
-      let populationString = this.selectedCountry.population.toString();
-      return populationString;
-
-    }
+      if (this.selectedCountry.population > 999) {
+        let populationString = this.selectedCountry.population.toString();
+        let arr = [...populationString];
+        let population = "";
+        let counter = Math.floor(arr.length / 3);
+        let index = [-3, -7, -11];
+        for (let i = 0; i < counter; i++) {
+          arr.splice(index[i], 0, ",");
+        }
+        if (arr[0] === ",") {
+          arr.shift();
+        }
+        arr.forEach((el) => {
+          population = population.concat(el);
+        });
+        return population;
+      } else {
+        return this.selectedCountry.population;
+      }
+    },
   },
-  
 };
 </script>
 
@@ -135,7 +160,7 @@ export default {
   .btn--back {
     max-width: 6.5rem;
     margin: 7.5rem 0 4rem 0;
-    
+
     .arrow-img {
       height: 50%;
       width: auto;
