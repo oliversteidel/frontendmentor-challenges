@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="searchbar-wrapper flex ai-c" @click="hideSearchList">
+    <div class="searchbar-wrapper flex ai-c" @click="hideSearchList" :class="{ 'input-light': !darkmode }" >
       <i class="fas fa-search"></i>
       <input
         type="search"
@@ -10,7 +10,7 @@
         @keyup="showCountryNamesList"
       />
     </div>
-    <ul class="result-list" v-if="userIsSearching">
+    <ul class="result-list" v-if="userIsSearching" :class="{ 'input-light': !darkmode }" >
       <li class="result-list__item"
         v-for="(element, index) in countryNames"
         :key="index"
@@ -25,7 +25,7 @@
 <script>
 export default {
   name: "Searchbar",
-  props: ["countryData"],
+  props: ["countryData", "darkmode"],
   data() {
     return {
       userIsSearching: false,
@@ -73,18 +73,19 @@ export default {
   margin-top: 1.5rem;
   padding: 0 1.875rem;
   background: $elements-dark;
+  color: $text-dark;
   border-radius: 5px;
   box-shadow: $shadow;
   position: relative;
 
   .fas {
-    color: $text-dark;
+    color: inherit;
   }
 
   input {
     border: none;
     background: transparent;
-    color: $text-dark;
+    color: inherit;
     font-family: inherit;
     margin-left: 1.625rem;
   }
@@ -105,8 +106,8 @@ export default {
   right: 0;
   padding: 1rem 0;
   margin-top: 4px;
-  color: $text-dark;
-  background: $elements-dark;
+  color: inherit;
+  background: inherit;
   font-family: inherit;
   font-size: 0.875rem;
   line-height: 2em;
@@ -118,7 +119,7 @@ export default {
 
 .result-list__item {
   padding: 0 1.5rem;
-  background: $elements-dark;
+  background: inherit;
   cursor: pointer;  
 }
 

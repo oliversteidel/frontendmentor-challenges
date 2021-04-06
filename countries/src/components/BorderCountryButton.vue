@@ -1,11 +1,11 @@
 <template>
-  <button class="btn" @click="$emit('country-selected', borderCountry)">{{ borderCountry }}</button>
+  <button class="btn" @click="$emit('country-selected', borderCountry)" :class="{ 'elem-light': !darkmode }" >{{ borderCountry }}</button>
 </template>
 
 <script>
 export default {
   name: "BorderCountryButton",
-  props: ["borderCountry"],
+  props: ["borderCountry", "darkmode"],
 };
 </script>
 

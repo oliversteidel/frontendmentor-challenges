@@ -2,13 +2,14 @@
   <div class="wrapper">
     <div
       class="select flex ai-c"
+      :class="{ 'elem-light': !darkmode }"
       :selectedRegion="selectedRegion"
       @click="toggleFilterOptions"
       
     >
       {{ selectedRegion }}
     </div>
-    <div class="option-wrapper" v-if="filterOpen">
+    <div class="option-wrapper" v-if="filterOpen" :class="{ 'elem-light': !darkmode }">
       <div
         class="option"        
         v-for="region in regions"
@@ -25,7 +26,7 @@
 <script>
 export default {
   name: "Filterbar",
-  props: ["regions"],
+  props: ["regions", "darkmode"],
   data() {
     return {
       selectedRegion: "Filter by region",

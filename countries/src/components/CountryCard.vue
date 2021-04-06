@@ -1,5 +1,5 @@
 <template>
-  <div class="card" @click="$emit('country-selected', country.name)">
+  <div class="card" @click="$emit('country-selected', country.name)" :class="{ 'elem-light': !darkmode }" >
     <div class="card__img-wrapper">
       <img :src="country.flag" alt="" class="card__flag" />
     </div>
@@ -24,7 +24,7 @@
 <script>
 export default {
   name: "CountryCard",
-  props: ["country"],
+  props: ["country", "darkmode"],
 };
 </script>
 
@@ -35,8 +35,9 @@ export default {
   width: 16.5625rem;  
   border-radius: 5px;
   background: $elements-dark;
+  color: $text-dark;
   margin-bottom: 4.625rem;
-  box-shadow: $shadow;
+  box-shadow: $shadow;  
   overflow: hidden;
   cursor: pointer;
 
@@ -61,7 +62,7 @@ export default {
   &__country-name {
     font-size: 1rem;
     font-weight: $semi-bold;
-    color: $text-dark;
+    color: inherit;
     margin-bottom: 1em;
   }
 
@@ -72,13 +73,13 @@ export default {
   &__info-tag {
     font-size: 0.875rem;
     font-weight: $semi-bold;
-    color: $text-dark;
+    color: inherit;
   }
 
   &__info-value {
     font-size: 0.875rem;
     font-weight: $light;
-    color: $text-dark;
+    color: inherit;
     margin-left: 0.5em;
   }
 }

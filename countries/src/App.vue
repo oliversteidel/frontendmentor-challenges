@@ -1,14 +1,24 @@
 <template>
   <div id="app">
-    <TheHeader :darkmode="darkmode" v-on:switch-theme="switchTheme" />
+    <TheHeader
+      :darkmode="darkmode"
+      v-on:switch-theme="switchTheme"
+      :class="{ 'elem-light': !darkmode }"
+    />
 
-    <div class="container flex-col ai-c" v-if="!showCountryDetail">
+    <div
+      class="container flex-col ai-c"
+      v-if="!showCountryDetail"
+      :class="{ 'bg-light': !darkmode }"
+    >
       <div class="wrapper-search-and-filter flex jc-sb">
         <Searchbar
+        :darkmode="darkmode"
           :countryData="countryData"
           v-on:send-selected-country="getCountryByName"
         />
         <Filterbar
+          :darkmode="darkmode"          
           :regions="regions"
           v-on:send-selected-region="getCountriesByRegion"
         />
@@ -18,12 +28,14 @@
           v-for="country in countries"
           :key="country.name"
           :country="country"
+          :darkmode="darkmode"
           v-on:country-selected="setSelectedCountry"
         />
       </div>
       <p class="error-message" v-if="!requestSuccessful">{{ errorMessage }}</p>
     </div>
     <TheCountryDetail
+      :darkmode="darkmode"
       :countryData="countryData"
       :selectedCountry="selectedCountry"
       v-if="showCountryDetail"
@@ -106,7 +118,7 @@ export default {
         this.requestSuccessful = false;
       }
     },
-    setSelectedCountry(name) {           
+    setSelectedCountry(name) {
       this.countryData.forEach((el, index) => {
         if (el.name === name) {
           this.selectedCountry = this.countryData[index];
@@ -150,7 +162,7 @@ export default {
   .cards-container {
     max-width: 80.5rem;
     align-items: center;
-    
+
     @include breakpoint-up($flex-wrap-enabled) {
       flex-direction: row;
       flex-wrap: wrap;

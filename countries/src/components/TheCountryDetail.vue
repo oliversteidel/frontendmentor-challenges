@@ -1,11 +1,13 @@
 <template>
-  <div class="wrapper flex-col ai-c">
+  <div class="wrapper flex-col ai-c" :class="{ 'elem-light': !darkmode }">
     <div class="btn-container">
       <button
         class="btn btn--back flex ai-c jc-c"
         @click="$emit('close-country-detail')"
+        :class="{ 'elem-light': !darkmode }"
       >
-        <img src="../assets/arrow-back-outline.svg" alt="" class="arrow-img" />
+        <img src="../assets/arrow-back-outline.svg" alt="" class="arrow-img" v-if="darkmode" />
+        <img src="../assets/arrow-back-outline-dark.svg" alt="" class="arrow-img" v-if="!darkmode" />
         <p>Back</p>
       </button>
     </div>
@@ -53,6 +55,7 @@
           </div>
           <div class="country__border-countries-btns flex">
             <BorderCountryButton
+              :darkmode="darkmode"
               v-for="borderCountry in borderCountries"
               :key="borderCountry"
               :borderCountry="borderCountry"
@@ -69,7 +72,7 @@
 import BorderCountryButton from "./BorderCountryButton.vue";
 export default {
   name: "TheCountryDetail",
-  props: ["selectedCountry", "countryData"],
+  props: ["selectedCountry", "countryData", "darkmode"],
   components: {
     BorderCountryButton,
   },
@@ -110,8 +113,11 @@ export default {
 .wrapper {
   width: 100vw;
   max-width: 90rem;
+  min-height: 100vh;
   padding: 0 1rem;
   margin: 0 auto;
+  background: $bg-dark;
+  color: $text-dark;
 
   @include breakpoint-up($medium) {
     padding: 0 5rem;
@@ -124,6 +130,7 @@ export default {
   .btn--back {
     max-width: 6.5rem;
     margin: 7.5rem 0 4rem 0;
+    
     .arrow-img {
       height: 50%;
       width: auto;
@@ -165,14 +172,14 @@ export default {
   &__name {
     font-size: 1.25rem;
     font-weight: $extra-bold;
-    color: $text-dark;
+    color: inherit;
     margin-bottom: 1.625rem;
   }
 
   &__info {
     font-size: 0.875rem;
     font-weight: $semi-bold;
-    color: $text-dark;
+    color: inherit;
     margin-bottom: 1em;
 
     span {
@@ -205,7 +212,7 @@ export default {
     h3 {
       font-size: 1rem;
       font-weight: $semi-bold;
-      color: $text-dark;
+      color: inherit;
       margin-bottom: 1em;
     }
   }

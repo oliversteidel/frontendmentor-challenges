@@ -41,9 +41,10 @@ export default {
   width: 100vw;
   height: 5rem;
   padding: 0 1rem;
+  color: $text-dark;
   background: $elements-dark;
   box-shadow: $shadow;
-  z-index: 200;
+  z-index: 200;  
 }
 
 .header {
@@ -53,7 +54,7 @@ export default {
   &__title {
     font-size: 0.875rem;
     font-weight: $extra-bold;
-    color: $text-dark;
+    color: inherit;
   }
 
   &__theme-switch-wrapper {
@@ -68,7 +69,7 @@ export default {
   &__theme-text {
     font-size: 0.8125rem;
     font-weight: $semi-bold;
-    color: $text-dark;
+    color: inherit;
     margin-left: 0.75rem;
   }
 }

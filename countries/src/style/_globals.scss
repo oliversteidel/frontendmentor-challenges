@@ -109,3 +109,17 @@ li {
 .jc-fe {
     justify-content: flex-end;
 }
+
+.bg-light {
+    background: $bg-light !important;
+}
+
+.elem-light {
+    background: $elements-light !important;
+    color: $text-light !important;
+}
+
+.input-light {
+    background: $elements-light !important;
+    color: $input-text-light !important;
+}
