@@ -6,18 +6,22 @@
         class="header__theme-switch-wrapper flex ai-c"
         @click="$emit('switch-theme')"
       >
-        <img
-          src="../assets/icon-sun.svg"
-          alt=""
-          class="header__icon"
-          v-if="darkmode"
-        />
-        <img
-          src="../assets/icon-moon.svg"
-          alt=""
-          class="header__icon"
-          v-if="!darkmode"
-        />
+        <transition name="rise-up">
+          <img
+            src="../assets/icon-sun.svg"
+            alt=""
+            class="header__icon"
+            v-if="darkmode"
+          />
+        </transition>
+        <transition name="rise-up" mode="out-in">
+          <img
+            src="../assets/icon-moon.svg"
+            alt=""
+            class="header__icon"
+            v-if="!darkmode"
+          />
+        </transition>
         <p class="header__theme-text" v-if="darkmode">Light Mode</p>
         <p class="header__theme-text" v-if="!darkmode">Dark Mode</p>
       </div>
@@ -44,7 +48,7 @@ export default {
   color: $text-dark;
   background: $elements-dark;
   box-shadow: $shadow;
-  z-index: 200;  
+  z-index: 200;
 }
 
 .header {
@@ -71,6 +75,18 @@ export default {
     font-weight: $semi-bold;
     color: inherit;
     margin-left: 0.75rem;
+  }
+
+  .rise-up-enter-active,
+  .rise-up-leave-active {
+    transition: transform 0.4s cubic-bezier(0.35, -0.23, 0.42, 1.31),
+      opacity 0.4s ease-in;
+  }
+
+  .rise-up-enter,
+  .rise-up-leave-to {
+    opacity: 0;
+    transform: translateY(2rem);
   }
 }
 </style>

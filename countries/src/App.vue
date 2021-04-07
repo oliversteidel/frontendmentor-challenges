@@ -13,12 +13,12 @@
     >
       <div class="wrapper-search-and-filter flex jc-sb">
         <Searchbar
-        :darkmode="darkmode"
+          :darkmode="darkmode"
           :countryData="countryData"
           v-on:send-selected-country="getCountryByName"
         />
         <Filterbar
-          :darkmode="darkmode"          
+          :darkmode="darkmode"
           :regions="regions"
           v-on:send-selected-region="getCountriesByRegion"
         />
@@ -34,14 +34,16 @@
       </div>
       <p class="error-message" v-if="!requestSuccessful">{{ errorMessage }}</p>
     </div>
-    <TheCountryDetail
-      :darkmode="darkmode"
-      :countryData="countryData"
-      :selectedCountry="selectedCountry"
-      v-if="showCountryDetail"
-      v-on:close-country-detail="showCountryDetail = false"
-      v-on:country-selected="setSelectedCountry"
-    />
+    <transition name="fade">
+      <TheCountryDetail
+        :darkmode="darkmode"
+        :countryData="countryData"
+        :selectedCountry="selectedCountry"
+        v-if="showCountryDetail"
+        v-on:close-country-detail="showCountryDetail = false"
+        v-on:country-selected="setSelectedCountry"
+      />
+    </transition>
   </div>
 </template>
 
@@ -128,8 +130,8 @@ export default {
     },
     switchTheme() {
       this.darkmode = !this.darkmode;
-      if(!this.darkmode) {
-        document.querySelector('body').style.background = '$bg-light';
+      if (!this.darkmode) {
+        document.querySelector("body").style.background = "$bg-light";
       }
     },
   },
@@ -173,4 +175,13 @@ export default {
     }
   }
 }
+
+.fade-enter-active, .fade-leave-active {
+    transition: transform .5s ease-in, opacity .5s ease-in;
+  }
+
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
 </style>
