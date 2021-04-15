@@ -26,6 +26,7 @@ export default {
   name: "CountryCard",
   props: ["country", "darkmode"],
   computed: {
+    //for better readability this function converts the population number in a comma seperated string
     population() {
       if (this.country.population > 999) {
         let populationString = this.country.population.toString();
@@ -63,6 +64,7 @@ export default {
   box-shadow: $shadow;  
   overflow: hidden;
   cursor: pointer;
+  align-self: stretch;
 
   @include breakpoint-up($flex-wrap-enabled) {
     margin-bottom: 0;  

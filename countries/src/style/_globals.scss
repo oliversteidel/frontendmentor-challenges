@@ -60,6 +60,17 @@ li {
     list-style: none;
 }
 
+// elements transition on theme switch
+
+p, h1, h2, h3 {
+    transition: color .5s ease-in;
+}
+
+.wrapper, .card, .container, .btn {
+    transition: background .3s ease-out;
+
+}
+
 .btn {
     min-width: 6.5rem;
     height: 2.125rem;
@@ -83,7 +94,7 @@ li {
     }
 }
 
-// helper classes
+// helper classes flex-box
 
 .flex {
     display: flex;
@@ -109,6 +120,8 @@ li {
 .jc-fe {
     justify-content: flex-end;
 }
+
+// helper classes theme switch
 
 .bg-light {
     background: $bg-light !important;

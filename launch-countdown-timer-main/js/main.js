@@ -23,7 +23,7 @@ const numbersDelayDay = [...document.getElementsByClassName('number-day-delay')]
 
 let tl = gsap.timeline();
 
-const flip = (front, back, callback) => {
+const flip = (front, back, callback) => {    
     tl.to(front, { duration: 0.2, rotationX: -180 })
         .to(back, { duration: 0.2, rotationX: 0 });
 
@@ -43,7 +43,7 @@ const updateNumbers = (target, value) => {
     });
 }
 
-const targetDate = new Date('March 28, 2021 14:56:00');
+const targetDate = new Date('May 28, 2021 14:56:00');
 let now = new Date(Date.now());
 let diffTime = Math.round((targetDate - now) / 1000);
 

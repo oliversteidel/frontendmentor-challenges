@@ -35,12 +35,14 @@ export default {
   },
 
   methods: {
+    //on keyup userinput in searchbar is converted in Regex, which compares dataset of countrynames
     makeSuggest() {
       let userInput = document.getElementById("searchbar").value;
       let regex = new RegExp(userInput, "ig");
       let result = this.countryData.filter((el) => el.name.match(regex));      
       return result;
     },
+    //creates list below searchbar of matching userinput with countrynames
     showCountryNamesList() {
       this.countryNames = [];
       let list = this.makeSuggest();

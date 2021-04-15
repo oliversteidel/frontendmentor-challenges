@@ -78,7 +78,7 @@ export default {
       countryData: [],
       countries: [],
       selectedCountry: [],
-      errorMessage: "",
+      errorMessage: "Can't get data from the Database, please check your network connection an try again later.",
       showCountryDetail: false,
     };
   },
@@ -87,10 +87,8 @@ export default {
       try {
         const response = await fetch(this.apiUrl);
         this.countryData = await response.json();
-        this.countries = await this.countryData;
-        console.log("apirequest successful");
-      } catch (error) {
-        this.errorMessage = error;
+        this.countries = await this.countryData;        
+      } catch (error) {        
         this.requestSuccessful = false;
       }
     },
@@ -103,8 +101,7 @@ export default {
             `https://restcountries.eu/rest/v2/region/${region}`
           );
           this.countries = await response.json();
-        } catch (error) {
-          this.errorMessage = error;
+        } catch (error) {          
           this.requestSuccessful = false;
         }
       }
@@ -115,8 +112,7 @@ export default {
           `https://restcountries.eu/rest/v2/name/${name}?fullText=true`
         );
         this.countries = await response.json();
-      } catch (error) {
-        this.errorMessage = error;
+      } catch (error) {        
         this.requestSuccessful = false;
       }
     },
@@ -173,6 +169,17 @@ export default {
       flex-wrap: wrap;
       gap: 4.625rem;
     }
+  }
+}
+
+.error-message {
+  font-size: 1rem;
+  color: $text-dark;
+  width: 100%;
+  max-width: 40ch;
+
+  @include breakpoint-up($large) {
+    font-size: 2rem;
   }
 }
 

@@ -139,7 +139,8 @@ body {
   position: absolute;
   left: 0px;
   -webkit-backface-visibility: hidden;
-          backface-visibility: hidden; }
+          backface-visibility: hidden;
+  background: #28283e; }
 
 .card-flip-front {
   top: 0;

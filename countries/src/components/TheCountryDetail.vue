@@ -87,10 +87,12 @@ export default {
     BorderCountryButton,
   },
   computed: {
+    //bordercountries are stored as 3 letter countrycodes, which is the alpha3Code.
+    //To get the readable name, this function compares alpha3codes and returns the name of matching country
     borderCountries() {
       let temp = [];
       this.selectedCountry.borders.forEach((el) => {
-        this.countryData.forEach((country) => {
+        this.countryData.forEach((country) => {          
           if (el === country.alpha3Code) {
             temp.push(country.name);
           }
@@ -112,6 +114,7 @@ export default {
       });
       return temp.slice(1, -1);
     },
+    //for better readability this function converts the population number in a comma seperated string
     population() {
       if (this.selectedCountry.population > 999) {
         let populationString = this.selectedCountry.population.toString();
