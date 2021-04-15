@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="[darkmode ? appDark : appLight]">
     <div class="container" :class="{ darkBg: darkmode }">
       <Header
         v-on:change-light-theme="changeLightTheme"
@@ -40,7 +40,9 @@ export default {
     return {
       todos: [],
       todosCopy: [],
-      darkmode: false,
+      darkmode: true,
+      appDark: 'app-dark',
+      appLight: 'app-light'
     };
   },
   mounted() {
@@ -178,6 +180,14 @@ li + li {
     background-image: url("./assets/bg-desktop-dark.jpg");
     background-size: unset;
   }
+}
+
+.app-dark {
+  background: $dtVeryDarkDesaturatedBlue;
+}
+
+.app-light {
+  background: $ltLightGrayishBlue;
 }
 
 .darkTask {
