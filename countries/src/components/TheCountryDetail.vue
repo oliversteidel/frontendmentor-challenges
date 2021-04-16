@@ -92,7 +92,7 @@ export default {
     borderCountries() {
       let temp = [];
       this.selectedCountry.borders.forEach((el) => {
-        this.countryData.forEach((country) => {          
+        this.countryData.forEach((country) => {
           if (el === country.alpha3Code) {
             temp.push(country.name);
           }
@@ -209,8 +209,8 @@ export default {
     margin-bottom: 1.625rem;
 
     @include breakpoint-up($large) {
-    font-size: 1.8rem;
-  }
+      font-size: 1.8rem;
+    }
   }
 
   &__info {

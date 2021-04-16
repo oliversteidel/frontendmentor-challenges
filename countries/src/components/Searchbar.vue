@@ -1,20 +1,30 @@
 <template>
   <div class="wrapper">
-    <div class="searchbar-wrapper flex ai-c" @click="hideSearchList" :class="{ 'input-light': !darkmode }" >
+    <div
+      class="searchbar-wrapper flex ai-c"
+      @click="hideSearchList"
+      :class="{ 'input-light': !darkmode }"
+    >
       <i class="fas fa-search"></i>
       <input
         type="search"
-        name="searchbar"
         id="searchbar"
         placeholder="Search for a country..."
         @keyup="showCountryNamesList"
       />
     </div>
-    <ul class="result-list" v-if="userIsSearching" :class="{ 'input-light': !darkmode }" >
-      <li class="result-list__item"
+    <ul
+      class="result-list"
+      v-if="userIsSearching"
+      :class="{ 'input-light': !darkmode }"
+    >
+      <li
+        class="result-list__item"
         v-for="(element, index) in countryNames"
         :key="index"
-        @click="[$emit('send-selected-country', element.name), hideSearchList()]"        
+        @click="
+          [$emit('send-selected-country', element.name), hideSearchList()]
+        "
       >
         {{ element.name }}
       </li>
@@ -30,7 +40,6 @@ export default {
     return {
       userIsSearching: false,
       countryNames: [],
-      
     };
   },
 
@@ -39,7 +48,7 @@ export default {
     makeSuggest() {
       let userInput = document.getElementById("searchbar").value;
       let regex = new RegExp(userInput, "ig");
-      let result = this.countryData.filter((el) => el.name.match(regex));      
+      let result = this.countryData.filter((el) => el.name.match(regex));
       return result;
     },
     //creates list below searchbar of matching userinput with countrynames
@@ -70,7 +79,7 @@ export default {
 }
 
 .searchbar-wrapper {
-  width: 100%;  
+  width: 100%;
   height: 3.625rem;
   margin-top: 1.5rem;
   padding: 0 1.875rem;
@@ -80,11 +89,16 @@ export default {
   box-shadow: $shadow;
   position: relative;
 
+  @include breakpoint-up($medium) {
+    margin-top: 3rem;
+  }
+
   .fas {
     color: inherit;
   }
 
   input {
+    width: 100%;
     border: none;
     background: transparent;
     color: inherit;
@@ -123,14 +137,11 @@ export default {
   padding: 0 1.5rem;
   background: inherit;
   color: inherit;
-  cursor: pointer;  
+  cursor: pointer;
 }
 
 .result-list__item:hover {
   background: $elements-dark-hover;
 }
-
-
-
 </style>
 

@@ -3,19 +3,25 @@
     <div
       class="select flex ai-c"
       :class="{ 'elem-light': !darkmode }"
-      :selectedRegion="selectedRegion"
       @click="toggleFilterOptions"
-      
     >
       {{ selectedRegion }}
     </div>
-    <div class="option-wrapper" v-if="filterOpen" :class="{ 'elem-light': !darkmode }">
+    <div
+      class="option-wrapper"
+      v-if="filterOpen"
+      :class="{ 'elem-light': !darkmode }"
+    >
       <div
-        class="option"        
+        class="option"
         v-for="region in regions"
         :key="region.value"
-        @click="[selectRegion(region.value), $emit('send-selected-region', selectedRegion)]"
-        
+        @click="
+          [
+            selectRegion(region.value),
+            $emit('send-selected-region', selectedRegion),
+          ]
+        "
       >
         {{ region.value }}
       </div>
@@ -30,7 +36,7 @@ export default {
   data() {
     return {
       selectedRegion: "Filter by region",
-      filterOpen: false,     
+      filterOpen: false,
     };
   },
   methods: {
@@ -39,9 +45,8 @@ export default {
     },
     selectRegion(value) {
       this.selectedRegion = value;
-      this.toggleFilterOptions();      
+      this.toggleFilterOptions();
     },
-    
   },
 };
 </script>
@@ -71,6 +76,10 @@ export default {
   @include breakpoint-up($medium) {
     margin-top: 1.5rem;
   }
+  // 52.5rem br-point when searchbar and filter are next to each other
+  @include breakpoint-up(52.5rem) {
+    margin-top: 3rem;
+  }
 }
 
 .option-wrapper {
@@ -83,20 +92,16 @@ export default {
   color: $text-dark;
   border-radius: 5px;
   box-shadow: $shadow;
-  position: absolute;  
+  position: absolute;
   z-index: 100;
 
   .option {
     padding: 0 1.5rem;
     cursor: pointer;
-  }  
+  }
 
   .option:hover {
     background: $elements-dark-hover;
   }
 }
-
-
-
-
 </style>

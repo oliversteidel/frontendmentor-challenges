@@ -1,5 +1,11 @@
 <template>
-  <button class="btn" @click="$emit('country-selected', borderCountry)" :class="{ 'elem-light': !darkmode }" >{{ borderCountry }}</button>
+  <button
+    class="btn"
+    @click="$emit('country-selected', borderCountry)"
+    :class="{ 'elem-light': !darkmode }"
+  >
+    {{ borderCountry }}
+  </button>
 </template>
 
 <script>

@@ -42,13 +42,17 @@ export default {
 .wrapper {
   position: fixed;
   top: 0;
-  width: 100vw;
+  width: 100%;
   height: 5rem;
   padding: 0 1.5rem;
   color: $text-dark;
   background: $elements-dark;
   box-shadow: $shadow;
   z-index: 200;
+
+  @include breakpoint-up($medium) {
+    padding: 0 5rem;
+  }
 }
 
 .header {
@@ -61,8 +65,8 @@ export default {
     color: inherit;
 
     @include breakpoint-up($large) {
-    font-size: 1.4375rem;
-  }
+      font-size: 1.4375rem;
+    }
   }
 
   &__theme-switch-wrapper {
@@ -74,7 +78,7 @@ export default {
     width: 0.75rem;
     height: 0.75rem;
     position: absolute;
-    left: -.5rem;
+    left: -0.5rem;
   }
 
   &__theme-text {
@@ -82,8 +86,6 @@ export default {
     font-weight: $semi-bold;
     color: inherit;
     margin-left: 0.75rem;
-
-    
   }
 
   .rise-up-enter-active,

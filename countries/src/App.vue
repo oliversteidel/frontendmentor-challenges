@@ -6,10 +6,7 @@
       :class="{ 'elem-light': !darkmode }"
     />
 
-    <div
-      class="container flex-col ai-c"
-      v-if="!showCountryDetail"      
-    >
+    <div class="container flex-col ai-c" v-if="!showCountryDetail">
       <div class="wrapper-search-and-filter flex jc-sb">
         <Searchbar
           :darkmode="darkmode"
@@ -77,7 +74,8 @@ export default {
       countryData: [],
       countries: [],
       selectedCountry: [],
-      errorMessage: "Can't get data from the Database, please check your network connection an try again later.",
+      errorMessage:
+        "Can't get data from the Database, please check your network connection an try again later.",
       showCountryDetail: false,
     };
   },
@@ -86,8 +84,8 @@ export default {
       try {
         const response = await fetch(this.apiUrl);
         this.countryData = await response.json();
-        this.countries = await this.countryData;        
-      } catch (error) {        
+        this.countries = await this.countryData;
+      } catch (error) {
         this.requestSuccessful = false;
       }
     },
@@ -100,7 +98,7 @@ export default {
             `https://restcountries.eu/rest/v2/region/${region}`
           );
           this.countries = await response.json();
-        } catch (error) {          
+        } catch (error) {
           this.requestSuccessful = false;
         }
       }
@@ -111,7 +109,7 @@ export default {
           `https://restcountries.eu/rest/v2/name/${name}?fullText=true`
         );
         this.countries = await response.json();
-      } catch (error) {        
+      } catch (error) {
         this.requestSuccessful = false;
       }
     },
@@ -124,7 +122,7 @@ export default {
       this.showCountryDetail = true;
     },
     switchTheme() {
-      this.darkmode = !this.darkmode;      
+      this.darkmode = !this.darkmode;
     },
   },
   beforeMount() {
@@ -139,12 +137,11 @@ export default {
   margin: 0 auto;
   padding-top: 5rem;
   background: $bg-dark;
-  transition: background .5s ease-out;
+  transition: background 0.5s ease-out;
 }
 
 .container {
   padding: 0 1rem;
-
 
   @include breakpoint-up($flex-wrap-enabled) {
     padding: 0 5rem;
@@ -152,7 +149,7 @@ export default {
 
   .wrapper-search-and-filter {
     width: 100%;
-    max-width: 80rem;
+    max-width: 80.5rem;
     margin-bottom: 2rem;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -164,6 +161,7 @@ export default {
 
     @include breakpoint-up($flex-wrap-enabled) {
       flex-direction: row;
+      justify-content: space-between;
       flex-wrap: wrap;
       gap: 4.625rem;
     }
@@ -181,12 +179,14 @@ export default {
   }
 }
 
-.fade-enter-active, .fade-leave-active {
-    transition: transform .5s ease-in, opacity .5s ease-in;
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: transform 0.5s ease-in, opacity 0.5s ease-in;
+}
 
-  .fade-enter, .fade-leave-to {
-    opacity: 0;
-    transform: translateY(10rem);
-  }
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(10rem);
+}
 </style>
