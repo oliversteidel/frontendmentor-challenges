@@ -124,10 +124,7 @@ export default {
       this.showCountryDetail = true;
     },
     switchTheme() {
-      this.darkmode = !this.darkmode;
-      if (!this.darkmode) {
-        document.querySelector("body").style.backgroundColor = "$bg-light";
-      }
+      this.darkmode = !this.darkmode;      
     },
   },
   beforeMount() {
