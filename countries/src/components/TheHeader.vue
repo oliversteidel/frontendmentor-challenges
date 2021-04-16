@@ -44,7 +44,7 @@ export default {
   top: 0;
   width: 100vw;
   height: 5rem;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
   color: $text-dark;
   background: $elements-dark;
   box-shadow: $shadow;
@@ -59,15 +59,22 @@ export default {
     font-size: 0.875rem;
     font-weight: $extra-bold;
     color: inherit;
+
+    @include breakpoint-up($large) {
+    font-size: 1.4375rem;
+  }
   }
 
   &__theme-switch-wrapper {
     cursor: pointer;
+    position: relative;
   }
 
   &__icon {
     width: 0.75rem;
     height: 0.75rem;
+    position: absolute;
+    left: -.5rem;
   }
 
   &__theme-text {
@@ -75,6 +82,8 @@ export default {
     font-weight: $semi-bold;
     color: inherit;
     margin-left: 0.75rem;
+
+    
   }
 
   .rise-up-enter-active,

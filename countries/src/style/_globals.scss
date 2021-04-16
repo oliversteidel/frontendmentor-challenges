@@ -14,7 +14,7 @@ $elements-dark-hover: hsl(209, 23%, 30%);
 
 // shadow
 
-$shadow: 0 3px 15px rgba(black, 0.1);
+$shadow: 0 3px 10px rgba(black, 0.1);
 
 // font weights
 
@@ -45,7 +45,7 @@ html {
 
 body {
     min-height: 100vh;
-    background: $bg-dark;
+    background-color: $bg-dark;
 }
 
 a,
@@ -67,7 +67,7 @@ p, h1, h2, h3 {
 }
 
 .wrapper, .card, .container, .btn {
-    transition: background .3s ease-out;
+    transition: background .5s ease-out;
 
 }
 

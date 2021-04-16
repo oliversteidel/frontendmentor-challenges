@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{ 'bg-light': !darkmode }">
     <TheHeader
       :darkmode="darkmode"
       v-on:switch-theme="switchTheme"
@@ -8,8 +8,7 @@
 
     <div
       class="container flex-col ai-c"
-      v-if="!showCountryDetail"
-      :class="{ 'bg-light': !darkmode }"
+      v-if="!showCountryDetail"      
     >
       <div class="wrapper-search-and-filter flex jc-sb">
         <Searchbar
@@ -127,7 +126,7 @@ export default {
     switchTheme() {
       this.darkmode = !this.darkmode;
       if (!this.darkmode) {
-        document.querySelector("body").style.background = "$bg-light";
+        document.querySelector("body").style.backgroundColor = "$bg-light";
       }
     },
   },
@@ -142,11 +141,13 @@ export default {
 #app {
   margin: 0 auto;
   padding-top: 5rem;
+  background: $bg-dark;
+  transition: background .5s ease-out;
 }
 
 .container {
   padding: 0 1rem;
-  background: $bg-dark;
+
 
   @include breakpoint-up($flex-wrap-enabled) {
     padding: 0 5rem;

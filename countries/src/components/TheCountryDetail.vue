@@ -207,6 +207,10 @@ export default {
     font-weight: $extra-bold;
     color: inherit;
     margin-bottom: 1.625rem;
+
+    @include breakpoint-up($large) {
+    font-size: 1.8rem;
+  }
   }
 
   &__info {
