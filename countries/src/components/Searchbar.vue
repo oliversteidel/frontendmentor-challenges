@@ -8,6 +8,7 @@
       <i class="fas fa-search"></i>
       <input
         type="search"
+        aria-label="search for country"
         id="searchbar"
         placeholder="Search for a country..."
         @keyup="showCountryNamesList"

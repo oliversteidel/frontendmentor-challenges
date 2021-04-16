@@ -8,7 +8,7 @@
       <img :src="country.flag" alt="" class="card__flag" />
     </div>
     <div class="card__data">
-      <p class="card__country-name" :country="country">{{ country.name }}</p>
+      <p class="card__country-name" >{{ country.name }}</p>
       <div class="card__info flex ai-c">
         <p class="card__info-tag">Population:</p>
         <p class="card__info-value">{{ population }}</p>
