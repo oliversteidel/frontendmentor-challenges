@@ -93,8 +93,7 @@ export default {
 // btn--circle darkmode style
 
 .darkTask {
-  background: $ltDarkGrayishBlue;
-  //opacity: 1;
+  background: $ltDarkGrayishBlue;  
 }
 
 .darkTask::after {
