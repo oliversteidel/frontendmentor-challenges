@@ -1,0 +1,42 @@
+@import 'globals.scss';
+
+.hero {
+    
+    
+    &__img-wrapper {
+        position: relative;
+        overflow: hidden;
+
+        .img-bg {
+            transform: translateY(-17%);
+        }
+
+        .img-mockup {
+            position: absolute;
+            left: 50%;
+            
+            transform: translate(-50%, -29%);
+            width: 90%;
+            height: auto;
+            
+            z-index: 10;
+        }
+    }
+
+    &__content-wrapper {
+        padding: 0 1rem;
+        h1 {
+            font-size: 2.5rem;
+            color: $darkBlue;
+            font-weight: 300;
+            text-align: center;
+            margin-top: -6rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+    }
+}

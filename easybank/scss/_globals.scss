@@ -1,0 +1,96 @@
+//colors
+
+$darkBlue: hsl(233, 26%, 24%);
+$hoverGreen: hsl(136, 65%, 51%);
+$brightCyan: hsl(192, 70%, 51%);
+
+$textColor: hsl(233, 8%, 62%);
+$bgPrimary: hsl(220, 16%, 96%);
+$bgSecondary: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+$gradient: linear-gradient(90deg, hsl(136, 65%, 51%), hsl(192, 70%, 51%));
+ 
+
+// breakpoints
+$small: 22.5625rem;
+$medium: 44.5rem; //712px
+$large: 62.5rem; //1200px
+$x-large: 81.25rem; //1300px
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Public Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background: none;
+}
+
+.btn--request {
+    font-size: 0.875rem;
+    font-family: inherit;
+    font-weight: 700;
+    padding: 1em 2.25em;
+    border-radius: 50px;
+    color: $white;
+    background: $gradient;
+}
+
+.text {
+    font-size: 0.875rem;
+    color: $textColor;
+    line-height: 1.75em;
+}
+
+// mixins
+
+@mixin breakpoint-up($size) {
+    @media only screen and (min-width: $size) {
+        @content;
+    }
+}
+
+// helper classes flex-box
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.ai-c {
+    align-items: center;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+.jc-sb {
+    justify-content: space-between;
+}
+
+.jc-fe {
+    justify-content: flex-end;
+}
