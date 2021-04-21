@@ -1,4 +1,4 @@
-@import 'globals.scss';
+@import "globals.scss";
 
 .nav {
     width: 100vw;
@@ -6,6 +6,10 @@
     padding: 0 2.25rem;
     background: $white;
     position: relative;
+
+    @include breakpoint-up($medium) {
+       height: 5rem;
+    }
 
     &__links-wrapper {
         position: absolute;
@@ -19,24 +23,55 @@
         z-index: 100;
         visibility: hidden;
 
-        li {
-            line-height: 2.5em;
-            text-align: center;
-            
+        @include breakpoint-up($medium) {
+            position: unset;
+            visibility: visible;
+            width: unset;
+            margin: 0;
+            padding: 0;
+        }
 
-            a {
-                color: $darkBlue;
+        ul {
+            @include breakpoint-up($medium) {
+                display: flex;
             }
         }
 
+        li {
+            line-height: 2.5em;
+            text-align: center;
 
+            @include breakpoint-up($medium) {
+                font-size: 0.875rem;
+            }
+
+            a {
+                color: $darkBlue;
+
+                @include breakpoint-up($medium) {
+                    color: $textColor;
+                }
+            }
+        }
+
+        li + li {
+            @include breakpoint-up($medium) {
+                margin-left: 1.875rem;
+            }
+        }
     }
 
-    &__btn {
+    .btn--request {
         display: none;
+
+        @include breakpoint-up($medium) {
+            display: block;
+        }
     }
 
-
-
-
+    &__btn--burger {
+        @include breakpoint-up($medium) {
+            display: none;
+        }
+    }
 }

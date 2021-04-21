@@ -146,6 +146,9 @@ button {
   padding: 0 2.25rem;
   background: white;
   position: relative; }
+  @media only screen and (min-width: 44.5rem) {
+    .nav {
+      height: 5rem; } }
   .nav__links-wrapper {
     position: absolute;
     top: 3.625rem;
@@ -157,13 +160,40 @@ button {
     background: white;
     z-index: 100;
     visibility: hidden; }
+    @media only screen and (min-width: 44.5rem) {
+      .nav__links-wrapper {
+        position: unset;
+        visibility: visible;
+        width: unset;
+        margin: 0;
+        padding: 0; } }
+    @media only screen and (min-width: 44.5rem) {
+      .nav__links-wrapper ul {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; } }
     .nav__links-wrapper li {
       line-height: 2.5em;
       text-align: center; }
+      @media only screen and (min-width: 44.5rem) {
+        .nav__links-wrapper li {
+          font-size: 0.875rem; } }
       .nav__links-wrapper li a {
         color: #2d314d; }
-  .nav__btn {
+        @media only screen and (min-width: 44.5rem) {
+          .nav__links-wrapper li a {
+            color: #9698a6; } }
+    @media only screen and (min-width: 44.5rem) {
+      .nav__links-wrapper li + li {
+        margin-left: 1.875rem; } }
+  .nav .btn--request {
     display: none; }
+    @media only screen and (min-width: 44.5rem) {
+      .nav .btn--request {
+        display: block; } }
+  @media only screen and (min-width: 44.5rem) {
+    .nav__btn--burger {
+      display: none; } }
 
 *,
 *::before,
