@@ -6,10 +6,15 @@
     padding: 0 2.25rem;
     background: $white;
     position: relative;
+    z-index: 100;
 
     @include breakpoint-up($medium) {
        height: 5rem;
     }
+
+    @include breakpoint-up($large) {
+        padding: 0 10rem;
+     }
 
     &__links-wrapper {
         position: absolute;
