@@ -1,3 +1,94 @@
 .benefits {
     background-color: $bgPrimary;
+    padding: 3.5rem 1rem;
+
+    @include breakpoint-up($x-large) {
+        padding: 3.5rem 10rem;
+    }
+
+    &__header {
+        @include breakpoint-up($x-large) {
+            align-items: flex-start;
+        }
+
+        h2,
+        h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__title {
+        font-size: 2rem;
+
+        @include breakpoint-up($large) {
+            font-size: 2.5rem;
+        }
+    }
+
+    &__description {
+        text-align: center;
+        margin-bottom: 3.3rem;
+        max-width: 60ch;
+
+        @include breakpoint-up($x-large) {
+            text-align: left;
+        }
+    }
+
+    .services {
+        @include breakpoint-up($x-large) {
+            display: flex;
+            gap: 2rem;
+        }
+        &__icon-wrapper {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+
+            img {
+                @include breakpoint-up($large) {
+                    transform: scale(103%);
+                }
+            }
+        }
+
+        &__title {
+            @include breakpoint-up($large) {
+                font-size: 1.5rem;
+            }
+        }
+
+        &__text {
+            max-width: 38ch;
+            text-align: center;
+            margin-bottom: 2rem;
+
+            @include breakpoint-up($x-large) {
+                text-align: left;
+            }
+        }
+
+        &__one,
+        &__two {
+            @include breakpoint-up($medium) {
+                display: flex;
+            }
+
+            @include breakpoint-up($x-large) {
+                gap: 2rem;
+            }
+        }
+
+        &__column {
+            @include breakpoint-up($medium) {
+                width: 50%;
+            }
+
+            @include breakpoint-up($x-large) {
+                align-items: flex-start;
+            }
+        }
+    }
 }
