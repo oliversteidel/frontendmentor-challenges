@@ -7,6 +7,8 @@
     }
 
     &__header {
+        align-items: center;
+        
         @include breakpoint-up($x-large) {
             align-items: flex-start;
         }
@@ -19,7 +21,7 @@
     }
 
     &__title {
-        font-size: 2rem;
+        font-size: 2rem;        
 
         @include breakpoint-up($large) {
             font-size: 2.5rem;
@@ -55,6 +57,7 @@
         }
 
         &__title {
+            margin-bottom: 1.5rem;
             @include breakpoint-up($large) {
                 font-size: 1.5rem;
             }
