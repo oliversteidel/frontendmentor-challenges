@@ -75,8 +75,12 @@
             }
         }
 
-        .hero__btn {
+        .hero__btn {            
             margin-bottom: 5rem;
+
+            @include breakpoint-up($large) {
+                align-self: flex-start;
+            }
         }
     }
 }

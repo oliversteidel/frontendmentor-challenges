@@ -371,6 +371,10 @@ button {
           text-align: left; } }
     .hero__content-wrapper .hero__btn {
       margin-bottom: 5rem; }
+      @media only screen and (min-width: 62.5rem) {
+        .hero__content-wrapper .hero__btn {
+          -ms-flex-item-align: start;
+              align-self: flex-start; } }
 
 .benefits {
   background-color: #f3f4f6;
