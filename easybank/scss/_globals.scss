@@ -96,7 +96,27 @@ button {
     border-radius: 50px;
     color: $white;
     background: $gradient;
+    cursor: pointer;
+    position: relative;
 }
+
+.btn--request::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    background-color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.btn--request:hover::after {
+    opacity: 0.3;
+}
+
 
 .text {
     font-size: 0.875rem;

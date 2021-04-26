@@ -1,0 +1,100 @@
+@import "globals.scss";
+
+.footer {
+    padding: 2rem;
+    background: $darkBlue;
+
+    @include breakpoint-up($large) {
+        flex-direction: row;
+        padding: 2rem 10rem 2rem 10rem;
+        justify-content: space-between;
+    }
+
+    &__logo-container {
+        margin-bottom: 2rem;
+
+        @include breakpoint-up($large) {
+            margin-bottom: 3.125rem;
+            align-items: flex-start;
+        }
+
+        #Vector {
+            fill: white;
+        }
+    }
+
+    &__social-links-container {
+        margin-bottom: 2rem;
+
+        @include breakpoint-up($large) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__social-link + &__social-link {
+        margin-left: 1rem;
+    }
+
+    .social-icon {
+        transition: all 0.3s ease-in;
+    }
+
+    &__social-link:hover .social-icon {
+        fill: $hoverGreen;
+    }
+
+    &__container-three {
+        margin-bottom: 2rem;
+
+        @include breakpoint-up($large) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__link {
+        margin-bottom: 0.5rem;
+        transition: all 0.3s ease-in;
+
+        @include breakpoint-up($large) {
+            font-size: 0.875rem;
+        }
+    }
+
+    &__link:hover {
+        color: $hoverGreen;
+    }
+
+    &__container-four {
+        .btn--request {
+            margin-bottom: 2rem;
+
+            @include breakpoint-up($large) {
+                align-self: flex-end;
+            }
+        }
+
+        p {
+            @include breakpoint-up($large) {
+                font-size: 0.875rem;
+            }
+        }
+    }
+}
+
+.attribution {
+    background: $darkBlue;
+    border-top: 1px solid $textColor;
+    padding: 1rem;
+    font-size: 0.75rem;
+
+    a {
+        margin-left: 0.5rem;
+        color: $white;
+        transition: color 0.3s ease-in;
+    }
+
+    a:hover {
+        color: $hoverGreen;
+    }
+
+}
