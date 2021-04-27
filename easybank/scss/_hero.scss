@@ -44,6 +44,7 @@
             width: 45%;
             align-self: center;
             align-items: flex-start;
+            justify-content: center;
             padding-left: 10rem;
         }
 
@@ -82,6 +83,7 @@
 
             @include breakpoint-up($large) {
                 align-self: flex-start;
+                margin-bottom: 0;
             }
         }
     }
