@@ -8,16 +8,18 @@
   <link rel="stylesheet" href="./css/style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
   <title>Frontend Mentor | Easybank landing page</title>
 </head>
 
 <body>
   <div class="container">
     <nav class="nav flex ai-c jc-sb">
+      <span id="nav-toggle-bg"></span>
       <div class="nav__logo">
         <img src="./images/logo.svg" alt="easybank logo" class="nav__logo-img">
       </div>
-      <div class="nav__links-wrapper flex ai-c jc-c">
+      <div class="nav__links-wrapper flex ai-c jc-c" id="nav-list">
         <ul>
           <li class="nav__link"><a href="">Home</a></li>
           <li class="nav__link"><a href="">About</a></li>
@@ -27,7 +29,7 @@
         </ul>
       </div>
       <button class="nav__btn btn--request btn">Request Invite</button>
-      <button class="nav__btn--burger"><img src="./images/icon-hamburger.svg" alt=""></button>
+      <button id="burger" class="nav__btn--burger"><img src="./images/icon-hamburger.svg" alt=""></button>
     </nav>
 
 
@@ -236,12 +238,12 @@
           </a>
         </div>
       </div>
-      <div class="footer__container-two flex-col ai-c">
+      <div class="footer__container-two flex-col">
         <a href="" class="footer__link text">About Us</a>
         <a href="" class="footer__link text">Contact</a>
         <a href="" class="footer__link text">Blog</a>
       </div>
-      <div class="footer__container-three flex-col ai-c">
+      <div class="footer__container-three flex-col">
         <a href="" class="footer__link text">Careers</a>
         <a href="" class="footer__link text">Support</a>
         <a href="" class="footer__link text">Privacy Policy</a>
@@ -261,7 +263,7 @@
 
 
 
-
+<script src="./js/main.js"></script>
 </body>
 
 </html>

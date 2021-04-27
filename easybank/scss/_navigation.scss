@@ -21,17 +21,18 @@
         top: 3.625rem;
         left: 0;
         width: calc(100% - 3rem);
-        margin: 1.5rem;
-        padding: 1.5rem 0;
+        height: 0; //16.5rem
+        margin: 1.5rem;        
         border-radius: 5px;
         background: $white;
+        overflow: hidden;
         z-index: 100;
-        visibility: hidden;
+        
 
         @include breakpoint-up($medium) {
-            position: unset;
-            visibility: visible;
+            position: unset;            
             width: unset;
+            height: initial !important;
             margin: 0;
             padding: 0;
         }
@@ -45,6 +46,7 @@
         li {
             line-height: 2.5em;
             text-align: center;
+            font-size: 1.0625rem;
 
             @include breakpoint-up($medium) {
                 font-size: 0.875rem;
@@ -66,6 +68,8 @@
         }
     }
 
+    
+
     .btn--request {
         display: none;
 
@@ -79,4 +83,13 @@
             display: none;
         }
     }
+}
+
+#nav-toggle-bg {    
+    position: absolute;
+    left: 0;
+    top: 3.625rem;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(hsla(233, 26%, 24%, 0.9), hsla(0, 0%, 100%, 0));
 }

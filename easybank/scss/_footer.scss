@@ -43,11 +43,23 @@
         fill: $hoverGreen;
     }
 
-    &__container-three {
-        margin-bottom: 2rem;
+    &__container-two {
+        align-items: center;
 
         @include breakpoint-up($large) {
+            align-items: flex-start;            
+        }
+    }
+
+    &__container-three {
+        align-items: center;
+        margin-bottom: 2rem;
+        
+
+        @include breakpoint-up($large) {
+            align-items: flex-start;
             margin-bottom: 0;
+            margin-right: 15rem;
         }
     }
 

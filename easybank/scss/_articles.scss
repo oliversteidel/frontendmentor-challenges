@@ -73,6 +73,12 @@
 
             .articles__title {
                 margin-bottom: 1rem;
+                transition: color 0.3s ease-in;
+                cursor: pointer;
+            }
+
+            .articles__title:hover {
+                color: $hoverGreen;
             }
 
             .articles__text {
