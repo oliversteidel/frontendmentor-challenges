@@ -38,6 +38,7 @@
         }
 
         ul {
+            position: relative;
             @include breakpoint-up($medium) {
                 display: flex;
             }
@@ -83,6 +84,17 @@
             display: none;
         }
     }
+
+    &__hover-marker {
+        width: 3.25rem;
+        height: 0.25rem;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background: $gradient;
+        z-index: 900;
+
+    }
 }
 
 #nav-toggle-bg {    
@@ -93,3 +105,4 @@
     height: 0;
     background: linear-gradient(hsla(233, 26%, 24%, 0.9), hsla(0, 0%, 100%, 0));
 }
+
