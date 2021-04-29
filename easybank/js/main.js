@@ -27,24 +27,22 @@ navBtn.addEventListener('click', function () {
 
 const marker = document.querySelector('.nav__hover-marker');
 const navLinks = document.querySelectorAll('.nav__link');
-let markerWidth = 62;
-let linksContainerPos = navList.offsetLeft;
-let linkPosX = navLinks[0].offsetLeft + linksContainerPos + markerWidth;
-
+let linkPosX = navLinks[0].offsetLeft + navList.offsetLeft + 52;
 
 // set initial marker position
 gsap.set(marker, { x: linkPosX });
 
 // set marker after resizing the window
-window.addEventListener('resize', function() {
-    linkPosX = navLinks[0].offsetLeft + navList.offsetLeft + markerWidth;
-    gsap.set(marker, { x: linkPosX });    
+window.addEventListener('resize', function () {
+    linkPosX = navLinks[0].offsetLeft + navList.offsetLeft;
+    gsap.set(marker, { x: 0 });
+    gsap.set(marker, { x: linkPosX });
 });
 
 // marker grows in width on mouseenter navlink
 navLinks.forEach(el => {
     el.addEventListener('mouseenter', function (e) {
-        linkPosX = e.target.offsetLeft + linksContainerPos + markerWidth;        
+        linkPosX = e.target.offsetLeft + navList.offsetLeft;
         gsap.to(marker, { duration: 0.3, width: 52 });
     });
 });
@@ -52,7 +50,7 @@ navLinks.forEach(el => {
 // marker follows nav link on which the cursor is
 navLinks.forEach(el => {
     el.addEventListener('mouseover', function (e) {
-        linkPosX = e.target.offsetLeft + linksContainerPos + markerWidth;
+        linkPosX = e.target.offsetLeft + navList.offsetLeft;
         gsap.to(marker, { duration: 0.3, x: linkPosX });
     });
 });
