@@ -1,0 +1,48 @@
+// breakpoints (recomment using em units!)
+$small: 37.5em; //600px
+$medium: 50em; //800px
+$large: 62.5em; //1000px
+$x-large: 81.25em; //1300px
+
+// colors (naming: $clr-{first letter of color-group}{lightness-value})
+// neutral
+$clr-n10: hsl(0, 0%, 10%);
+$clr-n20: hsl(0, 0%, 20%);
+$clr-n30: hsl(0, 0%, 30%);
+$clr-n40: hsl(0, 0%, 40%);
+$clr-n50: hsl(0, 0%, 50%);
+$clr-n60: hsl(0, 0%, 60%);
+$clr-n70: hsl(0, 0%, 70%);
+$clr-n80: hsl(0, 0%, 80%);
+$clr-n90: hsl(0, 0%, 90%);
+
+
+// ## Colors
+
+// ### Primary
+
+$cta-text: hsl(356, 100%, 66%);
+$cta-hover-background: hsl(355, 100%, 74%);
+$headings: hsl(208, 49%, 24%);
+
+// ### Neutral
+
+$white-text: hsl(0, 0%, 100%);
+$footer-text: hsl(240, 2%, 79%);
+$body-copy: hsl(207, 13%, 34%);
+$footer-background: hsl(240, 10%, 16%);
+
+// ### Gradient
+
+// Background gradient - Intro/CTA mobile nav:
+
+$background-gradient-intro: linear-gradient(hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+
+// Background gradient - body:
+$Background-gradient-body: linear-gradient(hsl(237, 17%, 21%), hsl(237, 23%, 32%));
+
+// ### Fonts
+
+$font-overpass: 'Overpass', sans-serif;
+$font-ubuntu: 'Ubuntu', sans-serif;
+
