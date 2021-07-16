@@ -1,0 +1,213 @@
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.ai-c {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ai-fs {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.ai-fe {
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.jc-c {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.jc-sb {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.jc-fs {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.jc-fe {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+a[class],
+a[class]:visited,
+a[class]:hover {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+header {
+  width: 100%;
+  min-height: 32.75rem;
+  background-image: url(../images/bg-pattern-intro.svg), -webkit-gradient(linear, left top, left bottom, from(#ff8f70), to(#ff3d54));
+  background-image: url(../images/bg-pattern-intro.svg), linear-gradient(#ff8f70, #ff3d54);
+  background-repeat: no-repeat;
+  background-position: 40% center;
+  background-size: 400%;
+  border-bottom-left-radius: 100px;
+  padding: 3.125rem 1.25rem;
+}
+
+.nav {
+  position: relative;
+  width: 100%;
+}
+.nav__links {
+  position: absolute;
+  top: calc(100% + 1.5rem);
+  left: 0;
+  width: 100%;
+  padding: 2.0625rem 1.125rem;
+  text-align: center;
+  border-radius: 5px;
+  background: white;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #283d52;
+  -webkit-box-shadow: 0 10px 30px rgba(60, 42, 42, 0.4);
+          box-shadow: 0 10px 30px rgba(60, 42, 42, 0.4);
+}
+.nav__links--internal {
+  width: 100%;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #efeff1;
+}
+.nav__links--internal .link-item {
+  margin-bottom: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+.nav__links--internal .link-item .arrow-icon {
+  display: inline-block;
+  padding-left: 0.5rem;
+}
+.nav__links--internal .connect-dropdown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 1rem 0;
+  background: #efeff1;
+  border-radius: 5px;
+}
+.nav__links--internal .connect-dropdown__item {
+  line-height: 2.5em;
+}
+.nav__links--internal .link-item--active {
+  opacity: 0.75;
+}
+.nav__links--auth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 1rem;
+}
+.nav__links--auth--login {
+  margin-bottom: 1rem;
+  color: #283d52;
+}
+.nav__links--auth--signup {
+  width: 8.625rem;
+  padding: 0.5em 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ff8f70), to(#ff3d54));
+  background-image: linear-gradient(90deg, #ff8f70, #ff3d54);
+  color: white;
+  border-radius: 50px;
+}
+
+body {
+  font-family: "Overpass", sans-serif;
+}

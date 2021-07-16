@@ -1,5 +1,13 @@
-@use '../setup';
+@use '../setup/index' as *;
 
 header {
-    display: flex;
+    width: 100%;
+    min-height: 32.75rem;
+    background-image: url(../images/bg-pattern-intro.svg), $background-gradient-intro-mobile;
+    background-repeat: no-repeat;
+    background-position: 40% center;
+    background-size: 400%;
+    border-bottom-left-radius: 100px;
+    padding: 3.125rem 1.25rem;
+    
 }

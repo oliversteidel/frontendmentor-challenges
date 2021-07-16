@@ -1,3 +1,9 @@
 @use './setup' as *;
-//@use './components/';
+@use './components/header';
+@use './components/navigation';
+
+body {
+    font-family: $font-overpass;
+    
+}
 

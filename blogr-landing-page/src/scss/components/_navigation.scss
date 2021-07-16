@@ -1,0 +1,76 @@
+@use '../setup/index' as *;
+
+.nav {
+    position: relative;
+    width: 100%;
+
+    &__links {
+        position: absolute;
+        top: calc(100% + 1.5rem);
+        left: 0;
+        width: 100%;
+        padding: 2.0625rem 1.125rem;
+        text-align: center;
+        border-radius: 5px;
+        background: white;
+        font-size: 1rem;
+        font-weight: 600;
+        color: $text-nav-dark;
+        box-shadow: 0 10px 30px hsla(0, 17%, 20%, 0.4);
+
+        &--internal {
+            width: 100%;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid hsl(240, 7%, 94%);
+
+            .link-item {
+                margin-bottom: 1rem;
+                cursor: pointer;
+                position: relative;
+
+                .arrow-icon {
+                    display: inline-block;
+                    padding-left: 0.5rem;
+                }
+            }
+
+            .connect-dropdown {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                padding: 1rem 0;
+                background: hsl(240, 7%, 94%);
+                border-radius: 5px;
+
+                &__item {
+                    line-height: 2.5em;
+                }
+            }
+
+            .link-item--active {
+                opacity: 0.75;
+            }
+        }
+
+        &--auth {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 1rem;
+
+            &--login {
+                margin-bottom: 1rem;
+                color: $text-nav-dark;
+            }
+
+            &--signup {
+                width: 8.625rem;
+                padding: 0.5em 0;
+                background-image: $background-gradient-intro-desktop;
+                color: $text-white;
+                border-radius: 50px;
+            }
+        }
+    }
+}
