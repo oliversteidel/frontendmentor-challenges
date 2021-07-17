@@ -121,10 +121,38 @@ header {
   background-image: url(../images/bg-pattern-intro.svg), -webkit-gradient(linear, left top, left bottom, from(#ff8f70), to(#ff3d54));
   background-image: url(../images/bg-pattern-intro.svg), linear-gradient(#ff8f70, #ff3d54);
   background-repeat: no-repeat;
-  background-position: 40% center;
-  background-size: 400%;
+  background-position: 35% 35%;
+  background-size: 320%;
   border-bottom-left-radius: 100px;
   padding: 3.125rem 1.25rem;
+}
+header .intro {
+  margin-top: 5rem;
+  color: white;
+  text-align: center;
+}
+header .intro__title {
+  font-size: 2.25rem;
+  line-height: 1.3em;
+}
+header .intro__subtitle {
+  font-size: 1rem;
+  padding: 1rem 2rem 3rem 2rem;
+}
+header .intro__btn {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 1em 1.5em 0.75em 1.5em;
+  border-radius: 50px;
+}
+header .intro__btn--start {
+  background: white;
+  color: #ff525d;
+}
+header .intro__btn--learn {
+  border: 1px solid white;
+  color: white;
+  margin-left: 1rem;
 }
 
 .nav {

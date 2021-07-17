@@ -5,9 +5,42 @@ header {
     min-height: 32.75rem;
     background-image: url(../images/bg-pattern-intro.svg), $background-gradient-intro-mobile;
     background-repeat: no-repeat;
-    background-position: 40% center;
-    background-size: 400%;
+    background-position: 35% 35%;
+    background-size: 320%;
     border-bottom-left-radius: 100px;
     padding: 3.125rem 1.25rem;
-    
+
+    .intro {
+        margin-top: 5rem;
+        color: $text-white;
+        text-align: center;
+
+        &__title {
+            font-size: 2.25rem;
+            line-height: 1.3em;
+        }
+
+        &__subtitle {
+            font-size: 1rem;
+            padding: 1rem 2rem 3rem 2rem;
+        }
+
+        &__btn {
+            font-size: 0.8rem;
+            font-weight: 600;            
+            padding: 1em 1.5em 0.75em 1.5em;
+            border-radius: 50px;
+        }
+
+        &__btn--start {
+            background: $text-white;
+            color: $text-cta;
+        }
+
+        &__btn--learn {
+            border: 1px solid $text-white;
+            color: $text-white;
+            margin-left: 1rem;
+        }
+    }
 }
