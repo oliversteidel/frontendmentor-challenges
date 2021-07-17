@@ -3,6 +3,9 @@
 .nav {
     position: relative;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
     &__links {
         position: absolute;
@@ -17,6 +20,9 @@
         font-weight: 600;
         color: $text-nav-dark;
         box-shadow: 0 10px 30px hsla(0, 17%, 20%, 0.4);
+        transition: transform 0.5s ease;
+        transform-origin: top;
+        transform: scaleY(0);
 
         &--internal {
             width: 100%;
@@ -30,22 +36,33 @@
 
                 .arrow-icon {
                     display: inline-block;
-                    padding-left: 0.5rem;
+                    margin-left: 0.5rem;
+                    transition: transform 0.3s ease;
+                    transform-origin: center;
+                    
+                }
+
+                .arrow-icon--open {
+                    transform: rotate(180deg);
                 }
             }
 
             .connect-dropdown {
-                display: flex;
+                display: none;
                 flex-direction: column;
                 align-items: center;
                 width: 100%;
                 padding: 1rem 0;
                 background: hsl(240, 7%, 94%);
-                border-radius: 5px;
+                border-radius: 5px;                
 
                 &__item {
                     line-height: 2.5em;
                 }
+            }
+
+            .connect-dropdown--open {
+                display: flex;
             }
 
             .link-item--active {
@@ -72,5 +89,21 @@
                 border-radius: 50px;
             }
         }
+    }
+
+    .nav--open {
+        transform: scaleY(1);
+    }
+
+    &__toggle-btn {
+        width: 1.75rem;
+        height: 1.75rem;
+        background-image: url(../images/icon-hamburger.svg);
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+    .icon--close {
+        background-image: url(../images/icon-close.svg);
     }
 }

@@ -130,6 +130,15 @@ header {
 .nav {
   position: relative;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .nav__links {
   position: absolute;
@@ -145,6 +154,14 @@ header {
   color: #283d52;
   -webkit-box-shadow: 0 10px 30px rgba(60, 42, 42, 0.4);
           box-shadow: 0 10px 30px rgba(60, 42, 42, 0.4);
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transform: scaleY(0);
+          transform: scaleY(0);
 }
 .nav__links--internal {
   width: 100%;
@@ -158,12 +175,20 @@ header {
 }
 .nav__links--internal .link-item .arrow-icon {
   display: inline-block;
-  padding-left: 0.5rem;
+  margin-left: 0.5rem;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+.nav__links--internal .link-item .arrow-icon--open {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 .nav__links--internal .connect-dropdown {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -178,6 +203,11 @@ header {
 }
 .nav__links--internal .connect-dropdown__item {
   line-height: 2.5em;
+}
+.nav__links--internal .connect-dropdown--open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 .nav__links--internal .link-item--active {
   opacity: 0.75;
@@ -206,6 +236,20 @@ header {
   background-image: linear-gradient(90deg, #ff8f70, #ff3d54);
   color: white;
   border-radius: 50px;
+}
+.nav .nav--open {
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+.nav__toggle-btn {
+  width: 1.75rem;
+  height: 1.75rem;
+  background-image: url(../images/icon-hamburger.svg);
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.nav .icon--close {
+  background-image: url(../images/icon-close.svg);
 }
 
 body {
