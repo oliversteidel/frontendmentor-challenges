@@ -24,22 +24,56 @@
         transform-origin: top;
         transform: scaleY(0);
 
+        @include mq-up($medium) {
+            position: unset;
+            display: flex;
+            transform: scaleY(1);
+            background: none;
+            box-shadow: none;
+        }
+
         &--internal {
+            position: relative;
             width: 100%;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid hsl(240, 7%, 94%);
+
+            @include mq-up($medium) {
+                display: flex;
+                padding: 0;
+                border: none;
+            }
+
+            ul:first-child {
+                @include mq-up($medium) {
+                    display: flex;
+                    align-items: center;
+                }
+            }
 
             .link-item {
                 margin-bottom: 1rem;
                 cursor: pointer;
                 position: relative;
 
+                @include mq-up($medium) {
+                    margin: 0;
+                    color: $text-white;
+                }
+
                 .arrow-icon {
                     display: inline-block;
+                    width: 10px;
+                    height: 8px;
                     margin-left: 0.5rem;
                     transition: transform 0.3s ease;
                     transform-origin: center;
-                    
+                    background-image: url(../images/icon-arrow-dark.svg);
+
+                    @include mq-up($medium) {
+                        background-image: url(../images/icon-arrow-light.svg);
+
+                    }                    
                 }
 
                 .arrow-icon--open {
@@ -47,7 +81,16 @@
                 }
             }
 
+            .link-item:first-child {
+                margin-left: 4rem;
+            }
+
+            .link-item + .link-item {
+                margin-left: 2rem;
+            }
+
             .connect-dropdown {
+                
                 display: none;
                 flex-direction: column;
                 align-items: center;
@@ -58,11 +101,30 @@
 
                 &__item {
                     line-height: 2.5em;
+                    font-family: $font-ubuntu;
+                    font-weight: 500;
+                }
+
+                &__item:hover {
+                    font-weight: 700;
+                    cursor: pointer;
                 }
             }
 
             .connect-dropdown--open {
                 display: flex;
+
+                @include mq-up($medium) {
+                    display: block;
+                    position: absolute;
+                    top: 4rem;
+                    left: 16rem;
+                    width: 10.5rem;
+                    text-align: left;
+                    padding: 1.5rem;
+
+
+                }
             }
 
             .link-item--active {
@@ -76,17 +138,32 @@
             align-items: center;
             padding-top: 1rem;
 
+            @include mq-up($medium) {
+                flex-direction: row;
+                padding: 0;
+            }
+
             &--login {
                 margin-bottom: 1rem;
                 color: $text-nav-dark;
+
+                @include mq-up($medium) {
+                    margin: 0 2rem;
+                    color: $text-white;
+                }
             }
 
             &--signup {
                 width: 8.625rem;
-                padding: 0.5em 0;
+                padding: 0.8em 1.25em 0.65em 1.25em;
                 background-image: $background-gradient-intro-desktop;
                 color: $text-white;
                 border-radius: 50px;
+
+                @include mq-up($medium) {
+                    background: $text-white;
+                    color: $text-cta;
+                }
             }
         }
     }
@@ -101,6 +178,10 @@
         background-image: url(../images/icon-hamburger.svg);
         background-repeat: no-repeat;
         cursor: pointer;
+
+        @include mq-up($medium) {
+            display: none;
+        }
     }
 
     .icon--close {

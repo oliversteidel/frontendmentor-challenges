@@ -121,10 +121,22 @@ header {
   background-image: url(../images/bg-pattern-intro.svg), -webkit-gradient(linear, left top, left bottom, from(#ff8f70), to(#ff3d54));
   background-image: url(../images/bg-pattern-intro.svg), linear-gradient(#ff8f70, #ff3d54);
   background-repeat: no-repeat;
-  background-position: 35% 35%;
-  background-size: 320%;
+  background-position: 35% 30%;
+  background-size: 250vw;
   border-bottom-left-radius: 100px;
   padding: 3.125rem 1.25rem;
+}
+@media only screen and (min-width: 62.5em) {
+  header {
+    padding: 3.125rem 5rem;
+    background-position: -300px;
+  }
+}
+@media only screen and (min-width: 81.25em) {
+  header {
+    padding: 3.125rem 10rem;
+    background-position: -400px;
+  }
 }
 header .intro {
   margin-top: 5rem;
@@ -132,11 +144,11 @@ header .intro {
   text-align: center;
 }
 header .intro__title {
-  font-size: 2.25rem;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
   line-height: 1.3em;
 }
 header .intro__subtitle {
-  font-size: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   padding: 1rem 2rem 3rem 2rem;
 }
 header .intro__btn {
@@ -191,18 +203,59 @@ header .intro__btn--learn {
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
 }
+@media only screen and (min-width: 50em) {
+  .nav__links {
+    position: unset;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    background: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+}
 .nav__links--internal {
+  position: relative;
   width: 100%;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid #efeff1;
+}
+@media only screen and (min-width: 50em) {
+  .nav__links--internal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+    border: none;
+  }
+}
+@media only screen and (min-width: 50em) {
+  .nav__links--internal ul:first-child {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 .nav__links--internal .link-item {
   margin-bottom: 1rem;
   cursor: pointer;
   position: relative;
 }
+@media only screen and (min-width: 50em) {
+  .nav__links--internal .link-item {
+    margin: 0;
+    color: white;
+  }
+}
 .nav__links--internal .link-item .arrow-icon {
   display: inline-block;
+  width: 10px;
+  height: 8px;
   margin-left: 0.5rem;
   -webkit-transition: -webkit-transform 0.3s ease;
   transition: -webkit-transform 0.3s ease;
@@ -210,10 +263,22 @@ header .intro__btn--learn {
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
   -webkit-transform-origin: center;
           transform-origin: center;
+  background-image: url(../images/icon-arrow-dark.svg);
+}
+@media only screen and (min-width: 50em) {
+  .nav__links--internal .link-item .arrow-icon {
+    background-image: url(../images/icon-arrow-light.svg);
+  }
 }
 .nav__links--internal .link-item .arrow-icon--open {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+}
+.nav__links--internal .link-item:first-child {
+  margin-left: 4rem;
+}
+.nav__links--internal .link-item + .link-item {
+  margin-left: 2rem;
 }
 .nav__links--internal .connect-dropdown {
   display: none;
@@ -231,11 +296,28 @@ header .intro__btn--learn {
 }
 .nav__links--internal .connect-dropdown__item {
   line-height: 2.5em;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+}
+.nav__links--internal .connect-dropdown__item:hover {
+  font-weight: 700;
+  cursor: pointer;
 }
 .nav__links--internal .connect-dropdown--open {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+@media only screen and (min-width: 50em) {
+  .nav__links--internal .connect-dropdown--open {
+    display: block;
+    position: absolute;
+    top: 4rem;
+    left: 16rem;
+    width: 10.5rem;
+    text-align: left;
+    padding: 1.5rem;
+  }
 }
 .nav__links--internal .link-item--active {
   opacity: 0.75;
@@ -253,17 +335,38 @@ header .intro__btn--learn {
           align-items: center;
   padding-top: 1rem;
 }
+@media only screen and (min-width: 50em) {
+  .nav__links--auth {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    padding: 0;
+  }
+}
 .nav__links--auth--login {
   margin-bottom: 1rem;
   color: #283d52;
 }
+@media only screen and (min-width: 50em) {
+  .nav__links--auth--login {
+    margin: 0 2rem;
+    color: white;
+  }
+}
 .nav__links--auth--signup {
   width: 8.625rem;
-  padding: 0.5em 0;
+  padding: 0.8em 1.25em 0.65em 1.25em;
   background-image: -webkit-gradient(linear, left top, right top, from(#ff8f70), to(#ff3d54));
   background-image: linear-gradient(90deg, #ff8f70, #ff3d54);
   color: white;
   border-radius: 50px;
+}
+@media only screen and (min-width: 50em) {
+  .nav__links--auth--signup {
+    background: white;
+    color: #ff525d;
+  }
 }
 .nav .nav--open {
   -webkit-transform: scaleY(1);
@@ -275,6 +378,11 @@ header .intro__btn--learn {
   background-image: url(../images/icon-hamburger.svg);
   background-repeat: no-repeat;
   cursor: pointer;
+}
+@media only screen and (min-width: 50em) {
+  .nav__toggle-btn {
+    display: none;
+  }
 }
 .nav .icon--close {
   background-image: url(../images/icon-close.svg);
