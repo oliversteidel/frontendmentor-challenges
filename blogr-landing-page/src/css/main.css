@@ -190,6 +190,11 @@ header .intro__btn--learn:hover {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+@media only screen and (min-width: 62.5em) {
+  .nav__logo-container {
+    width: 10rem;
+  }
+}
 .nav__links {
   position: absolute;
   top: calc(100% + 1.5rem);

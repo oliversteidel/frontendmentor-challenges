@@ -7,6 +7,12 @@
     align-items: center;
     justify-content: space-between;
 
+    &__logo-container {
+        @include mq-up($large) {
+            width: 10rem;
+        }
+    }
+
     &__links {
         position: absolute;
         top: calc(100% + 1.5rem);
