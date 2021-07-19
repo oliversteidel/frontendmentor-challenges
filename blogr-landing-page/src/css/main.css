@@ -156,15 +156,25 @@ header .intro__btn {
   font-weight: 600;
   padding: 1em 1.5em 0.75em 1.5em;
   border-radius: 50px;
+  -webkit-transition: background 0.3s ease-in, color 0.3s ease-in;
+  transition: background 0.3s ease-in, color 0.3s ease-in;
 }
 header .intro__btn--start {
   background: white;
   color: #ff525d;
 }
+header .intro__btn--start:hover {
+  background: #ff7a85;
+  color: white;
+}
 header .intro__btn--learn {
   border: 1px solid white;
   color: white;
   margin-left: 1rem;
+}
+header .intro__btn--learn:hover {
+  background: white;
+  color: #ff525d;
 }
 
 .nav {
@@ -280,6 +290,9 @@ header .intro__btn--learn {
 .nav__links--internal .link-item + .link-item {
   margin-left: 2rem;
 }
+.nav__links--internal .link-item:hover {
+  text-decoration: underline;
+}
 .nav__links--internal .connect-dropdown {
   display: none;
   -webkit-box-orient: vertical;
@@ -361,12 +374,18 @@ header .intro__btn--learn {
   background-image: linear-gradient(90deg, #ff8f70, #ff3d54);
   color: white;
   border-radius: 50px;
+  -webkit-transition: background 0.3s ease-in, color 0.3s ease-in;
+  transition: background 0.3s ease-in, color 0.3s ease-in;
 }
 @media only screen and (min-width: 50em) {
   .nav__links--auth--signup {
     background: white;
     color: #ff525d;
   }
+}
+.nav__links--auth--signup:hover {
+  background: #ff7a85;
+  color: white;
 }
 .nav .nav--open {
   -webkit-transform: scaleY(1);

@@ -89,6 +89,10 @@
                 margin-left: 2rem;
             }
 
+            .link-item:hover {
+                text-decoration: underline;
+            }
+
             .connect-dropdown {
                 
                 display: none;
@@ -159,11 +163,17 @@
                 background-image: $background-gradient-intro-desktop;
                 color: $text-white;
                 border-radius: 50px;
+                transition: background .3s ease-in, color .3s ease-in;
 
                 @include mq-up($medium) {
                     background: $text-white;
                     color: $text-cta;
                 }
+            }
+
+            &--signup:hover {
+                background: $cta-hover-background;
+                color: $text-white
             }
         }
     }

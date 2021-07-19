@@ -15,8 +15,8 @@ header {
         background-position: -300px;
     }
 
-    @include mq-up($x-large) {    
-        padding: 3.125rem 10rem;    
+    @include mq-up($x-large) {
+        padding: 3.125rem 10rem;
         background-position: -400px;
     }
 
@@ -37,9 +37,10 @@ header {
 
         &__btn {
             font-size: 0.8rem;
-            font-weight: 600;            
+            font-weight: 600;
             padding: 1em 1.5em 0.75em 1.5em;
             border-radius: 50px;
+            transition: background .3s ease-in, color .3s ease-in;
         }
 
         &__btn--start {
@@ -47,10 +48,20 @@ header {
             color: $text-cta;
         }
 
+        &__btn--start:hover {
+            background: $cta-hover-background;
+            color: $text-white;
+        }
+
         &__btn--learn {
             border: 1px solid $text-white;
             color: $text-white;
             margin-left: 1rem;
+        }
+
+        &__btn--learn:hover {
+            background: $text-white;
+            color: $text-cta;
         }
     }
 }
