@@ -1,6 +1,7 @@
 @use './setup' as *;
 @use './components/header';
 @use './components/navigation';
+@use './components/sec-one';
 
 body {
     font-family: $font-overpass;

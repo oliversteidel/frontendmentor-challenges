@@ -1,0 +1,70 @@
+@use '../setup/index' as *;
+
+.section-one > h2,h3,p {
+    text-align: center;
+    padding: 0 1.375rem; 
+    font-weight: 600;   
+}
+
+.section-one {
+    overflow: hidden;
+
+    &__title {
+        font-size: 1.75rem;
+        margin: 5rem 0;
+    }
+
+    &__content {
+       
+        @include mq-up($large) {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+    }
+    
+    h2, h3 {
+        color: $text-headings;   
+        margin-bottom: 1.5rem;     
+    }
+
+    p {
+        max-width: 60ch;
+        font-size: 0.95rem;
+        line-height: 1.75em;
+        color: $body-copy;
+        margin-bottom: 3rem;
+    }
+
+    .img-wrapper {
+        position: relative;
+        margin-bottom: 3rem;
+
+        picture {
+            position: absolute;
+        }
+
+        @include mq-up($large) {
+            width: 50%;
+            transform: translateX(28%);
+        }
+    }
+
+    .text-wrapper {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include mq-up($large) {            
+            align-items: flex-start;
+            padding-left: 10rem;
+        }
+
+        p {
+            @include mq-up($large) {
+                text-align: left;
+            }
+
+        }
+    }
+}
