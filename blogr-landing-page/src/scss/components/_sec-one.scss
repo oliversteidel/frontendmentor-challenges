@@ -1,9 +1,11 @@
 @use '../setup/index' as *;
 
-.section-one > h2,h3,p {
+.section-one > h2,
+h3,
+p {
     text-align: center;
-    padding: 0 1.375rem; 
-    font-weight: 600;   
+    padding: 0 1.375rem;
+    font-weight: 600;
 }
 
 .section-one {
@@ -11,25 +13,27 @@
 
     &__title {
         font-size: 1.75rem;
-        margin: 5rem 0;
+        color: $text-headings;
+        margin: 5rem 0 3rem 0;
     }
 
     &__content {
-       
         @include mq-up($large) {
             display: flex;
             flex-direction: row-reverse;
         }
     }
+
     
-    h2, h3 {
-        color: $text-headings;   
-        margin-bottom: 1.5rem;     
+    h3 {
+        font-size: 1.75rem;
+        color: $text-headings;
+        margin: 1.5rem;
     }
 
     p {
         max-width: 60ch;
-        font-size: 0.95rem;
+        font-size: 0.95rem;       
         line-height: 1.75em;
         color: $body-copy;
         margin-bottom: 3rem;
@@ -38,24 +42,26 @@
     .img-wrapper {
         position: relative;
         margin-bottom: 3rem;
+        min-height: 85vw;
 
         picture {
             position: absolute;
         }
 
         @include mq-up($large) {
-            width: 50%;
+            width: 100%;
             transform: translateX(28%);
         }
     }
 
     .text-wrapper {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        width: 100%;
+        text-align: center;
+        
 
-        @include mq-up($large) {            
+        @include mq-up($large) {
+            display: flex;
+            flex-direction: column;
             align-items: flex-start;
             padding-left: 10rem;
         }
@@ -64,7 +70,6 @@
             @include mq-up($large) {
                 text-align: left;
             }
-
         }
     }
 }

@@ -87,7 +87,7 @@ ul {
 
 img,
 picture {
-  max-width: 100%;
+  width: 100%;
   display: block;
 }
 
@@ -412,7 +412,9 @@ header .intro__btn--learn:hover {
   background-image: url(../images/icon-close.svg);
 }
 
-.section-one > h2, h3, p {
+.section-one > h2,
+h3,
+p {
   text-align: center;
   padding: 0 1.375rem;
   font-weight: 600;
@@ -423,7 +425,8 @@ header .intro__btn--learn:hover {
 }
 .section-one__title {
   font-size: 1.75rem;
-  margin: 5rem 0;
+  color: #1f3f5b;
+  margin: 5rem 0 3rem 0;
 }
 @media only screen and (min-width: 62.5em) {
   .section-one__content {
@@ -436,9 +439,10 @@ header .intro__btn--learn:hover {
             flex-direction: row-reverse;
   }
 }
-.section-one h2, .section-one h3 {
+.section-one h3 {
+  font-size: 1.75rem;
   color: #1f3f5b;
-  margin-bottom: 1.5rem;
+  margin: 1.5rem;
 }
 .section-one p {
   max-width: 60ch;
@@ -450,32 +454,31 @@ header .intro__btn--learn:hover {
 .section-one .img-wrapper {
   position: relative;
   margin-bottom: 3rem;
+  min-height: 85vw;
 }
 .section-one .img-wrapper picture {
   position: absolute;
 }
 @media only screen and (min-width: 62.5em) {
   .section-one .img-wrapper {
-    width: 50%;
+    width: 100%;
     -webkit-transform: translateX(28%);
             transform: translateX(28%);
   }
 }
 .section-one .text-wrapper {
-  width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 100%;
+  text-align: center;
 }
 @media only screen and (min-width: 62.5em) {
   .section-one .text-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
