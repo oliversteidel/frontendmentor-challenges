@@ -46,6 +46,7 @@ p {
 
         picture {
             position: absolute;
+            
         }
 
         @include mq-up($large) {
