@@ -1,0 +1,33 @@
+@use "../setup/index" as *;
+
+.section-two {
+    
+
+    
+
+    &__img-container {
+        position: relative;
+        min-height: 14.5rem;
+        padding-top: 3rem;
+
+        img {
+            position: absolute;
+        }        
+    }
+
+    &__content {
+        padding: 14.5rem 0;
+        border-top-right-radius: 100px;
+        border-bottom-left-radius: 100px;
+        background-image:  url(../../images/bg-pattern-circles.svg), $background-gradient-body;
+        background-repeat: no-repeat;
+        background-size: 160%;
+        background-position: 50% -320%;
+        text-align: center;
+
+        h2 {
+            font-size: 1.875rem;
+            color: $text-white;
+        }
+    }
+}

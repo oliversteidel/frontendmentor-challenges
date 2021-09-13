@@ -503,6 +503,30 @@ p {
   }
 }
 
+.section-two__img-container {
+  position: relative;
+  min-height: 14.5rem;
+  padding-top: 3rem;
+}
+.section-two__img-container img {
+  position: absolute;
+}
+.section-two__content {
+  padding: 14.5rem 0;
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  background-image: url(../../images/bg-pattern-circles.svg), -webkit-gradient(linear, left top, left bottom, from(#2c2d3f), to(#3f4164));
+  background-image: url(../../images/bg-pattern-circles.svg), linear-gradient(#2c2d3f, #3f4164);
+  background-repeat: no-repeat;
+  background-size: 160%;
+  background-position: 50% -320%;
+  text-align: center;
+}
+.section-two__content h2 {
+  font-size: 1.875rem;
+  color: white;
+}
+
 body {
   font-family: "Overpass", sans-serif;
 }
