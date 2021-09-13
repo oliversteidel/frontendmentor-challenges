@@ -78,8 +78,7 @@
 
                     @include mq-up($medium) {
                         background-image: url(../images/icon-arrow-light.svg);
-
-                    }                    
+                    }
                 }
 
                 .arrow-icon--open {
@@ -88,11 +87,15 @@
             }
 
             .link-item:first-child {
-                margin-left: 4rem;
+                @include mq-up($medium) {
+                    margin-left: 4rem;
+                }
             }
 
             .link-item + .link-item {
-                margin-left: 2rem;
+                @include mq-up($medium) {
+                    margin-left: 2rem;
+                }
             }
 
             .link-item:hover {
@@ -100,14 +103,13 @@
             }
 
             .connect-dropdown {
-                
                 display: none;
                 flex-direction: column;
                 align-items: center;
                 width: 100%;
                 padding: 1rem 0;
                 background: hsl(240, 7%, 94%);
-                border-radius: 5px;                
+                border-radius: 5px;
 
                 &__item {
                     line-height: 2.5em;
@@ -132,8 +134,6 @@
                     width: 10.5rem;
                     text-align: left;
                     padding: 1.5rem;
-
-
                 }
             }
 
@@ -169,7 +169,7 @@
                 background-image: $background-gradient-intro-desktop;
                 color: $text-white;
                 border-radius: 50px;
-                transition: background .3s ease-in, color .3s ease-in;
+                transition: background 0.3s ease-in, color 0.3s ease-in;
 
                 @include mq-up($medium) {
                     background: $text-white;
@@ -179,7 +179,7 @@
 
             &--signup:hover {
                 background: $cta-hover-background;
-                color: $text-white
+                color: $text-white;
             }
         }
     }

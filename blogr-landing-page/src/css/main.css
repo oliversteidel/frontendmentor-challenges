@@ -289,11 +289,15 @@ header .intro__btn--learn:hover {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
 }
-.nav__links--internal .link-item:first-child {
-  margin-left: 4rem;
+@media only screen and (min-width: 50em) {
+  .nav__links--internal .link-item:first-child {
+    margin-left: 4rem;
+  }
 }
-.nav__links--internal .link-item + .link-item {
-  margin-left: 2rem;
+@media only screen and (min-width: 50em) {
+  .nav__links--internal .link-item + .link-item {
+    margin-left: 2rem;
+  }
 }
 .nav__links--internal .link-item:hover {
   text-decoration: underline;
@@ -413,7 +417,6 @@ header .intro__btn--learn:hover {
 }
 
 .section-one > h2,
-h3,
 p {
   text-align: center;
   padding: 0 1.375rem;
@@ -422,9 +425,10 @@ p {
 
 .section-one {
   overflow: hidden;
+  padding-top: 3rem;
 }
 .section-one__title {
-  font-size: 1.75rem;
+  font-size: clamp(1.3125rem, 5vw, 1.875rem);
   color: #1f3f5b;
   margin: 5rem 0 3rem 0;
 }
@@ -440,7 +444,7 @@ p {
   }
 }
 .section-one h3 {
-  font-size: 1.75rem;
+  font-size: clamp(1.3rem, 5vw, 1.75rem);
   color: #1f3f5b;
   margin: 1.5rem;
 }
@@ -462,26 +466,34 @@ p {
 @media only screen and (min-width: 62.5em) {
   .section-one .img-wrapper {
     width: 100%;
-    -webkit-transform: translateX(28%);
-            transform: translateX(28%);
+    -webkit-transform: translate(26%, -5%) scale(1.2);
+            transform: translate(26%, -5%) scale(1.2);
   }
 }
 .section-one .text-wrapper {
   width: 100%;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 @media only screen and (min-width: 62.5em) {
   .section-one .text-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+    padding-left: 5rem;
+  }
+}
+@media only screen and (min-width: 81.25em) {
+  .section-one .text-wrapper {
     padding-left: 10rem;
   }
 }
