@@ -30,8 +30,8 @@ $section-background: hsl(237, 23%, 32%);
 // ### Neutral
 
 $text-white: hsl(0, 0%, 100%);
-$text-footer: hsl(240, 2%, 79%);
-$body-copy: hsl(207, 13%, 34%);
+$text-light-gray: hsl(240, 2%, 79%);
+$text-gray: hsl(207, 13%, 34%);
 $footer-background: hsl(240, 10%, 16%);
 
 // ### Gradient
@@ -43,6 +43,7 @@ $background-gradient-intro-desktop: linear-gradient(90deg, hsl(13, 100%, 72%), h
 
 // Background gradient - body:
 $background-gradient-body: linear-gradient(hsl(237, 17%, 21%), hsl(237, 23%, 32%));
+$background-gradient-body-horizontal: linear-gradient(90deg, hsl(237, 17%, 21%), hsl(237, 23%, 32%));
 
 // ### Fonts
 

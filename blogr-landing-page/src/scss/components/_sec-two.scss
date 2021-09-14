@@ -1,33 +1,129 @@
 @use "../setup/index" as *;
 
 .section-two {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;   
+    padding: 0 2rem; 
+    border-top-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    background-image: url(../../images/bg-pattern-circles.svg), $background-gradient-body;
+    background-position: 50% -14rem, 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    
+    @include mq-up($large) {
+        flex-direction: row;
+        background-image: url(../../images/bg-pattern-circles.svg), $background-gradient-body-horizontal;
+        background-position: -65% -35rem, 50%;
+        background-size: 75%, 100%;
+    }
+
+    &__img-container {
+        max-height: 12.5rem;
+
+        @include mq-up($large) {
+            width: 100%;
+            max-height: initial;
+        }
+
+        img {
+            transform: translateY(-50%);
+            max-width: 375px;
+
+            @include mq-up($large) {
+                position: absolute;
+                max-width: 20rem;
+                margin-left: 3.375rem;                
+                transform: translateY(-45%);
+            }
+
+            @include mq-up($x-large) {
+                position: absolute;
+                max-width: 35rem;
+                margin-left: 6.375rem;
+                
+                transform: translateY(-45%);
+            }
+        }
+    }
+
+    &__content {
+        padding-bottom: 8rem;
+
+        @include mq-up($large) {
+            width: 100%;
+            padding: 8rem 2rem;
+        }
+
+        h2 {
+            font-size: 1.875rem;
+            color: $text-white;
+            margin-bottom: 1.5rem;
+            text-align: center;
+
+            @include mq-up($large) {
+                text-align: left;
+            }
+        }
+
+        p {
+            font-size: 0.95rem;
+            font-weight: 600;
+            line-height: 1.75em;
+            max-width: 50ch;
+            color: $text-light-gray;
+            text-align: center;
+
+            @include mq-up($large) {
+                text-align: left;
+            }
+        }
+    }
+
+    /*
 
     &__img-container {
         position: relative;
         min-height: 14.5rem;
         padding-top: 3rem;
+        z-index: 100;
 
         img {
             position: absolute;
-        }        
+            max-width: 23.4375rem;
+        }
     }
 
     &__content {
-        padding: 14.5rem 0;
+        display: flex;
+        justify-content: center;
+        padding: 14.5rem 2rem 8rem 2rem;
         border-top-right-radius: 100px;
         border-bottom-left-radius: 100px;
-        background-image:  url(../../images/bg-pattern-circles.svg), $background-gradient-body;
+        background-image: url(../../images/bg-pattern-circles.svg), $background-gradient-body;
+        background-position: 50% -14rem, 50%;
         background-repeat: no-repeat;
-        background-size: 160%;
-        background-position: 50% -320%;
-        text-align: center;
+        background-size: cover;
+        overflow: hidden;
 
-        h2 {
-            font-size: 1.875rem;
-            color: $text-white;
-        }
+        
+
+            h2 {
+                font-size: 1.875rem;
+                color: $text-white;
+                margin-bottom: 1.5rem;
+            }
+
+            p {
+                font-size: 0.95rem;
+                line-height: 1.75em;
+                max-width: 60ch;
+                color: $text-light-gray;
+            }
+        
     }
+
+    */
 }
