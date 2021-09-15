@@ -1,0 +1,72 @@
+@use "../setup/index" as *;
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 0;
+    background: $footer-background;
+    border-top-right-radius: $border-radius-large;
+
+    @include mq-up($large) {
+        flex-direction: row;
+    }
+
+    &__logo-container {
+        margin-bottom: 6rem;
+
+        @include mq-up($large) {
+            width: 40%;
+            margin-left: 10rem;
+        }
+
+        img {
+            max-width: 6.5625rem;
+        }
+    }
+
+    &__links-container {
+        @include mq-up($large) {
+            width: 160%;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        ul {
+            font-family: $font-ubuntu;
+            font-weight: 500;
+            text-align: center;
+            color: $text-white;
+            margin-bottom: 2rem;
+
+            @include mq-up($large) {
+                text-align: left;
+            }
+
+            li:first-child {
+                margin-top: 1.5rem;
+            }
+
+            li {
+                font-weight: 400;
+                line-height: $line-height;
+                color: $text-light-gray;
+                cursor: pointer;
+            }
+
+            li:hover {
+                text-decoration: underline;
+            }
+        }
+
+        ul + ul {
+
+            @include mq-up($large) {
+                margin-left: 7rem;
+            }
+            @include mq-up($x-large) {
+                margin-left: 15rem;
+            }
+        }
+    }
+}

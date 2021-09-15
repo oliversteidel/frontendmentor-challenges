@@ -7,7 +7,7 @@ header {
     background-repeat: no-repeat;
     background-position: 35% 30%; // 35% 35%
     background-size: 250vw; //320%
-    border-bottom-left-radius: 100px;
+    border-bottom-left-radius: $border-radius-large;
     padding: 3.125rem 1.25rem;
 
     @include mq-up($large) {

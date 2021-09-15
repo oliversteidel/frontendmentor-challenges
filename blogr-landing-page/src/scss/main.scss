@@ -4,9 +4,20 @@
 @use './components/sec-one';
 @use './components/sec-two';
 @use './components/sec-three';
+@use './components/footer';
 
 body {
     font-family: $font-overpass;
+
+    p {
+        font-family: $font-ubuntu;
+        font-weight: 400;
+        line-height: $line-height;
+    }
+
+    a {
+        font-family: $font-ubuntu;
+    }
     
 }
 
