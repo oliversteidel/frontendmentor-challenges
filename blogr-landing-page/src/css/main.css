@@ -451,7 +451,7 @@ header .intro__btn--learn:hover {
   max-width: 60ch;
   font-size: 0.95rem;
   font-weight: 600;
-  line-height: 1.75em;
+  line-height: 2em;
   color: #4b5862;
   margin-bottom: 3rem;
   padding: 0 1.375rem;
@@ -597,7 +597,7 @@ header .intro__btn--learn:hover {
 .section-two__content p {
   font-size: 0.95rem;
   font-weight: 600;
-  line-height: 1.75em;
+  line-height: 2em;
   max-width: 50ch;
   color: #c8c8cb;
   text-align: center;
@@ -606,6 +606,79 @@ header .intro__btn--learn:hover {
   .section-two__content p {
     text-align: left;
   }
+}
+
+.section-three {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 5rem 0;
+}
+@media only screen and (min-width: 62.5em) {
+  .section-three {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+.section-three__img-wrapper {
+  display: grid;
+  place-items: center;
+}
+@media only screen and (min-width: 62.5em) {
+  .section-three__img-wrapper {
+    width: 100%;
+    margin-top: 7rem;
+  }
+}
+.section-three__img-wrapper picture {
+  width: 130%;
+}
+@media only screen and (min-width: 62.5em) {
+  .section-three__img-wrapper picture {
+    width: 100%;
+    -webkit-transform: translateX(-23%) scale(1.3);
+            transform: translateX(-23%) scale(1.3);
+  }
+}
+@media only screen and (min-width: 62.5em) {
+  .section-three__content {
+    width: 100%;
+    margin-top: 13rem;
+  }
+}
+.section-three__content h3, .section-three__content p {
+  text-align: center;
+}
+@media only screen and (min-width: 62.5em) {
+  .section-three__content h3, .section-three__content p {
+    text-align: left;
+  }
+}
+.section-three__content h3 {
+  font-size: clamp(1.3rem, 5vw, 1.75rem);
+  color: #1f3f5b;
+  margin: 1.5rem;
+}
+.section-three__content p {
+  max-width: 60ch;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 2em;
+  color: #4b5862;
+  margin-bottom: 3rem;
+  padding: 0 1.375rem;
 }
 
 body {
